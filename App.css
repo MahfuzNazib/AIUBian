@@ -303,7 +303,9 @@ a:hover,a:active
     background-color: rgb(205, 211, 197);
     font-size: 18px;
 }
-
+/***********************************
+************************************
+**********************************/
 /*CSS Design For Login Page*/
  .table
  {
@@ -361,7 +363,7 @@ a:hover,a:active
 
  .login-link
  {
-     color: white;
+     color: hsl(39, 85%, 39%);
      font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
      font-size: 14px;
      text-decoration: none;
@@ -369,4 +371,18 @@ a:hover,a:active
  .login-link:hover
  {
      color: red;
+ }
+
+ .errorMessage
+ {
+     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+     font-size: 14px;
+     color: white;
+     background-color: red;
+     height: 25px;
+     width: 80px;
+     border: 1px solid red;
+     border-radius: 5px;
+     /*transition: 0.5s;*/
+     transition-duration: 0.5s;
  }

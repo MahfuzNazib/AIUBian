@@ -3,7 +3,6 @@
     if(isset($_SESSION['Username']))
     {
 
-    
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -15,6 +14,8 @@
     <title>StudentProfile</title>
 </head>
 <body class="body-margin">
+    <form method="POST" action="#">
+
     <center>
         <table border="0" width="100%">
 
@@ -22,11 +23,10 @@
                 <td colspan="2" class="Profile-Header">
                     <!--<img src="Images/pp.jpg">-->
                     <center>
-                        <button class="profile-HeaderButton"><a href="Home.html">Home</a></button>
-                        <!--<a href="Home.html" class="Profile-Header">Home</a>-->
-                        <button class="profile-HeaderButton"><a href="StudentProfile.php">Profile</a> </button>
-                        <button class="profile-HeaderButton"><a href="TimeLine.php">TimeLine</a></button>
-                        <button class="profile-HeaderButton"><a href="Logout.php">Logout</a></button>
+                        <a href="StudentProfile.php"><button class="profile-HeaderButton">Profile</button></a>
+                        <a href="TimeLine.php"><button class="profile-HeaderButton">TimeLine</button></a>
+                        <a href="Logout.php"><button class="profile-HeaderButton">Logout</button></a>
+                        <input class="profile-HeaderButton" type="button" value="Logout" href="Logout.php">
                     </center>
                 </td>
             </tr>
@@ -41,7 +41,8 @@
             <tr height="30px">
                 <td colspan="2">
                     <center>
-                            <button class="edit-button">Edit Profile</button>
+                            
+                            <input type="submit" name="submit" value="Edit Profile" class="edit-button">
                     </center>
                 </td>
             </tr>
@@ -257,6 +258,7 @@
                 </td>
             </tr>
         </table>
+        </form>
     </center>
 </body>
 </html>
@@ -266,6 +268,6 @@
 
     else
     {
-        header('location:Login.html');
+        header('location:Login.php');
     }
 ?>

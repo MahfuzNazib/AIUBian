@@ -1,3 +1,16 @@
+<?php
+
+    if(isset($_POST['submit']))
+    {
+        $name = $_POST['txtName'];
+        $ID = $_POST['txtID'];
+        $status = $_POST['status'];
+        $email = $_POST['txtmail'];
+        
+    }
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,6 +21,9 @@
     <title>Registration</title>
 </head>
 <body>
+    <form action="#" method="POST">
+
+    
     <table border="0" class="form-Center">
         <tr class="header">
             <td>
@@ -24,7 +40,7 @@
                 Full Name
             </td>
             <td>
-                <input type="text" name ="txtName" class="txt-Box" required >
+                <input type="text" name ="txtName" class="txt-Box" required="required" >
             </td>
         </tr>
         <tr height="60px"> 
@@ -32,7 +48,7 @@
                 AIUB ID
             </td>
             <td>
-                <input type="text" name ="txtID" class="txt-Box" >
+                <input type="text" name ="txtID" class="txt-Box" required="required">
             </td>
         </tr>
 
@@ -41,7 +57,8 @@
                 Status
             </td>
             <td>
-                <select class="txt-Box">
+                <select class="txt-Box" name="status" required="required">
+                    <option></option>
                     <option>Faculty</option>
                     <option>Alumni</option>
                     <option>Student</option>
@@ -54,7 +71,7 @@
                 Email
             </td>
             <td>
-                <input type="email" name="txtmail" class="txt-Box" >
+                <input type="email" name="txtmail" class="txt-Box" required="required">
             </td>
         </tr>
 
@@ -72,7 +89,7 @@
                 Set Username
             </td>
             <td>
-               <input type="text" class="txt-Box"> 
+               <input type="text" class="txt-Box" required="required"> 
             </td>
         </tr>
 
@@ -81,14 +98,14 @@
                 Password
             </td>
             <td>
-                <input type="password" class="txt-Box">
+                <input type="password" class="txt-Box" required="required">
             </td>
         </tr>
         <tr>
             <td></td>
             <td>
                 
-                <input type="submit" class="btn-Confirm" value="Confirm">
+                <input type="submit" name="submit" class="btn-Confirm" value="Confirm">
                 <input type="reset" class="btn-Reset" value="Reset">
                 <center>
                         <a href="Login.html">Go to Login</a>
@@ -96,5 +113,6 @@
             </td>
         </tr>
     </table>
+</form>
 </body>
 </html>

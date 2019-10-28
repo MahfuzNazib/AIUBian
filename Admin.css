@@ -1,0 +1,50 @@
+.table-header
+{
+    background-color: rgb(6, 52, 73);
+    color: white;
+    height: 35px;
+    width: 100%;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    size: 18px;
+    text-align: center;
+}
+
+.btn-Block
+{
+    height: 35px;
+    width: 80px;
+    background-color: rgb(224, 66, 38);
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 16px;
+    color: white;
+    cursor: pointer;
+    transition-duration: 0.5s;
+    border: none;
+    align-content: center;
+}
+
+.btn-Block:hover
+{
+    border-radius: 10px;
+    background-color: rgb(93, 10, 10);
+}
+
+.btn-Delete
+{
+    height: 35px;
+    width: 80px;
+    background-color: rgb(122, 36, 2);
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 16px;
+    color: white;
+    cursor: pointer;
+    transition-duration: 0.5s;
+    border: none;
+    align-content: center;
+}
+
+.btn-Delete:hover
+{
+    border-radius: 10px;
+    background-color: rgb(44, 4, 4);
+}

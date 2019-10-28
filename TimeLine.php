@@ -25,15 +25,12 @@
             <td>
                 <center>
                     <button class="profile-HeaderButton">Home</button>
-                    <button class="profile-HeaderButton">Profile</button>
-                    <button class="profile-HeaderButton">TimeLine</button>
-                    <button class="profile-HeaderButton"><a href="Logout.php">Logout</a></button>
+                    
+                    <a href="StudentProfile.php"><button class="profile-HeaderButton">Profile</button></a>
+                    <a href="TimeLine.php"><button class="profile-HeaderButton">TimeLine</button></a>
+                    <a href="Logout.php"><button class="profile-HeaderButton">Logout</button></a>
                     </center>
-                    <!--<a href="#">Home</a>
-                    <a href="StudentProfile.html">Profile</a>
-                    <a href="TimeLine.html">TimeLine</a>
-                    <a href="#">Logout</a>-->
-                </center>
+                    
             </td>
             <td width=25%>
                 <input type="search" class="searchBox" name="txtsearch" placeholder="Search...">

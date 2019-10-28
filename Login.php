@@ -1,16 +1,15 @@
 <!--CSS Code for empty Username or Password-->
 <style>
-    .errorMessage
+    .errMsg
  {
      font-family: Verdana;
      font-size: 15px;
      color: white;
      background-color : blue;
      height: 25px;
-     width: 150px;
+     width: 200px;
      border: 1px solid red;
      border-radius: 5px;
-     /*transition: 0.5s;*/
      transition-duration: 0.5s;
  }
 
@@ -28,6 +27,7 @@
      border:2px solid red;
      font-size:18px;
      border-radius : 10px;
+     cursor:pointer;
  }
  
 </style>
@@ -44,18 +44,23 @@
        
         if(empty($uname) == true)
         {
-            //echo '<div class="errorMessage"> Empty Username </div>';
-           $errUsername =   "<div class=\"errorMessage\">Empty Username </div>";
+            
+           $errUsername =   "<div class=\"errMsg\">Empty Username </div>";
            
         }
         else
         {
             if(empty($pass) == true)
             {
-                $errPassword =   "<div class=\"errorMessage\">Empty Password </div>";
+                $errPassword =   "<div class=\"errMsg\">Empty Password </div>";
             }
             else
             {
+                if($uname == "admin" && $pass == "002")
+                {
+                    $_SESSION['Username'] = $uname;
+                    header('location:AdminProfile.html');
+                }
                 if($uname == $pass)
                 {
                     $_SESSION['Username'] = $uname;

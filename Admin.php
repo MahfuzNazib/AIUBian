@@ -183,7 +183,7 @@
 <?php
     }
 
-    if(isset($_POST['btnAlumni']))
+    elseif(isset($_POST['btnAlumni']))
     {
 
     
@@ -314,9 +314,34 @@
 </body>
 </html>
 
+<?php //Default Option All Posts
+    }
+    //elseif(isset($_POST['btnAllPosts']))
+
+    elseif(isset($_POST['btnMembers']))
+    {
+?>
+
+<html>
+        <center>
+            <input type="submit" name="All" value="All">   
+            <input type="submit" name="Faculty" value="Faculty">
+            <input type="submit" name="Alumni" value="Alumni">
+            <input type="submit" name="Student" value="Student">
+        </center>
+        <table border="1" width="100%">
+            <tr class="table-header">
+                <td>Name</td>
+                <td>Email</td>
+                <td>Phone</td>
+                <td>DOB</td>
+                <td>Actions</td>
+            </tr>
+        </table>
+</html>
 <?php
     }
-    elseif(isset($_POST['btnAllPosts']))
+    else
     {
     
 ?>

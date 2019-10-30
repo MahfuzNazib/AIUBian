@@ -1,3 +1,12 @@
+<?php
+    if(isset($_POST['btnStudents']))
+    {
+        
+    }
+
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,6 +19,7 @@
 </head>
 <body class="body-margin">
     <center>
+        <form action="#" method="POST">
         <table border="0" width="100%">
             <tr class="Profile-Header"> <!--Header-->
                 <td width=25%>
@@ -23,12 +33,12 @@
                 </td>
                     <td>
                         <center>
-                            <button class="profile-HeaderButton">Profile</button>
-                            <button class="profile-HeaderButton">Members</button>
-                            <button class="profile-HeaderButton">All Posts</button>
-                            <button class="profile-HeaderButton">Alumni</button>
-                            <button class="profile-HeaderButton">Students</button>
-                            <button class="profile-HeaderButton">Logout</button>
+                            <button class="profile-HeaderButton" name="btnProfile">Profile</button>
+                            <button class="profile-HeaderButton" name="btnMembers">Members</button>
+                            <button class="profile-HeaderButton" name="btnAllPosts">All Posts</button>
+                            <button class="profile-HeaderButton" name="btnAlumni">Alumni</button>
+                            <button class="profile-HeaderButton" name="btnStudents">Students</button>
+                            <button class="profile-HeaderButton" name="btnLogout">Logout</button>
                             
                         </center>
                     
@@ -183,6 +193,7 @@
             </td>
         </tr>
         </table>
+        </form>
     </center>
 </body>
 </html>

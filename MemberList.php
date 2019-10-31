@@ -189,4 +189,458 @@
 <?php
     }
 
+    elseif(isset($_POST['btnAlumniMember']))  //Alumni Lists
+    {
 ?>
+<html>  <!--Alumni All Member List-->
+    <body class="body-margin">
+        <center>
+            <h3>Alumni Members List</h3>
+            <hr>
+        </center>
+        <table border="0" width="100%">
+            <tr class="table-header">
+                <td>Name</td>
+                <td>Picture</td>
+                <td>Email</td>
+                <td>Phone</td>
+                <td>DOB</td>
+                <td>Status</td>
+                <td>Action</td>
+            </tr>
+
+            <tr>
+                <td>
+                    MD.Al Amin
+                </td>
+                <td>
+                    <img src="Images/AlAminSir.png" height="100px" width="130px">
+                </td>
+                <td>
+                    alamin@aiub.edu
+                </td>
+                <td>
+                    0178888888
+                </td>
+                <td>
+                    02-05-1986
+                </td>
+                <td>
+                    Active
+                </td>
+                <td>
+                    <button class="btn-Delete" name="btnDelete">Delete</button>
+                    <button class="btn-Block" name="btnBlock">Block</button>
+                </td>
+            </tr>
+            <tr> <!--For Horizontal Line-->
+                <td colspan="7">
+                    <hr>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    Mohaimen Bin Noor
+                </td>
+                <td>
+                    <img src="Images/NiloySir.png" height="100px" width="130px">
+                </td>
+                <td>
+                    niloy@aiub.edu
+                </td>
+                <td>
+                    025999464
+                </td>
+                <td>
+                    02-05-1986
+                </td>
+                <td>
+                    InActive
+                </td>
+                <td>
+                    <button class="btn-Delete" name="btnDelete">Delete</button>
+                    <button class="btn-Block" name="btnBlock">Block</button>
+                </td>
+            </tr>
+            <tr> <!--For Horizontal Line-->
+                <td colspan="7">
+                    <hr>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    Abhijit Bhowmik
+                </td>
+                <td>
+                    <img src="Images/abhijitSir.png" height="100px" width="130px">
+                </td>
+                <td>
+                    abhijit@aiub.edu
+                </td>
+                <td>
+                    025999464
+                </td>
+                <td>
+                    02-05-1986
+                </td>
+                <td>
+                    Active
+                </td>
+                <td>
+                    <button class="btn-Delete" name="btnDelete">Delete</button>
+                    <button class="btn-Block" name="btnBlock">Block</button>
+                </td>
+            </tr>
+            <tr> <!--For Horizontal Line-->
+                <td colspan="7">
+                    <hr>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    Kawser Irom Rushee
+                </td>
+                <td>
+                    <img src="Images/rousheemem.png" height="100px" width="130px">
+                </td>
+                <td>
+                    rushee@aiub.edu
+                </td>
+                <td>
+                    025999464
+                </td>
+                <td>
+                    02-05-1986
+                </td>
+                <td>
+                    InActive
+                </td>
+                <td>
+                    <button class="btn-Delete" name="btnDelete">Delete</button>
+                    <button class="btn-Block" name="btnBlock">Block</button>
+                </td>
+            </tr>
+            <tr> <!--For Horizontal Line-->
+                <td colspan="7">
+                    <hr>
+                </td>
+            </tr>
+        </table>
+    </body>
+</html>
+
+<?php
+    }
+    elseif(isset($_POST['btnStudentMember'])) //Student Member List
+    {
+?>
+
+<html>  <!--Student All Member List-->
+    <body class="body-margin">
+        <center>
+            <h3>Student Members List</h3>
+            <hr>
+        </center>
+        <table border="0" width="100%">
+            <tr class="table-header">
+                <td>Name</td>
+                <td>Picture</td>
+                <td>Email</td>
+                <td>Phone</td>
+                <td>DOB</td>
+                <td>Status</td>
+                <td>Action</td>
+            </tr>
+
+            <tr>
+                <td>
+                    MD.Al Amin
+                </td>
+                <td>
+                    <img src="Images/AlAminSir.png" height="100px" width="130px">
+                </td>
+                <td>
+                    alamin@aiub.edu
+                </td>
+                <td>
+                    0178888888
+                </td>
+                <td>
+                    02-05-1986
+                </td>
+                <td>
+                    Active
+                </td>
+                <td>
+                    <button class="btn-Delete" name="btnDelete">Delete</button>
+                    <button class="btn-Block" name="btnBlock">Block</button>
+                </td>
+            </tr>
+            <tr> <!--For Horizontal Line-->
+                <td colspan="7">
+                    <hr>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    Mohaimen Bin Noor
+                </td>
+                <td>
+                    <img src="Images/NiloySir.png" height="100px" width="130px">
+                </td>
+                <td>
+                    niloy@aiub.edu
+                </td>
+                <td>
+                    025999464
+                </td>
+                <td>
+                    02-05-1986
+                </td>
+                <td>
+                    InActive
+                </td>
+                <td>
+                    <button class="btn-Delete" name="btnDelete">Delete</button>
+                    <button class="btn-Block" name="btnBlock">Block</button>
+                </td>
+            </tr>
+            <tr> <!--For Horizontal Line-->
+                <td colspan="7">
+                    <hr>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    Abhijit Bhowmik
+                </td>
+                <td>
+                    <img src="Images/abhijitSir.png" height="100px" width="130px">
+                </td>
+                <td>
+                    abhijit@aiub.edu
+                </td>
+                <td>
+                    025999464
+                </td>
+                <td>
+                    02-05-1986
+                </td>
+                <td>
+                    Active
+                </td>
+                <td>
+                    <button class="btn-Delete" name="btnDelete">Delete</button>
+                    <button class="btn-Block" name="btnBlock">Block</button>
+                </td>
+            </tr>
+            <tr> <!--For Horizontal Line-->
+                <td colspan="7">
+                    <hr>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    Kawser Irom Rushee
+                </td>
+                <td>
+                    <img src="Images/rousheemem.png" height="100px" width="130px">
+                </td>
+                <td>
+                    rushee@aiub.edu
+                </td>
+                <td>
+                    025999464
+                </td>
+                <td>
+                    02-05-1986
+                </td>
+                <td>
+                    InActive
+                </td>
+                <td>
+                    <button class="btn-Delete" name="btnDelete">Delete</button>
+                    <button class="btn-Block" name="btnBlock">Block</button>
+                </td>
+            </tr>
+            <tr> <!--For Horizontal Line-->
+                <td colspan="7">
+                    <hr>
+                </td>
+            </tr>
+        </table>
+    </body>
+</html>
+
+<?php
+    }
+    else  //All Member List By Default
+    {
+
+?>
+
+<html>  <!--All Member List-->
+    <body class="body-margin">
+        <center>
+            <h3>All Members List</h3>
+            <hr>
+        </center>
+        <table border="0" width="100%">
+            <tr class="table-header">
+                <td>Name</td>
+                <td>Picture</td>
+                <td>Email</td>
+                <td>Phone</td>
+                <td>DOB</td>
+                <td>Status</td>
+                <td>Action</td>
+            </tr>
+
+            <tr>
+                <td>
+                    MD.Al Amin
+                </td>
+                <td>
+                    <img src="Images/AlAminSir.png" height="100px" width="130px">
+                </td>
+                <td>
+                    alamin@aiub.edu
+                </td>
+                <td>
+                    0178888888
+                </td>
+                <td>
+                    02-05-1986
+                </td>
+                <td>
+                    Active
+                </td>
+                <td>
+                    <button class="btn-Delete" name="btnDelete">Delete</button>
+                    <button class="btn-Block" name="btnBlock">Block</button>
+                </td>
+            </tr>
+            <tr> <!--For Horizontal Line-->
+                <td colspan="7">
+                    <hr>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    Mohaimen Bin Noor
+                </td>
+                <td>
+                    <img src="Images/NiloySir.png" height="100px" width="130px">
+                </td>
+                <td>
+                    niloy@aiub.edu
+                </td>
+                <td>
+                    025999464
+                </td>
+                <td>
+                    02-05-1986
+                </td>
+                <td>
+                    InActive
+                </td>
+                <td>
+                    <button class="btn-Delete" name="btnDelete">Delete</button>
+                    <button class="btn-Block" name="btnBlock">Block</button>
+                </td>
+            </tr>
+            <tr> <!--For Horizontal Line-->
+                <td colspan="7">
+                    <hr>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    Abhijit Bhowmik
+                </td>
+                <td>
+                    <img src="Images/abhijitSir.png" height="100px" width="130px">
+                </td>
+                <td>
+                    abhijit@aiub.edu
+                </td>
+                <td>
+                    025999464
+                </td>
+                <td>
+                    02-05-1986
+                </td>
+                <td>
+                    Active
+                </td>
+                <td>
+                    <button class="btn-Delete" name="btnDelete">Delete</button>
+                    <button class="btn-Block" name="btnBlock">Block</button>
+                </td>
+            </tr>
+            <tr> <!--For Horizontal Line-->
+                <td colspan="7">
+                    <hr>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    Kawser Irom Rushee
+                </td>
+                <td>
+                    <img src="Images/rousheemem.png" height="100px" width="130px">
+                </td>
+                <td>
+                    rushee@aiub.edu
+                </td>
+                <td>
+                    025999464
+                </td>
+                <td>
+                    02-05-1986
+                </td>
+                <td>
+                    InActive
+                </td>
+                <td>
+                    <button class="btn-Delete" name="btnDelete">Delete</button>
+                    <button class="btn-Block" name="btnBlock">Block</button>
+                </td>
+            </tr>
+            <tr> <!--For Horizontal Line-->
+                <td colspan="7">
+                    <hr>
+                </td>
+            </tr>
+        </table>
+    </body>
+</html>
+
+<?php
+    }
+?>
+
+
+<html>  <!--Fotter-->
+    <body class="body-margin">
+        <table width="100%">
+            <tr>
+                <td class="fotter">
+                    <center>
+                        copyright@MahfuzNazib
+                    </center>
+                    
+                </td>
+            </tr>
+        </table>
+    </body>
+</html>

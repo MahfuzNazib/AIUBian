@@ -320,7 +320,7 @@
 
     elseif(isset($_POST['btnMembers']))
     {
-        header('location:MemberList.html');
+        header('location:MemberList.php');
     }
     else
     {

@@ -59,7 +59,7 @@
                 if($uname == "admin" && $pass == "002")
                 {
                     $_SESSION['Username'] = $uname;
-                    header('location:AdminProfile.html');
+                    header('location:Admin.php');
                 }
                 if($uname == $pass)
                 {

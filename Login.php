@@ -56,9 +56,10 @@
             }
             else
             {
-                if($uname == "admin" && $pass == "002")
+                if($uname == "Nazib" && $pass == "002")
                 {
                     $_SESSION['Username'] = $uname;
+                    $_SESSION['Password'] == $pass;
                     header('location:Admin.php');
                 }
                 if($uname == $pass)
@@ -138,7 +139,7 @@
         <tr>
             <td>
                 <center>
-                    <a href="Registration.html" class="login-link">Create Account</a>
+                    <a href="Registration.php" class="login-link">Create Account</a>
                 </center>
             </td>
         </tr>

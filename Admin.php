@@ -1,3 +1,11 @@
+<?php
+    session_start();
+    if($_SESSION['Username'])
+    {
+
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,7 +21,7 @@
         <form action="#" method="POST">
             <table border="0" width="100%">
                     <tr class="Profile-Header"> <!--Header-->
-                        <td width=25%>
+                        <td width=10%>
                             <center>
                                     <h3>
                                         <i>
@@ -27,14 +35,16 @@
                                     <button class="profile-HeaderButton" name="btnProfile">Profile</button>
                                     <button class="profile-HeaderButton" name="btnMembers">Members</button>
                                     <button class="profile-HeaderButton" name="btnAllPosts">All Posts</button>
+                                    <button class="profile-HeaderButton" name="btnFaculty">Faculty</button>
                                     <button class="profile-HeaderButton" name="btnAlumni">Alumni</button>
                                     <button class="profile-HeaderButton" name="btnStudents">Students</button>
+                                    <button class="profile-HeaderButton" name="btnTimeLine">TimeLine</button>
                                     <button class="profile-HeaderButton" name="btnLogout">Logout</button>
                                     
                                 </center>
                             
                         </td>
-                        <td width="25%">
+                        <td width="15%">
                             <input type="search" class="searchBox" name="txtsearch" placeholder="Search...">
                         </td>
                     </tr>
@@ -45,7 +55,16 @@
 </html>
 
 <?php
-    
+    }
+    else
+    {
+        header('location:Login.php');
+    }
+
+    if(isset($_POST['btnLogout']))
+    {
+        header('location:Logout.php');
+    }
 
 ?>
 <?php
@@ -380,7 +399,7 @@
                 <td>
                     Hi firends, This is my account.Please like share <br>
                     and subscribe my Youtube<br>
-                    Channel :) 
+                    Channel 
                 </td>
                 <td width=20%>
                     <button class="btn-Block"> Block </button>
@@ -491,4 +510,8 @@
 
 <?php
     }
+?>
+
+<?php
+    
 ?>

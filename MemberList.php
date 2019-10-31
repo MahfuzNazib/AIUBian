@@ -1,3 +1,16 @@
+<?php
+    session_start();
+
+    //if(isset($_SESSION['Username']) && if(isset($_SESSION['Password'])))
+    if(isset($_SESSION['Username']))
+    {
+        //if(isset($_SESSION['Password']))
+        //{
+            //{
+
+            
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -16,7 +29,9 @@
                     <center>
                         <h3>
                             <i>
-                                Admin
+                                <a href="Admin.php" class="login-link">
+                                    <?=$_SESSION['Username'] ?>
+                                </a>
                             </i>
                         </h3>
                     </center>
@@ -27,7 +42,7 @@
                         <button class="profile-HeaderButton" name="btnFacultyMember">Faculty</button>
                         <button class="profile-HeaderButton" name="btnAlumniMember">Alumni</button>
                         <button class="profile-HeaderButton" name="btnStudentMember">Student</button>
-
+                        <button class="profile-HeaderButton" name="btnLogout">Logout</button>
                     </center>
 
                 </td>
@@ -41,7 +56,19 @@
 </html>
 
 <?php
-
+            }
+        //}
+    //}
+    else
+    {
+        header('location:Login.php');
+    }
+    if(isset($_POST['btnLogout']))
+    {
+        header('location:Logout.php');
+    }
+?>
+<?php
     if(isset($_POST['btnFacultyMember']))
     {
 ?>
@@ -211,13 +238,13 @@
 
             <tr>
                 <td>
-                    MD.Al Amin
+                    Zaheed Sabur
                 </td>
                 <td>
-                    <img src="Images/AlAminSir.png" height="100px" width="130px">
+                    <img src="Images/zaheed.png" height="100px" width="130px">
                 </td>
                 <td>
-                    alamin@aiub.edu
+                    zaheed@googl.com
                 </td>
                 <td>
                     0178888888
@@ -241,7 +268,67 @@
 
             <tr>
                 <td>
-                    Mohaimen Bin Noor
+                    Jalal Uddin
+                </td>
+                <td>
+                    <img src="Images/jala.png" height="100px" width="130px">
+                </td>
+                <td>
+                    jala@devskill.info
+                </td>
+                <td>
+                    0178888888
+                </td>
+                <td>
+                    02-05-1986
+                </td>
+                <td>
+                    Active
+                </td>
+                <td>
+                    <button class="btn-Delete" name="btnDelete">Delete</button>
+                    <button class="btn-Block" name="btnBlock">Block</button>
+                </td>
+            </tr>
+            <tr> <!--For Horizontal Line-->
+                <td colspan="7">
+                    <hr>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    Taskin Ahmed
+                </td>
+                <td>
+                    <img src="Images/taskin.png" height="100px" width="130px">
+                </td>
+                <td>
+                    taskib@gmail.com
+                </td>
+                <td>
+                    0178888888
+                </td>
+                <td>
+                    02-05-1986
+                </td>
+                <td>
+                    Active
+                </td>
+                <td>
+                    <button class="btn-Delete" name="btnDelete">Delete</button>
+                    <button class="btn-Block" name="btnBlock">Block</button>
+                </td>
+            </tr>
+            <tr> <!--For Horizontal Line-->
+                <td colspan="7">
+                    <hr>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    Mohaimeen Bin Noor
                 </td>
                 <td>
                     <img src="Images/NiloySir.png" height="100px" width="130px">
@@ -357,13 +444,133 @@
 
             <tr>
                 <td>
-                    MD.Al Amin
+                    Nazib Mahfuz
                 </td>
                 <td>
-                    <img src="Images/AlAminSir.png" height="100px" width="130px">
+                    <img src="Images/me.png" height="100px" width="130px">
                 </td>
                 <td>
-                    alamin@aiub.edu
+                    nazibmahfuz60@gmail.com
+                </td>
+                <td>
+                    0178888888
+                </td>
+                <td>
+                    02-05-1996
+                </td>
+                <td>
+                    Active
+                </td>
+                <td>
+                    <button class="btn-Delete" name="btnDelete">Delete</button>
+                    <button class="btn-Block" name="btnBlock">Block</button>
+                </td>
+            </tr>
+            <tr> <!--For Horizontal Line-->
+                <td colspan="7">
+                    <hr>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    Hasib Ahmed
+                </td>
+                <td>
+                    <img src="Images/hasib.png" height="100px" width="130px">
+                </td>
+                <td>
+                    hasib3030@gmail.com
+                </td>
+                <td>
+                    025999464
+                </td>
+                <td>
+                    02-05-1986
+                </td>
+                <td>
+                    InActive
+                </td>
+                <td>
+                    <button class="btn-Delete" name="btnDelete">Delete</button>
+                    <button class="btn-Block" name="btnBlock">Block</button>
+                </td>
+            </tr>
+            <tr> <!--For Horizontal Line-->
+                <td colspan="7">
+                    <hr>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    Ali Hasan Mitho
+                </td>
+                <td>
+                    <img src="Images/mitho.png" height="100px" width="130px">
+                </td>
+                <td>
+                    alihasn@gmail.com
+                </td>
+                <td>
+                    025999464
+                </td>
+                <td>
+                    02-05-1986
+                </td>
+                <td>
+                    Active
+                </td>
+                <td>
+                    <button class="btn-Delete" name="btnDelete">Delete</button>
+                    <button class="btn-Block" name="btnBlock">Block</button>
+                </td>
+            </tr>
+            <tr> <!--For Horizontal Line-->
+                <td colspan="7">
+                    <hr>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    Sha Naim Shourov
+                </td>
+                <td>
+                    <img src="Images/guti.png" height="100px" width="130px">
+                </td>
+                <td>
+                    guti@gmail.com
+                </td>
+                <td>
+                    025999464
+                </td>
+                <td>
+                    02-05-1986
+                </td>
+                <td>
+                    InActive
+                </td>
+                <td>
+                    <button class="btn-Delete" name="btnDelete">Delete</button>
+                    <button class="btn-Block" name="btnBlock">Block</button>
+                </td>
+            </tr>
+            <tr> <!--For Horizontal Line-->
+                <td colspan="7">
+                    <hr>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    Tarik bin Shams
+                </td>
+                <td>
+                    <img src="Images/tarik.png" height="100px" width="130px">
+                </td>
+                <td>
+                    shams@gmail.com
                 </td>
                 <td>
                     0178888888
@@ -373,96 +580,6 @@
                 </td>
                 <td>
                     Active
-                </td>
-                <td>
-                    <button class="btn-Delete" name="btnDelete">Delete</button>
-                    <button class="btn-Block" name="btnBlock">Block</button>
-                </td>
-            </tr>
-            <tr> <!--For Horizontal Line-->
-                <td colspan="7">
-                    <hr>
-                </td>
-            </tr>
-
-            <tr>
-                <td>
-                    Mohaimen Bin Noor
-                </td>
-                <td>
-                    <img src="Images/NiloySir.png" height="100px" width="130px">
-                </td>
-                <td>
-                    niloy@aiub.edu
-                </td>
-                <td>
-                    025999464
-                </td>
-                <td>
-                    02-05-1986
-                </td>
-                <td>
-                    InActive
-                </td>
-                <td>
-                    <button class="btn-Delete" name="btnDelete">Delete</button>
-                    <button class="btn-Block" name="btnBlock">Block</button>
-                </td>
-            </tr>
-            <tr> <!--For Horizontal Line-->
-                <td colspan="7">
-                    <hr>
-                </td>
-            </tr>
-
-            <tr>
-                <td>
-                    Abhijit Bhowmik
-                </td>
-                <td>
-                    <img src="Images/abhijitSir.png" height="100px" width="130px">
-                </td>
-                <td>
-                    abhijit@aiub.edu
-                </td>
-                <td>
-                    025999464
-                </td>
-                <td>
-                    02-05-1986
-                </td>
-                <td>
-                    Active
-                </td>
-                <td>
-                    <button class="btn-Delete" name="btnDelete">Delete</button>
-                    <button class="btn-Block" name="btnBlock">Block</button>
-                </td>
-            </tr>
-            <tr> <!--For Horizontal Line-->
-                <td colspan="7">
-                    <hr>
-                </td>
-            </tr>
-
-            <tr>
-                <td>
-                    Kawser Irom Rushee
-                </td>
-                <td>
-                    <img src="Images/rousheemem.png" height="100px" width="130px">
-                </td>
-                <td>
-                    rushee@aiub.edu
-                </td>
-                <td>
-                    025999464
-                </td>
-                <td>
-                    02-05-1986
-                </td>
-                <td>
-                    InActive
                 </td>
                 <td>
                     <button class="btn-Delete" name="btnDelete">Delete</button>
@@ -621,6 +738,247 @@
                     <hr>
                 </td>
             </tr>
+
+            <tr>
+                <td>
+                    Zaheed Sabur
+                </td>
+                <td>
+                    <img src="Images/zaheed.png" height="100px" width="130px">
+                </td>
+                <td>
+                    zaheed@googl.com
+                </td>
+                <td>
+                    0178888888
+                </td>
+                <td>
+                    02-05-1986
+                </td>
+                <td>
+                    Active
+                </td>
+                <td>
+                    <button class="btn-Delete" name="btnDelete">Delete</button>
+                    <button class="btn-Block" name="btnBlock">Block</button>
+                </td>
+            </tr>
+            <tr> <!--For Horizontal Line-->
+                <td colspan="7">
+                    <hr>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    Jalal Uddin
+                </td>
+                <td>
+                    <img src="Images/jala.png" height="100px" width="130px">
+                </td>
+                <td>
+                    jala@devskill.info
+                </td>
+                <td>
+                    0178888888
+                </td>
+                <td>
+                    02-05-1986
+                </td>
+                <td>
+                    Active
+                </td>
+                <td>
+                    <button class="btn-Delete" name="btnDelete">Delete</button>
+                    <button class="btn-Block" name="btnBlock">Block</button>
+                </td>
+            </tr>
+            <tr> <!--For Horizontal Line-->
+                <td colspan="7">
+                    <hr>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    Taskin Ahmed
+                </td>
+                <td>
+                    <img src="Images/taskin.png" height="100px" width="130px">
+                </td>
+                <td>
+                    taskib@gmail.com
+                </td>
+                <td>
+                    0178888888
+                </td>
+                <td>
+                    02-05-1986
+                </td>
+                <td>
+                    Active
+                </td>
+                <td>
+                    <button class="btn-Delete" name="btnDelete">Delete</button>
+                    <button class="btn-Block" name="btnBlock">Block</button>
+                </td>
+            </tr>
+            <tr> <!--For Horizontal Line-->
+                <td colspan="7">
+                    <hr>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    Nazib Mahfuz
+                </td>
+                <td>
+                    <img src="Images/me.png" height="100px" width="130px">
+                </td>
+                <td>
+                    nazibmahfuz60@gmail.com
+                </td>
+                <td>
+                    0178888888
+                </td>
+                <td>
+                    02-05-1996
+                </td>
+                <td>
+                    Active
+                </td>
+                <td>
+                    <button class="btn-Delete" name="btnDelete">Delete</button>
+                    <button class="btn-Block" name="btnBlock">Block</button>
+                </td>
+            </tr>
+            <tr> <!--For Horizontal Line-->
+                <td colspan="7">
+                    <hr>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    Hasib Ahmed
+                </td>
+                <td>
+                    <img src="Images/hasib.png" height="100px" width="130px">
+                </td>
+                <td>
+                    hasib3030@gmail.com
+                </td>
+                <td>
+                    025999464
+                </td>
+                <td>
+                    02-05-1986
+                </td>
+                <td>
+                    InActive
+                </td>
+                <td>
+                    <button class="btn-Delete" name="btnDelete">Delete</button>
+                    <button class="btn-Block" name="btnBlock">Block</button>
+                </td>
+            </tr>
+            <tr> <!--For Horizontal Line-->
+                <td colspan="7">
+                    <hr>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    Ali Hasan Mitho
+                </td>
+                <td>
+                    <img src="Images/mitho.png" height="100px" width="130px">
+                </td>
+                <td>
+                    alihasn@gmail.com
+                </td>
+                <td>
+                    025999464
+                </td>
+                <td>
+                    02-05-1986
+                </td>
+                <td>
+                    Active
+                </td>
+                <td>
+                    <button class="btn-Delete" name="btnDelete">Delete</button>
+                    <button class="btn-Block" name="btnBlock">Block</button>
+                </td>
+            </tr>
+            <tr> <!--For Horizontal Line-->
+                <td colspan="7">
+                    <hr>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    Sha Naim Shourov
+                </td>
+                <td>
+                    <img src="Images/guti.png" height="100px" width="130px">
+                </td>
+                <td>
+                    guti@gmail.com
+                </td>
+                <td>
+                    025999464
+                </td>
+                <td>
+                    02-05-1986
+                </td>
+                <td>
+                    InActive
+                </td>
+                <td>
+                    <button class="btn-Delete" name="btnDelete">Delete</button>
+                    <button class="btn-Block" name="btnBlock">Block</button>
+                </td>
+            </tr>
+            <tr> <!--For Horizontal Line-->
+                <td colspan="7">
+                    <hr>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    Tarik bin Shams
+                </td>
+                <td>
+                    <img src="Images/tarik.png" height="100px" width="130px">
+                </td>
+                <td>
+                    shams@gmail.com
+                </td>
+                <td>
+                    0178888888
+                </td>
+                <td>
+                    02-05-1986
+                </td>
+                <td>
+                    Active
+                </td>
+                <td>
+                    <button class="btn-Delete" name="btnDelete">Delete</button>
+                    <button class="btn-Block" name="btnBlock">Block</button>
+                </td>
+            </tr>
+            <tr> <!--For Horizontal Line-->
+                <td colspan="7">
+                    <hr>
+                </td>
+            </tr>
+
         </table>
     </body>
 </html>

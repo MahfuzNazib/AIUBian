@@ -108,7 +108,7 @@
                 <input type="submit" name="submit" class="btn-Confirm" value="Confirm">
                 <input type="reset" class="btn-Reset" value="Reset">
                 <center>
-                        <a href="Login.html">Go to Login</a>
+                        <a href="Login.php">Go to Login</a>
                 </center>
             </td>
         </tr>

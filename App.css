@@ -202,6 +202,24 @@ a:hover,a:active
     border-block-color: 1px solid white;
     border-radius: 5px;
 }*/
+/**************************
+****************************/
+/*Student Profile Design*/
+
+.profileMarks
+{
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 16px;
+    font-style: italic;
+}
+
+.profileMarks:hover
+{
+    height: 30px;
+    width: 200px;
+    background-color: burlywood;
+    color: black;
+}
 
 .fotter 
 {
@@ -412,3 +430,4 @@ a:hover,a:active
  *******************************
  ***ADMIN PAGE DESIGN**********
  */
+

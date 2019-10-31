@@ -65,8 +65,19 @@
     {
         header('location:Logout.php');
     }
-
+    elseif(isset($_POST['btnProfile']))
+    {
+        header('location:Adminprofile.html');
+    }
+    elseif(isset($_POST['btnTimeLine']))
+    {
+        header('location:AdminTimeLine.html');
+    }
+    
 ?>
+
+
+
 <?php
 
     if(isset($_POST['btnStudents']))  //if Click The Students Button

@@ -4,9 +4,6 @@
     //if(isset($_SESSION['Username']) && if(isset($_SESSION['Password'])))
     if(isset($_SESSION['Username']))
     {
-        //if(isset($_SESSION['Password']))
-        //{
-            //{
 
             
 ?>
@@ -56,9 +53,7 @@
 </html>
 
 <?php
-            }
-        //}
-    //}
+    }
     else
     {
         header('location:Login.php');

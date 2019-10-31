@@ -168,6 +168,6 @@
 
     else
     {
-        header('location:Login.html');
+        header('location:Login.php');
     }
 ?>

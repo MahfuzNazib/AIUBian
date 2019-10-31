@@ -3,6 +3,11 @@
     if(isset($_SESSION['Username']))
     {
 
+        if(isset($_POST['edit']))
+        {
+            header('location:')
+        }
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -11,22 +16,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="App.css">
+    <link rel="stylesheet" href="Admin.css">
     <title>StudentProfile</title>
 </head>
 <body class="body-margin">
     <form method="POST" action="#">
 
     <center>
-        <table border="0" width="100%">
+        <table border="1" width="100%">
 
             <tr> <!--Header-->
                 <td colspan="2" class="Profile-Header">
                     <!--<img src="Images/pp.jpg">-->
                     <center>
-                        <a href="StudentProfile.php"><button class="profile-HeaderButton">Profile</button></a>
-                        <a href="TimeLine.php"><button class="profile-HeaderButton">TimeLine</button></a>
-                        <a href="Logout.php"><button class="profile-HeaderButton">Logout</button></a>
-                        <input class="profile-HeaderButton" type="button" value="Logout" href="Logout.php">
+                        <button class="profile-HeaderButton">Profile</button>
+                        <button class="profile-HeaderButton">TimeLine</button>
+                        <button class="profile-HeaderButton">Logout</button>
                     </center>
                 </td>
             </tr>
@@ -34,8 +39,7 @@
                 <td colspan="2">
                     <center>
                             <img src="Images/DSC_5841.JPG" height="150px" width="200px">
-                            <!--<img class="edit-button" src="Images/editicon.png" height="20px" width="40px">-->
-                            <button>Upload</button>
+                            <img class="edit-button" src="Images/editicon.png" height="20px" width="40px">
                     </center>
                 </td>
             </tr>  <!--Edit Profile Button -->
@@ -43,7 +47,7 @@
                 <td colspan="2">
                     <center>
                             
-                            <input type="submit" name="submit" value="Edit Profile" class="edit-button">
+                            <input type="submit" name="edit" value="Edit Profile" class="edit-button">
                     </center>
                 </td>
             </tr>
@@ -59,7 +63,7 @@
                                             Name
                                         </td>
                                         <td>
-                                            <input type="text" class="txt-Box" name ="txtName">
+                                            Nazib Mahfuz
                                         </td>
                                     </tr>
 
@@ -68,7 +72,7 @@
                                             E-mail
                                         </td>
                                         <td>
-                                            <input type="email" class="txt-Box" name="txtMail">
+                                            nazibmahfuz60@gmail.com
                                         </td>
                                     </tr>
 
@@ -77,7 +81,7 @@
                                             Phone No
                                         </td>
                                         <td>
-                                            <input type="number" class="txt-Box" name="txtPhone">
+                                            01777127618
                                         </td>
                                     </tr>
                                 </table>
@@ -86,7 +90,47 @@
 
                 </td>
                 <td width="50%"> <!--Profile Strength -->
-                    <p>Student Profile Marks</p>
+                    <center>
+                    <table border="0" width="50%">
+                        <tr>
+                            <td class="profileMarks" colspan="5">
+                                Profile Marks
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <center>
+                                    <img src="Images/gold.png" height="50px" width="50px">
+                                </center>
+                                
+                            </td>
+                            <td>
+                                <center>
+                                    <img src="Images/gold.png" height="50px" width="50px">
+                                </center>
+                                
+                            </td>
+                            <td>
+                                <center>
+                                    <img src="Images/gold.png" height="50px" width="50px">
+                                </center>
+                                
+                            </td>
+
+                            <td>
+                                <center>
+                                    <img src="Images/gold.png" height="50px" width="50px">
+                                </center>
+                            </td>
+                            <td>
+                                <center>
+                                    <img src="Images/gold.png" height="50px" width="50px">
+                                </center>
+                            </td>
+                        </tr>
+                    </table>
+                    </center>
+                    
                 </td>
             </tr>
                 
@@ -102,12 +146,7 @@
                                                 Department
                                             </td>
                                             <td>
-                                                <select class="txt-Box">
-                                                    <option>Faculty of Science & Technology</option>
-                                                    <option>Faculty of Engineering</option>
-                                                    <option>Faculty of Art Social Sciences</option>
-                                                    <option>Faculty of Business Administration</option>
-                                                </select>
+                                                Faculty of Science and Engineering
                                             </td>
                                         </tr>
     
@@ -116,16 +155,7 @@
                                                 Program
                                             </td>
                                             <td>
-                                                <select class="txt-Box">
-                                                    <option>CSE</option>
-                                                    <option>CSSE</option>
-                                                    <option>CIS</option>
-                                                    <option>CS</option>
-                                                    <option>EEE</option>
-                                                    <option>CoE</option>
-                                                    <option>BBA</option>
-                                                    <option>Arch.</option>
-                                                </select>
+                                                CSE
                                             </td>
                                         </tr>
     
@@ -134,7 +164,7 @@
                                                 Semester
                                             </td>
                                             <td>
-                                                <input type="number" class="txt-Box" name="txtPhone">
+                                                7
                                             </td>
                                         </tr>
                                     </table>
@@ -143,9 +173,7 @@
 
                 </td>
                 <td rowspan="3"> <!--CV Upload Button -->
-                    <form action="upload.php" method="POST" enctype="multipart/form-data">
-                        <input type="file" name="file">
-                        <button type="submit" name=submit>Upload CV</button>
+                        <h4>Under Construction</h4>
                         <a href="Files/MyCV.pdf" target="_blank">View CV</a>
                     </form>
                 </td>
@@ -162,10 +190,10 @@
                                             Github
                                         </td>
                                         <td>
-                                            <input type="url" class="txt-Box" name ="txtGithub">
+                                            <a href="https://github.com/MahfuzNazib">Github</a>
                                         </td>
                                         <td>
-                                            <a href="#" class="link-Button">Go</a>
+                                            <a href="https://github.com/MahfuzNazib" class="link-Button">Go</a>
                                         </td>
                                     </tr>
 
@@ -174,10 +202,10 @@
                                             StackOverflow
                                         </td>
                                         <td>
-                                            <input type="url" class="txt-Box" name="txtStackOverflow">
+                                            <a href="https://stackoverflow.com/">StackOver Flow</a>
                                         </td>
                                         <td>
-                                            <a href="#" class="link-Button">Go</a>
+                                            <a href="https://stackoverflow.com/" class="link-Button">Go</a>
                                         </td>
                                     </tr>
 
@@ -186,10 +214,10 @@
                                             Hacker Rank
                                         </td>
                                         <td>
-                                            <input type="url" class="txt-Box" name="txtHackerRank">
+                                            <a href="https://stackoverflow.com/">Hacker Rank</a>
                                         </td>
                                         <td>
-                                            <a href="#" class="link-Button">Go</a>
+                                            <a href="https://stackoverflow.com/" class="link-Button">Go</a>
                                         </td>
                                     </tr>
                                     <tr>
@@ -197,10 +225,10 @@
                                             Online Judge
                                         </td>
                                         <td>
-                                            <input type="url" class="txt-Box" name="OnlineJudge">
+                                            <a href="#">UVA</a>
                                         </td>
                                         <td>
-                                            <a href="#" class="link-Button">Go</a>
+                                            <a href="https://stackoverflow.com/" class="link-Button">Go</a>
                                         </td>
                                     </tr>
                                     <tr>
@@ -208,7 +236,7 @@
                                             IEEE
                                         </td>
                                         <td>
-                                            <input type="url" class="txt-Box" name="txtIEEE">
+                                            N/A
                                         </td>
                                         <td>
                                             <a href="#" class="link-Button">Go</a>
@@ -219,10 +247,10 @@
                                             Portfolio
                                         </td>
                                         <td>
-                                            <input type="url" class="txt-Box" name="txtPortfolio">
+                                            <a href="mahfuznazib.github.io">Website</a>
                                         </td>
                                         <td>
-                                            <a href="#" class="link-Button">Go</a>
+                                            <a href="http://www.mahfuznazib,github.io" class="link-Button">Go</a>
                                         </td>
                                     </tr>
                                     <tr>
@@ -231,7 +259,7 @@
                                         </td>
                                         
                                         <td>
-                                            <input type="url" class="txt-Box" name="txtYoutube">
+                                            N/A
                                         </td>
                                         <td>
                                             <a href="#" class="link-Button">Go</a>
@@ -242,15 +270,7 @@
                     </form>
                 </td>
             </tr>
-            <tr> <!--Buttons -->
-                <td>
-                    <center>
-                        <button class="btn-Confirm">Save</button>
-                        <button class="btn-Reset">Delete</button>
-                    </center>
-                </td>
-            </tr>
-
+            
             <tr>
                 <td colspan="2" class="fotter">
                     <center>

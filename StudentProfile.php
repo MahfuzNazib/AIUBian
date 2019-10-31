@@ -2,6 +2,18 @@
     session_start();
     if(isset($_SESSION['Username']))
     {
+        if(isset($_POST['profile']))
+        {
+            header('location:SProfile.php');
+        }
+        elseif(isset($_POST['logout']))
+        {
+            header('location:Logout.php');
+        }
+        elseif(isset($_POST['timeline']))
+        {
+            header('location:TimeLine.php');
+        }
 
 ?>
 <!DOCTYPE html>
@@ -23,10 +35,11 @@
                 <td colspan="2" class="Profile-Header">
                     <!--<img src="Images/pp.jpg">-->
                     <center>
-                        <a href="StudentProfile.php"><button class="profile-HeaderButton">Profile</button></a>
-                        <a href="TimeLine.php"><button class="profile-HeaderButton">TimeLine</button></a>
-                        <a href="Logout.php"><button class="profile-HeaderButton">Logout</button></a>
-                        <input class="profile-HeaderButton" type="button" value="Logout" href="Logout.php">
+                        <button class="profile-HeaderButton" name="home">Home</button>
+                        <button class="profile-HeaderButton" name="profile">Profile</button>
+                        <button class="profile-HeaderButton" name="timeline">TimeLine</button>
+                        <button class="profile-HeaderButton" name="logout">Logout</button>
+                        
                     </center>
                 </td>
             </tr>
@@ -35,18 +48,12 @@
                     <center>
                             <img src="Images/DSC_5841.JPG" height="150px" width="200px">
                             <!--<img class="edit-button" src="Images/editicon.png" height="20px" width="40px">-->
-                            <button>Upload</button>
+                            <form action="upload.php" method="POST" enctype="multipart/form-data">
+                        <input type="file" name="file">
                     </center>
                 </td>
             </tr>  <!--Edit Profile Button -->
-            <tr height="30px">
-                <td colspan="2">
-                    <center>
-                            
-                            <input type="submit" name="submit" value="Edit Profile" class="edit-button">
-                    </center>
-                </td>
-            </tr>
+            
             <tr> <!--Student Personal Info -->
                 <td width="50%">
                     

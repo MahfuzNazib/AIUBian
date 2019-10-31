@@ -5,7 +5,19 @@
 
         if(isset($_POST['edit']))
         {
-            header('location:')
+            header('location:StudentProfile.php');
+        }
+        elseif(isset($_POST['btnHome']))
+        {
+            header('location:Home.php');
+        }
+        elseif(isset($_POST['btnTimeLine']))
+        {
+            header('location:TimeLine.php');
+        }
+        elseif(isset($_POST['btnLogout']))
+        {
+            header('location:Logout.php');
         }
 
 ?>
@@ -29,9 +41,10 @@
                 <td colspan="2" class="Profile-Header">
                     <!--<img src="Images/pp.jpg">-->
                     <center>
-                        <button class="profile-HeaderButton">Profile</button>
-                        <button class="profile-HeaderButton">TimeLine</button>
-                        <button class="profile-HeaderButton">Logout</button>
+                        <button class="profile-HeaderButton" name="btnHome">Home</button>
+                        <button class="profile-HeaderButton" name="btnProfile">Profile</button>
+                        <button class="profile-HeaderButton" name="btnTimeLine">TimeLine</button>
+                        <button class="profile-HeaderButton" name="btnLogout">Logout</button>
                     </center>
                 </td>
             </tr>

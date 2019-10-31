@@ -66,7 +66,7 @@
                 {
                     $_SESSION['Username'] = $uname;
                     $_SESSION['Password'] = $pass;
-                    header('location:StudentProfile.php');
+                    header('location:SProfile.php');
                 }
                 else
                 {

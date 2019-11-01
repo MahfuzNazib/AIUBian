@@ -25,7 +25,7 @@
                             <center>
                                     <h3>
                                         <i>
-                                            Admin
+                                            <?=$_SESSION['Username'] ?>
                                         </i>
                                     </h3>
                             </center>
@@ -73,6 +73,10 @@
     elseif(isset($_POST['btnTimeLine']))
     {
         header('location:AdminTimeLine.php');
+    }
+    elseif(isset($_POST['btnChat']))
+    {
+        header('location:AdminChat.php');
     }
     
 ?>

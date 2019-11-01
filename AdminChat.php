@@ -5,15 +5,15 @@
 
         if(isset($_POST['btnHome']))
         {
-            header('location:Home.php');
+            header('location:Admin.php');
         }
         if(isset($_POST['btnProfile']))
         {
-            header('location:SProfile.php');
+            header('location:AdminProfile.html');
         }
         if(isset($_POST['btnTimeLine']))
         {
-            header('location:TimeLine.php');
+            header('location:AdminTimeLine.php');
         }
         if(isset($_POST['btnLogout']))
         {

@@ -151,6 +151,7 @@
     width: 100%;
     cursor: pointer;
     border: none;
+    transition: 0.5s;
 }
 
 .frndList:hover

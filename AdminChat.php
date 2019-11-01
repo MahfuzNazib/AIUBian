@@ -9,7 +9,7 @@
         }
         if(isset($_POST['btnProfile']))
         {
-            header('location:AdminProfile.html');
+            header('location:AdminProfile.php');
         }
         if(isset($_POST['btnTimeLine']))
         {

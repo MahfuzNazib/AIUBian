@@ -26,7 +26,7 @@
                 <center>
                     
                     <a href="Admin.php"><button class="profile-HeaderButton">Home</button></a>
-                    <a href="AdminProfile.html"><button class="profile-HeaderButton">Profile</button></a>
+                    <a href="AdminProfile.php"><button class="profile-HeaderButton">Profile</button></a>
                     <a href="AdminTimeLine.php"><button class="profile-HeaderButton">TimeLine</button></a>
                     <a href="AdminChat.php"><button class="profile-HeaderButton">Chat</button></a>
                     <a href="Logout.php"><button class="profile-HeaderButton">Logout</button></a>
@@ -55,7 +55,7 @@
                     <button class="postsButton">Photo</button>
                     <button class="postsButton">Video</button>
                     <button class="postsButton">Post</button> <br>
-                    <hr></hr>
+                    <hr>
                     <h3>My Posts</h3>
                 </center>
                 
@@ -79,7 +79,7 @@
                                 </tr>
                                 <tr>
                                     <td>
-                                        <img src="Images/Logo.png" height="250px" width="100%">
+                                        <img src="Images/adminicon.png" height="250px" width="100%">
                                     </td>
                                 </tr>
                                 <tr>

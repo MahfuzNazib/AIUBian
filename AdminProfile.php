@@ -23,6 +23,10 @@
         {
             header('location:Logout.php');
         }
+        if(isset($_POST['editProfile']))
+        {
+            header('location:AProfile.php');
+        }
 
 ?>
 
@@ -78,7 +82,7 @@
                     <tr height="30px">
                         <td colspan="3">
                             <center>
-                                <input type="submit" name="submit" value="Edit Profile" class="edit-button">
+                                <input type="submit" name="editProfile" value="Edit Profile" class="edit-button">
                             </center>
                         </td>
                     </tr>
@@ -117,7 +121,23 @@
                             Address : 
                         </td>
                         <td>
-                            ABCV
+                            Nikunja-2,Khilkhet,Dhaka,Bangladesh
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="AP">
+                            Username : 
+                        </td>
+                        <td>
+                            nazibmahfuz60@gmail.com
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="AP">
+                            Password : 
+                        </td>
+                        <td>
+                            002
                         </td>
                     </tr>
                 </table>

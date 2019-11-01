@@ -1,9 +1,28 @@
 <?php
-    if(isset($_POST['btnStudents']))
+    session_start();
+    if(isset($_SESSION['Username']))
     {
-        
-    }
 
+        if(isset($_POST['btnHome']))
+        {
+            header('location:Admin.php');
+        }
+        if(isset($_POST['btnProfile']))
+        {
+            header('location:AdminProfile.php');
+        }
+        if(isset($_POST['btnTimeLine']))
+        {
+            header('location:AdminTimeLine.php');
+        }
+        if(isset($_POST['btnChat']))
+        {
+            header('location:AdminChat.php');
+        }
+        if(isset($_POST['btnLogout']))
+        {
+            header('location:Logout.php');
+        }
 
 ?>
 
@@ -15,185 +34,103 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="App.css">
     <link rel="stylesheet" href="Admin.css">
-    <title>ProfileOfAdmin</title>
+    <title>Admin Profile</title>
 </head>
 <body class="body-margin">
-    <center>
         <form action="#" method="POST">
-        <table border="0" width="100%">
-            <tr class="Profile-Header"> <!--Header-->
-                <td width=25%>
-                    <center>
-                            <h3>
-                                <i>
-                                    Admin
-                                </i>
-                            </h3>
-                    </center>
-                </td>
-                    <td>
-                        <center>
-                            <button class="profile-HeaderButton" name="btnProfile">Profile</button>
-                            <button class="profile-HeaderButton" name="btnMembers">Members</button>
-                            <button class="profile-HeaderButton" name="btnAllPosts">All Posts</button>
-                            <button class="profile-HeaderButton" name="btnAlumni">Alumni</button>
-                            <button class="profile-HeaderButton" name="btnStudents">Students</button>
-                            <button class="profile-HeaderButton" name="btnLogout">Logout</button>
-                            
-                        </center>
-                    
-                </td>
-                <td width="25%">
-                    <input type="search" class="searchBox" name="txtsearch" placeholder="Search...">
-                </td>
-            </tr>
-            
-            <tr>
-                <td colspan="3">
-                    <center>
-                        <p>All Posts</p>
-                        <hr>
-                    </center>
-                </td>
-            </tr>
-
-            <tr> <!--All Posts Lists with action-->
-                <td colspan="3">
-                    <table border="0" width="100%">
-                        <tr class="table-header"> 
-                            <td>
-                                <center>
-                                    Post Date
-                                </center>
-                            </td>
-                            <td>
-                                <center>
-                                        Name
-                                </center>
+                <table border="0" width="100%">
+                    <tr class="Profile-Header">
+                        <td width="25%">
+                            <center>
+                                <h3>
+                                    <i>
+                                        <a href="Admin.php" class="login-link">
+                                            <?=$_SESSION['Username'] ?>
+                                        </a>
+                                    </i>
+                                </h3>
+                            </center>
+                        </td>
+                        <td>
+                            <center>
+                                <button class="profile-HeaderButton" name="btnHome">Home</button>
+                                <button class="profile-HeaderButton" name="btnProfile">Profile</button>
+                                <button class="profile-HeaderButton" name="btnChat">Chat</button>
+                                <button class="profile-HeaderButton" name="btnTimeLine">TimeLine</button>
+                                <button class="profile-HeaderButton" name="btnLogout">Logout</button>
                                 
-                            </td>
-                            <td>
-                                <center>
-                                        Details
-                                </center>
-                                
-                            </td>
-                            <td>
-                                <center>
-                                        Actions
-                                </center>
-                                
-                            </td>
-                        </tr>
+                            </center>
+        
+                        </td>
+                        <td width="25%">
+                                <input type="search" class="searchBox" name="txtsearch" placeholder="Search...">
+                        </td>
+                    </tr>
 
-                        <tr>
-                            <td width=15%>
-                                25th Ocober,2019
-                            </td>
-                            <td width=15%>
-                                Nazib Mahfuz
-                            </td>
-                            <td>
-                                A Testing Posts. I am Nazib Mahfuz student of AIUB dept of Computer Science and Engineering.
-                                Its a testing purpose. Php and Javascript is a scripting language
-                            </td>
-                            <td width=20%>
-                                <button class="btn-Block"> Block </button>
-                                <button class="btn-Delete">Delete</button>
-                            </td>
-                            
-                        </tr>
-                        <tr>
-                            <td colspan="4">
-                                <hr>
-                            </td>
-                        </tr>
-
-                        <tr>
-                                <td width=15%>
-                                    25th Ocober,2019
-                                </td>
-                                <td width=15%>
-                                    Nazib Mahfuz
-                                </td>
-                                <td width=35%>
-                                    <img src="Images/bg.jpg" height="180px" width="200px">
-                                </td>
-                                <td width=20%>
-                                    <button class="btn-Block"> Block </button>
-                                    <button class="btn-Delete">Delete</button>
-                                </td>
-                                
-                            </tr>
-                            <tr>
-                                <td colspan="4">
-                                    <hr>
-                                </td>
-                            </tr>
-
-                            <tr>
-                                    <td width=15%>
-                                        25th Ocober,2019
-                                    </td>
-                                    <td width=15%>
-                                        Nazib Mahfuz
-                                    </td>
-                                    <td width=35%> <!--Description..Video/Audio/Image/Post-->
-                                        A Testing Posts. I am Nazib Mahfuz student of AIUB dept of Computer Science and Engineering<br>
-                                        kvkfjvnbfkldnvldfkv<br>
-                                        dhjvbcbvdks<br>
-                                        dcdbcjhb
-                                    </td>
-                                    <td width=20%>
-                                        <button class="btn-Block"> Block </button>
-                                        <button class="btn-Delete">Delete</button>
-                                    </td>
-                                    
-                            </tr>
-                                <tr>
-                                    <td colspan="4">
-                                        <hr>
-                                    </td>
-                                </tr>
-                            
-                                <tr>
-                                        <td width=15%>
-                                            25th Ocober,2019
-                                        </td>
-                                        <td width=15%>
-                                            Nazib Mahfuz
-                                        </td>
-                                        <td width=35%> <!--Description..Video/Audio/Image/Post-->
-                                            <video controls>
-                                                    <source src="Videos/short-video-clip-nature-mp4.mp4" type="video/mp4">
-                                                </video>
-                                        </td>
-                                        <td width=20%>
-                                            <button class="btn-Block"> Block </button>
-                                            <button class="btn-Delete">Delete</button>
-                                        </td>
-                                        
-                                    </tr>
-                                    <tr>
-                                        <td colspan="4">
-                                            <hr>
-                                        </td>
-                                    </tr>
-
-
-                    </table>
-                </td>
-            </tr>
-
-            <tr>  <!--FOTTER-->
-            <td colspan="3" class="fotter">
+                    <tr>
+                        <td colspan="3">
+                            <center>
+                                <img src="Images/DSC_5841.JPG" height="150px" width="200px">
+                            </center>
+                        </td>
+                        
+                    </tr>
+                    <tr height="30px">
+                        <td colspan="3">
+                            <center>
+                                <input type="submit" name="submit" value="Edit Profile" class="edit-button">
+                            </center>
+                        </td>
+                    </tr>
+                </table> <br>
                 <center>
-                    Copyright@MahfuzNazib
+                    <table>
+                    <tr>
+                        <td class="AP">
+                            Name : 
+                        </td>
+                        <td>
+                            Nazib Mahfuz
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td class="AP">
+                            Email : 
+                        </td>
+                        <td>
+                            nazibmahfuz60@gmail.com
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td class="AP">
+                            Phone : 
+                        </td>
+                        <td>
+                            01777127618
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td class="AP">
+                            Address : 
+                        </td>
+                        <td>
+                            ABCV
+                        </td>
+                    </tr>
+                </table>
                 </center>
-            </td>
-        </tr>
-        </table>
+                
         </form>
-    </center>
 </body>
 </html>
+
+<?php
+    }
+    else
+    {
+        header('location:Login.php');
+    }
+?>

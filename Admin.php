@@ -68,7 +68,7 @@
     }
     elseif(isset($_POST['btnProfile']))
     {
-        header('location:Adminprofile.html');
+        header('location:Adminprofile.php');
     }
     elseif(isset($_POST['btnTimeLine']))
     {

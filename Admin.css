@@ -96,6 +96,10 @@
     font-size: 16px;
 }
 
+/***************
+*****************
+**CHAT Designing*/
+
 .receiverTxt
 {
     height: 35px;
@@ -112,7 +116,7 @@
 
 .msgBody
 {
-    height: 150px;
+    height: 360px;
     width: 100%;
     font-size: 14px;
     border: 1px solid rgb(143, 182, 146);
@@ -137,3 +141,38 @@
     color: black;
     font-size: 18px;
 }
+
+.frndList
+{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 15px;
+    color: black;
+    height: 35px;
+    width: 100%;
+    cursor: pointer;
+    border: none;
+}
+
+.frndList:hover
+{
+    background-color: rgb(184, 229, 240);
+    font-size: 16px;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: 25% auto;
+    background-color: rgb(204, 216, 226);
+    
+  }
+  .grid-item {
+    background-color: rgba(255, 255, 255, 0.8);
+    border: 1px solid rgba(0, 0, 0, 0.8);
+    font-size: 22px;
+    height: 550px;
+    text-align: center;
+    overflow: scroll;
+  }
+
+
+

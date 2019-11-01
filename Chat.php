@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="Admin.css">
     <title>Home</title>
 </head>
-<body>
+<body class="body-margin">
     <table border="1" width="100%">
         <tr class="Profile-Header">
             <td width=25%>
@@ -30,58 +30,52 @@
                 <input type="search" class="searchBox" name="txtsearch" placeholder="Search...">
             </td>
         </tr>
-
-        <tr>  <!--Select / Choose Posts-->
-            <td rowspan="10000">
-                <center>
-                    <button class="btnPost">All Posts</button> <br>
-                    <button class="btnPost">Faculty Posts</button> <br>
-                    <button class="btnPost">Alumni Posts</button> <br>
-                    <button class="btnPost">Student Posts</button> <br>
-                </center>
-                
-            </td>
-        
-            <td>
-                <p>I snxcdkjbckjdfbvfdvn<br>
-                jdbvkjfdbvfdbvnfdlknvfdlkvfdv<br>
-                jdkbvcdfkjvbfdknvdfklnvdfkv</p>
-            </td>
-       
-            <td rowspan="10000"> <!--Chat System-->
-                <table border="1" width="100%">
-                    <tr>
-                        <td>
-                            <center>
-                                Chat/Message
-                            </center>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <input type="text" name="txtReceiver" class="receiverTxt" placeholder="Receiver Username or Email">
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                        <input type="text" name="txtReceiver" class="msgBody">
-                        </td>
-                    </tr>
-
-                    <tr>
-                        <td>
-                            <input type="text" name="txtReceiver" class="receiverTxt" placeholder="Type Your Message Here..">
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <button class="btnsend">Send</button>
-                        </td>
-                    </tr>
-                </table>
-            </td>
-        </tr>
-        
     </table>
+    <div class="grid-container">
+        <div class="grid-item">
+            <h5><u>Friend List</u></h5>
+            <button class="frndList">Nazib Mahfuz</button>
+            <button class="frndList">Hasib Ahmed</button>
+            <button class="frndList">Zakaria Islam</button>
+            <button class="frndList">Mitho Hasan</button>
+            <button class="frndList">Bristy Talukder</button>
+            <button class="frndList">Jamil Ahmed</button>
+            <button class="frndList">MD.Al Amin</button>
+            <button class="frndList">Hasib Ahmed</button>
+        </div>
+        <div class="grid-item">
+            <table border="0" width="100%" height="100%">
+                <tr>
+                    <td>
+                        <center>
+                            Chat/Message
+                        </center>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="text" name="txtReceiver" class="receiverTxt" placeholder="Receiver Username or Email">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    <textarea pleaceholder="Message Body" class="msgBody"></textarea>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <input type="text" name="txtReceiver" class="receiverTxt" placeholder="Type Your Message Here..">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <button class="btnsend">Send</button>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    
 </body>
 </html>

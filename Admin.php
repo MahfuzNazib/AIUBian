@@ -39,6 +39,7 @@
                                     <button class="profile-HeaderButton" name="btnAlumni">Alumni</button>
                                     <button class="profile-HeaderButton" name="btnStudents">Students</button>
                                     <button class="profile-HeaderButton" name="btnTimeLine">TimeLine</button>
+                                    <button class="profile-HeaderButton" name="btnChat">Chat</button>
                                     <button class="profile-HeaderButton" name="btnLogout">Logout</button>
                                     
                                 </center>
@@ -71,7 +72,7 @@
     }
     elseif(isset($_POST['btnTimeLine']))
     {
-        header('location:AdminTimeLine.html');
+        header('location:AdminTimeLine.php');
     }
     
 ?>

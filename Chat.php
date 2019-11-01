@@ -1,3 +1,27 @@
+<?php
+    session_start();
+    if(isset($_SESSION['Username']))
+    {
+
+        if(isset($_POST['btnHome']))
+        {
+            header('location:Home.php');
+        }
+        if(isset($_POST['btnProfile']))
+        {
+            header('location:SProfile.php');
+        }
+        if(isset($_POST['btnTimeLine']))
+        {
+            header('location:TimeLine.php');
+        }
+        if(isset($_POST['btnLogout']))
+        {
+            header('location:Logout.php');
+        }
+    
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,6 +33,7 @@
     <title>Home</title>
 </head>
 <body class="body-margin">
+    <form actiion="#" method="POST">
     <table border="1" width="100%">
         <tr class="Profile-Header">
             <td width=25%>
@@ -18,11 +43,10 @@
             </td>
             <td>
                 <center>
-                    <button class="profile-HeaderButton">Home</button>
-                    
-                    <a href="StudentProfile.php"><button class="profile-HeaderButton">Profile</button></a>
-                    <a href="TimeLine.php"><button class="profile-HeaderButton">TimeLine</button></a>
-                    <a href="Logout.php"><button class="profile-HeaderButton">Logout</button></a>
+                    <button class="profile-HeaderButton" name="btnHome">Home</button>
+                    <button class="profile-HeaderButton" name="btnProfile">Profile</button>
+                    <button class="profile-HeaderButton" name="btnTimeLine">TimeLine</button>
+                    <button class="profile-HeaderButton" name="btnLogout">Logout</button>
                     </center>
                     
             </td>
@@ -34,6 +58,14 @@
     <div class="grid-container">
         <div class="grid-item">
             <h5><u>Friend List</u></h5>
+            <button class="frndList">Nazib Mahfuz</button>
+            <button class="frndList">Hasib Ahmed</button>
+            <button class="frndList">Zakaria Islam</button>
+            <button class="frndList">Mitho Hasan</button>
+            <button class="frndList">Bristy Talukder</button>
+            <button class="frndList">Jamil Ahmed</button>
+            <button class="frndList">MD.Al Amin</button>
+            <button class="frndList">Hasib Ahmed</button>
             <button class="frndList">Nazib Mahfuz</button>
             <button class="frndList">Hasib Ahmed</button>
             <button class="frndList">Zakaria Islam</button>
@@ -71,11 +103,21 @@
                 <tr>
                     <td>
                         <button class="btnsend">Send</button>
+
                     </td>
                 </tr>
             </table>
         </div>
     </div>
-    
+    </form>
 </body>
 </html>
+
+<?php
+    }
+
+    else
+    {
+        header('location:Login.php');
+    }
+?>

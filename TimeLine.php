@@ -28,6 +28,7 @@
                     <a href="Home.php"><button class="profile-HeaderButton">Home</button></a>
                     <a href="SProfile.php"><button class="profile-HeaderButton">Profile</button></a>
                     <a href="TimeLine.php"><button class="profile-HeaderButton">TimeLine</button></a>
+                    <a href="Chat.php"><button class="profile-HeaderButton">Chat</button></a>
                     <a href="Logout.php"><button class="profile-HeaderButton">Logout</button></a>
                     </center>
                     

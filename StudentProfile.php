@@ -18,6 +18,10 @@
         {
             header('location:Home.php');
         }
+        elseif(isset($_POST['chat']))
+        {
+            header('location:Chat.php');
+        }
 
 ?>
 <!DOCTYPE html>
@@ -42,6 +46,7 @@
                         <button class="profile-HeaderButton" name="home">Home</button>
                         <button class="profile-HeaderButton" name="profile">Profile</button>
                         <button class="profile-HeaderButton" name="timeline">TimeLine</button>
+                        <button class="profile-HeaderButton" name="chat">Chat</button>
                         <button class="profile-HeaderButton" name="logout">Logout</button>
                         
                     </center>

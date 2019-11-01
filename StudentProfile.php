@@ -14,6 +14,10 @@
         {
             header('location:TimeLine.php');
         }
+        elseif(isset($_POST['home']))
+        {
+            header('location:Home.php');
+        }
 
 ?>
 <!DOCTYPE html>

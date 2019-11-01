@@ -1,3 +1,26 @@
+<?php
+    session_start();
+    if(isset($_SESSION['Username']))
+    {
+
+        if(isset($_POST['btnProfile']))
+        {
+            header('location:SProfile.php');
+        }
+        if(isset($_POST['btnTimeLine']))
+        {
+            header('location:TimeLine.php');
+        }
+        if(isset($_POST['btnChat']))
+        {
+            header('location:Chat.php');
+        }
+        if(isset($_POST['btnLogout']))
+        {
+            header('location:Logout.php');
+        }
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,21 +32,22 @@
     <title>Home</title>
 </head>
 <body class="body-margin">
-    <table border="1" width="100%">
+    <form action="#" method="POST">
+    <table border="0" width="100%">
         <tr class="Profile-Header">
             <td width=25%>
                 <center>
-                    Nazib Mahfuz
+                    <h3><?=$_SESSION['Username'] ?></h3>
                 </center>
             </td>
             <td>
                 <center>
                     <button class="profile-HeaderButton">Home</button>
                     
-                    <button class="profile-HeaderButton">Profile</button>
-                    <button class="profile-HeaderButton">TimeLine</button>
-                    <button class="profile-HeaderButton">Chat</button>
-                    <button class="profile-HeaderButton">Logout</button>
+                    <button class="profile-HeaderButton" name="btnProfile">Profile</button>
+                    <button class="profile-HeaderButton" name="btnTimeLine">TimeLine</button>
+                    <button class="profile-HeaderButton" name="btnChat">Chat</button>
+                    <button class="profile-HeaderButton" name="btnLogout">Logout</button>
                     </center>
                     
             </td>
@@ -35,20 +59,394 @@
             <td colspan="3">
                 <center>
                     <button class="btnPost" name="btnAllPost">All Post</button>
-                    <button class="btnPost" name="btnAllPost">FacultyPost</button>
-                    <button class="btnPost" name="btnAllPost">AlumniPost</button>
-                    <button class="btnPost" name="btnAllPost">StudentPost</button>
+                    <button class="btnPost" name="btnFacultyPost">FacultyPost</button>
+                    <button class="btnPost" name="btnAlumniPost">AlumniPost</button>
+                    <button class="btnPost" name="btnStudentPost">StudentPost</button>
                 </center>
             </td>
         </tr>
+
     </table>
+    </form>
+<?php
+    }
+    else
+    {
+        header('location:Login.php');
+    }
+    if(isset($_POST['btnFacultyPost']))  //Faculty Post
+    {
+?>
 
     <center>
-        <table border="1" width="50%">
+        <table border="0" width="50%">
             <tr>
                 <td>
                     <center>
-                        All Posts
+                        <h3>Faculty Posts</h3>
+                        <hr>
+                    </center>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <h3>MD Al Amin</h3>
+                    <i>1st Nov. 19</i>
+                    <p>
+                        jkbvfdkjbvkjfbvfvfdnvbfdjkhb<br>
+                        dkbdfvbfdkjbvfkdjbvfkjd<br>
+                        hvbfdjhbvkjdfbvkjdfbvfjdv<br>
+                        cjdhscvgjhdfsbdfkjbvfd<br>
+                        hvb fdjhvbfdhjbv<br>
+                    </p>
+                    <center>
+                        <button class="profile-HeaderButton">1 Likes</button>
+                    </center>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <hr>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <h3>Niloy</h3>
+                    <i>1st Nov. 19</i>
+                    <p>
+                        <img src="Images/NiloySir.png" height="300px" width="100%">
+                    </p>
+                    <center>
+                        <button class="profile-HeaderButton">1 Likes</button>
+                    </center>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <hr>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <h3>Rahim</h3>
+                    <i>1st Nov. 19</i>
+                    <p>
+                        <img src="Images/boysimg.png" height="300px" width="100%">
+                    </p>
+                    <center>
+                        <button class="profile-HeaderButton">1 Likes</button>
+                    </center>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <hr>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <h3>Ali Hasan</h3>
+                    <i>31th Oct. 19</i>
+                    <p>
+                        vkfjdbvkjdfbvjkbfdv<br>
+                        jbfdbvfdjkbvkjfdbv<br>
+                        kjbvfdbvjdfkbdkjbdfjk<br>
+                        jdhfvcdfjhvbfdjkbvjkfdnvkfbvdfbvdfbvbdfjbvdfkj
+                        djhvbdfjhvbfdvbdfkvbfdkvbdjfkvdf
+                        fdkvdfkvbdfkvbdfvd
+                        fdkvbdfjvbdfvnd
+                        vdfjvdfkvbdflkv
+                        dvdfkbvfdkjbv
+                    </p>
+                    <center>
+                        <button class="profile-HeaderButton">25 Likes</button>
+                    </center>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <hr>
+                </td>
+            </tr>
+
+        
+            <tr>
+                <td>
+                    <h3>Rahim</h3>
+                    <i>30th Oct. 19</i><br>
+                        <video controls>
+                            <source src="Videos/short-video-clip-nature-mp4.mp4" type="video/mp4">
+                        </video>
+                    <center>
+                        <button class="profile-HeaderButton">1 Likes</button>
+                    </center>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <hr>
+                </td>
+            </tr>
+        </table>
+    </center>
+<?php
+    }
+    elseif(isset($_POST['btnAlumniPost']))  //Alumni Post
+    {
+?>
+<html>
+    <body>
+    <center>
+        <table border="0" width="50%">
+            <tr>
+                <td>
+                    <center>
+                        <h3>Alumni Posts</h3>
+                        <hr>
+                    </center>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <h3>Sakib Al Hasan</h3>
+                    <i>1st Nov. 19</i> <br>
+                    <video controls>
+                        <source src="Videos/short-video-clip-nature-mp4.mp4" type="video/mp4">
+                    </video>
+                    <center>
+                        <button class="profile-HeaderButton">1 Likes</button>
+                    </center>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <hr>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <h3>Rahim</h3>
+                    <i>1st Nov. 19</i>
+                    <p>
+                        <img src="Images/p1.jpg" height="300px" width="100%">
+                    </p>
+                    <center>
+                        <button class="profile-HeaderButton">1 Likes</button>
+                    </center>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <hr>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <h3>Rahim</h3>
+                    <i>1st Nov. 19</i>
+                    <p>
+                        <img src="Images/boysimg.png" height="300px" width="100%">
+                    </p>
+                    <center>
+                        <button class="profile-HeaderButton">1 Likes</button>
+                    </center>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <hr>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <h3>Ali Hasan</h3>
+                    <i>31th Oct. 19</i>
+                    <p>
+                        vkfjdbvkjdfbvjkbfdv<br>
+                        jbfdbvfdjkbvkjfdbv<br>
+                        kjbvfdbvjdfkbdkjbdfjk<br>
+                        jdhfvcdfjhvbfdjkbvjkfdnvkfbvdfbvdfbvbdfjbvdfkj
+                        djhvbdfjhvbfdvbdfkvbfdkvbdjfkvdf
+                        fdkvdfkvbdfkvbdfvd
+                        fdkvbdfjvbdfvnd
+                        vdfjvdfkvbdflkv
+                        dvdfkbvfdkjbv
+                    </p>
+                    <center>
+                        <button class="profile-HeaderButton">25 Likes</button>
+                    </center>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <hr>
+                </td>
+            </tr>
+
+        
+            <tr>
+                <td>
+                    <h3>Rahim</h3>
+                    <i>30th Oct. 19</i><br>
+                        <video controls>
+                            <source src="Videos/short-video-clip-nature-mp4.mp4" type="video/mp4">
+                        </video>
+                    <center>
+                        <button class="profile-HeaderButton">1 Likes</button>
+                    </center>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <hr>
+                </td>
+            </tr>
+        </table>
+    </center>
+    </body>
+</html>
+
+<?php
+    }
+    elseif(isset($_POST['btnStudentPost']))  //student Post
+    {
+
+?>
+<html>
+    <body>
+    <center>
+        <table border="0" width="50%">
+            <tr>
+                <td>
+                    <center>
+                        <h3>Student Posts</h3>
+                        <hr>
+                    </center>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <h3>Nazib Mahfuz</h3>
+                    <i>1st Nov. 19</i>
+                    <p>
+                        <img src="Images/me.png" height="300px" width="100%">
+                    </p>
+                    <center>
+                        <button class="profile-HeaderButton">1 Likes</button>
+                    </center>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <hr>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <h3>Rahim</h3>
+                    <i>1st Nov. 19</i>
+                    <p>
+                        <img src="Images/p2.png" height="300px" width="100%">
+                    </p>
+                    <center>
+                        <button class="profile-HeaderButton">1 Likes</button>
+                    </center>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <hr>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <h3>Rahim</h3>
+                    <i>1st Nov. 19</i>
+                    <p>
+                        <img src="Images/p3.png" height="300px" width="100%">
+                    </p>
+                    <center>
+                        <button class="profile-HeaderButton">1 Likes</button>
+                    </center>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <hr>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <h3>Ali Hasan</h3>
+                    <i>31th Oct. 19</i>
+                    <p>
+                        vkfjdbvkjdfbvjkbfdv<br>
+                        jbfdbvfdjkbvkjfdbv<br>
+                        kjbvfdbvjdfkbdkjbdfjk<br>
+                        jdhfvcdfjhvbfdjkbvjkfdnvkfbvdfbvdfbvbdfjbvdfkj
+                        djhvbdfjhvbfdvbdfkvbfdkvbdjfkvdf
+                        fdkvdfkvbdfkvbdfvd
+                        fdkvbdfjvbdfvnd
+                        vdfjvdfkvbdflkv
+                        dvdfkbvfdkjbv
+                    </p>
+                    <center>
+                        <button class="profile-HeaderButton">25 Likes</button>
+                    </center>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <hr>
+                </td>
+            </tr>
+
+        
+            <tr>
+                <td>
+                    <h3>Rahim</h3>
+                    <i>30th Oct. 19</i><br>
+                        <video controls>
+                            <source src="Videos/short-video-clip-nature-mp4.mp4" type="video/mp4">
+                        </video>
+                    <center>
+                        <button class="profile-HeaderButton">1 Likes</button>
+                    </center>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <hr>
+                </td>
+            </tr>
+        </table>
+    </center>
+    </body>
+</html>
+
+<?php
+    }
+    else  //All Post
+    {
+?>
+
+<html>
+    <body>
+    <center>
+        <table border="0" width="50%">
+            <tr>
+                <td>
+                    <center>
+                        <h3>All Posts</h3>
                         <hr>
                     </center>
                 </td>
@@ -157,6 +555,21 @@
             </tr>
         </table>
     </center>
-    
+    </body>
+</html>
+
+<?php
+    }
+?>
+        
+        <table width="100%">
+        <tr>
+            <td class="fotter">
+                <center>
+                    Copyright@MahfuzNazib
+                </center>
+            </td>
+        </tr>
+        </table>
 </body>
 </html>

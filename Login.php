@@ -66,7 +66,7 @@
                 {
                     $_SESSION['Username'] = $uname;
                     $_SESSION['Password'] = $pass;
-                    header('location:SProfile.php');
+                    header('location:Home.php');
                 }
                 else
                 {

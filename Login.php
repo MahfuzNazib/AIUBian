@@ -75,6 +75,13 @@
                     $_SESSION['Password'] = $pass;
                     header('location:FacultyHome.php');
                 }
+
+                if($uname == "Alumni" && $pass == "333") //For Alumni
+                {
+                    $_SESSION['Username'] = $uname;
+                    $_SESSION['Password'] = $pass;
+                    header('location:AlumniHome.php');
+                }
                 else
                 {
                     $errInvalid = "<div class=\"invalid_User_Pass\">Invalid Username or Password</div>";

@@ -2,29 +2,26 @@
     session_start();
     if(isset($_SESSION['Username']))
     {
-
-        if(isset($_POST['edit']))
+        if(isset($_POST['profile']))
         {
-            header('location:AlumniProfile.php');
+            header('location:AProfile.php');
         }
-        elseif(isset($_POST['btnHome']))
-        {
-            header('location:AlumniHome.php');
-        }
-        elseif(isset($_POST['btnTimeLine']))
-        {
-            header('location:ATimeLine.php');
-        }
-        elseif(isset($_POST['btnLogout']))
+        elseif(isset($_POST['logout']))
         {
             header('location:Logout.php');
         }
-        elseif(isset($_POST['btnChat']))
+        elseif(isset($_POST['timeline']))
+        {
+            header('location:ATimeLine.php');
+        }
+        elseif(isset($_POST['home']))
+        {
+            header('location:AlumniHome.php');
+        }
+        elseif(isset($_POST['chat']))
         {
             header('location:AChat.php');
         }
-       
-
 
 ?>
 <!DOCTYPE html>
@@ -34,8 +31,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="App.css">
-    <link rel="stylesheet" href="Admin.css">
-    <title>FProfile</title>
+    <title>StudentProfile</title>
 </head>
 <body class="body-margin">
     <form method="POST" action="#">
@@ -44,14 +40,15 @@
         <table border="0" width="100%">
 
             <tr> <!--Header-->
-                <td  class="Profile-Header">
+                <td class="Profile-Header">
                     <!--<img src="Images/pp.jpg">-->
                     <center>
-                        <button class="profile-HeaderButton" name="btnHome">Home</button>
-                        <button class="profile-HeaderButton" name="btnProfile">Profile</button>
-                        <button class="profile-HeaderButton" name="btnTimeLine">TimeLine</button>
-                        <button class="profile-HeaderButton" name="btnChat">Chat</button>
-                        <button class="profile-HeaderButton" name="btnLogout">Logout</button>
+                        <button class="profile-HeaderButton" name="home">Home</button>
+                        <button class="profile-HeaderButton" name="profile">Profile</button>
+                        <button class="profile-HeaderButton" name="timeline">TimeLine</button>
+                        <button class="profile-HeaderButton" name="chat">Chat</button>
+                        <button class="profile-HeaderButton" name="logout">Logout</button>
+                        
                     </center>
                 </td>
             </tr>
@@ -59,84 +56,78 @@
                 <td>
                     <center>
                             <img src="Images/zaheed.png" height="150px" width="200px">
-                            <img class="edit-button" src="Images/editicon.png" height="20px" width="40px">
+                            <!--<img class="edit-button" src="Images/editicon.png" height="20px" width="40px">-->
+                            <form action="upload.php" method="POST" enctype="multipart/form-data">
+                        <input type="file" name="file">
                     </center>
                 </td>
             </tr>  <!--Edit Profile Button -->
-            <tr height="30px">
-                <td>
-                    <center>
-                            
-                            <input type="submit" name="edit" value="Edit Profile" class="edit-button">
-                    </center>
-                </td>
-            </tr>
+            
             <tr> <!--Student Personal Info -->
                 <td width="50%">
-          
+                    
                     <form>
                         <fieldset>
                             <legend>Personal Info</legend>
-                            <table border="0" width="100%">
+                            <table border="0" width="80%">
                                     <tr>
                                         <td class="font-Normal" width="23%">
-                                            Name :-
+                                            Name
                                         </td>
                                         <td>
-                                            Zaheed Sabur
+                                            <input type="text" class="txt-Box" name ="txtName">
                                         </td>
                                     </tr>
 
                                     <tr>
                                         <td class="font-Normal">
-                                            E-mail :-
+                                            E-mail
                                         </td>
                                         <td>
-                                            zaheed@.gmail.com
+                                            <input type="email" class="txt-Box" name="txtMail">
                                         </td>
                                     </tr>
 
                                     <tr>
                                         <td class="font-Normal">
-                                            Phone No :-
+                                            Phone No
                                         </td>
                                         <td>
-                                            01258962555
+                                            <input type="number" class="txt-Box" name="txtPhone">
                                         </td>
                                     </tr>
 
                                     <tr>
                                         <td class="font-Normal">
-                                            Facebook Profile :-
+                                            Facebook 
                                         </td>
                                         <td>
-                                            <a href="https://www.facebook.com/alamin200290">Al Amin</a>
+                                            <input type="url" class="txt-Box" name="txtPhone">
                                         </td>
                                     </tr>
 
                                     <tr>
                                         <td class="font-Normal">
-                                            LinkedIn :-
+                                            LinkedIn
                                         </td>
                                         <td>
-                                            <a href="https://www.facebook.com/alamin200290">Al Amin</a>
+                                            <input type="url" class="txt-Box" name="txtPhone">
                                         </td>
                                     </tr>
 
                                     <tr>
                                         <td class="font-Normal">
-                                            Portfolio :-
+                                            Portfolio
                                         </td>
                                         <td>
-                                            <a href="https://www.facebook.com/alamin200290">alamin.github.io</a>
+                                            <input type="url" class="txt-Box" name="txtPhone">
                                         </td>
                                     </tr>
                                 </table>
                         </fieldset>
                     </form>
-                    <center>
+
                 </td>
-             
             </tr>
                 
             <tr>  
@@ -145,34 +136,47 @@
                     <form>
                             <fieldset>
                                 <legend>Academic Info</legend>
-                                <table border="0" width="100%">
+                                <table border="0" width="80%">
                                         <tr>
                                             <td class="font-Normal" width="23%">
-                                                Department :-
+                                                Department
                                             </td>
                                             <td>
-                                                Computer Science (CS)
+                                                <select class="txt-Box">
+                                                    <option>Computer Science</option>
+                                                    <option>Computer Science & Engineering</option>
+                                                    <option>Computer Science &  Software Engineering</option>
+                                                    <option>Computer Engineering</option>
+                                                    <option>Electrical & Electronics Engineering</option>
+                                                    <option>Bachalor of Business Administration</option>
+                                                    <option>Business Information</option>
+                                                    <option>Architecture</option>
+                                                    
+                                                </select>
                                             </td>
                                         </tr>
+    
                                         <tr>
                                             <td class="font-Normal">
-                                                Semester :-
+                                                Semester
                                             </td>
                                             <td>
-                                                Spring
+                                            <select class="txt-Box">
+                                                    <option>Spring</option>
+                                                    <option>Fall</option>   
+                                                    <option>Summer</option> 
+                                                </select>
                                             </td>
                                         </tr>
 
                                         <tr>
                                             <td class="font-Normal">
-                                                Year :-
+                                                Year
                                             </td>
                                             <td>
-                                                2005
+                                                <input type="date" class="txt-Box" name="txtPhone">
                                             </td>
                                         </tr>
-
-                                        
                                     </table>
                             </fieldset>
                         </form>
@@ -180,41 +184,38 @@
                 </td>
             </tr>
 
-
-            <tr>  <!--Working Activity -->
+            <tr>  <!--Student Others Info -->
                 <td>
                     <form>
                         <fieldset>
                             <legend>Working Activity</legend>
-                            <table border="0" width="100%">
+                            <table border="0" width="80%">
                                     <tr>
                                         <td class="font-Normal" width="23%">
-                                            Working Place :-
+                                            Working Place
                                         </td>
                                         <td>
-                                            Google
+                                            <input type="text" class="txt-Box" name ="txtGithub">
+                                        </td>
+                                    
+                                    </tr>
+
+                                    <tr>
+                                        <td class="font-Normal">
+                                            Website
+                                        </td>
+                                        <td>
+                                            <input type="url" class="txt-Box" name="txtStackOverflow">
                                         </td>
                                         
                                     </tr>
 
                                     <tr>
                                         <td class="font-Normal">
-                                            Web Site :-
+                                            Joining Date
                                         </td>
                                         <td>
-                                            <a href="https://google.com/">www.google.com</a>
-                                        </td>
-                                        <td>
-                                            <a href="http://www.aiub.edu/" class="link-Button">Go</a>
-                                        </td>
-                                    </tr>
-
-                                    <tr>
-                                        <td class="font-Normal">
-                                            Joining Date :-
-                                        </td>
-                                        <td>
-                                            02-09-2014
+                                            <input type="date" class="txt-Box" name="txtHackerRank">
                                         </td>
                                         
                                     </tr>
@@ -224,9 +225,15 @@
                     </form>
                 </td>
             </tr>
+            <tr> <!--Buttons -->
+                <td>
+                    <center>
+                        <button class="btn-Confirm">Save</button>
+                        <button class="btn-Reset">Delete</button>
+                    </center>
+                </td>
+            </tr>
 
-            
-            
             <tr>
                 <td colspan="2" class="fotter">
                     <center>

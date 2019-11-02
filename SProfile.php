@@ -40,7 +40,7 @@
     <form method="POST" action="#">
 
     <center>
-        <table border="1" width="100%">
+        <table border="0" width="100%">
 
             <tr> <!--Header-->
                 <td colspan="2" class="Profile-Header">
@@ -71,7 +71,7 @@
                 </td>
             </tr>
             <tr> <!--Student Personal Info -->
-                <td width="50%">
+                <td width="60%">
                     
                     <form>
                         <fieldset>
@@ -79,7 +79,7 @@
                             <table border="0" width="100%">
                                     <tr>
                                         <td class="font-Normal" width="23%">
-                                            Name
+                                            Name :-
                                         </td>
                                         <td>
                                             Nazib Mahfuz
@@ -88,7 +88,7 @@
 
                                     <tr>
                                         <td class="font-Normal">
-                                            E-mail
+                                            E-mail :-
                                         </td>
                                         <td>
                                             nazibmahfuz60@gmail.com
@@ -97,7 +97,7 @@
 
                                     <tr>
                                         <td class="font-Normal">
-                                            Phone No
+                                            Phone No :-
                                         </td>
                                         <td>
                                             01777127618
@@ -113,7 +113,7 @@
                     <table border="0" width="50%">
                         <tr>
                             <td class="profileMarks" colspan="5">
-                                Profile Marks
+                                Profile Marks 
                             </td>
                         </tr>
                         <tr>
@@ -162,7 +162,7 @@
                                 <table border="0" width="100%">
                                         <tr>
                                             <td class="font-Normal" width="23%">
-                                                Department
+                                                Department :-
                                             </td>
                                             <td>
                                                 Faculty of Science and Engineering
@@ -171,8 +171,8 @@
     
                                         <tr>
                                             <td class="font-Normal">
-                                                Program
-                                            </td>
+                                                Program :-
+                                            </td> 
                                             <td>
                                                 CSE
                                             </td>
@@ -180,7 +180,7 @@
     
                                         <tr>
                                             <td class="font-Normal">
-                                                Semester
+                                                Semester :-
                                             </td>
                                             <td>
                                                 7
@@ -205,8 +205,8 @@
                             <legend>Others Activity</legend>
                             <table border="0" width="100%">
                                     <tr>
-                                        <td class="font-Normal" width="20%">
-                                            Github
+                                        <td class="font-Normal" width="23%">
+                                            Github :-
                                         </td>
                                         <td>
                                             <a href="https://github.com/MahfuzNazib">Github</a>
@@ -218,7 +218,7 @@
 
                                     <tr>
                                         <td class="font-Normal">
-                                            StackOverflow
+                                            StackOverflow :-
                                         </td>
                                         <td>
                                             <a href="https://stackoverflow.com/">StackOver Flow</a>
@@ -230,7 +230,7 @@
 
                                     <tr>
                                         <td class="font-Normal">
-                                            Hacker Rank
+                                            Hacker Rank :-
                                         </td>
                                         <td>
                                             <a href="https://stackoverflow.com/">Hacker Rank</a>
@@ -241,7 +241,7 @@
                                     </tr>
                                     <tr>
                                         <td class="font-Normal">
-                                            Online Judge
+                                            Online Judge :-
                                         </td>
                                         <td>
                                             <a href="#">UVA</a>
@@ -252,7 +252,7 @@
                                     </tr>
                                     <tr>
                                         <td class="font-Normal">
-                                            IEEE
+                                            IEEE :-
                                         </td>
                                         <td>
                                             N/A
@@ -263,7 +263,7 @@
                                     </tr>
                                     <tr>
                                         <td class="font-Normal">
-                                            Portfolio
+                                            Portfolio :-
                                         </td>
                                         <td>
                                             <a href="mahfuznazib.github.io">Website</a>
@@ -274,7 +274,7 @@
                                     </tr>
                                     <tr>
                                         <td class="font-Normal">
-                                            Youtube
+                                            Youtube :-
                                         </td>
                                         
                                         <td>

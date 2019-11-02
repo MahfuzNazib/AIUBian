@@ -25,7 +25,7 @@
         }
         if(isset($_POST['editProfile']))
         {
-            header('location:AProfile.php');
+            header('location:AdProfile.php');
         }
 
 ?>

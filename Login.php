@@ -56,7 +56,7 @@
             }
             else
             {
-                if($uname == "Nazib" && $pass == "002")  //For Admin Login
+                /*if($uname == "Nazib" && $pass == "002")  //For Admin Login
                 {
                     $_SESSION['Username'] = $uname;
                     $_SESSION['Password'] == $pass;
@@ -81,6 +81,46 @@
                     $_SESSION['Username'] = $uname;
                     $_SESSION['Password'] = $pass;
                     header('location:AlumniHome.php');
+                }*/
+
+                //File Write
+                $mydata = fopen('MemberInfo.txt','r');
+                $data = fgets($mydata);
+                fclose($mydata);
+
+                $user = explode(" ",$data);
+
+                for($i=0; $i<5;$i++)
+                {
+                    for($j=0;$j<6;$j++)
+                    {
+                        if($user[$i][$j] == $uname && $user[$i][$j] == $pass)
+                        {
+                            if($user[$i][2] == "Student")
+                            {
+                                $_SESSION['Username'] = $uname;
+                                $_SESSION['Password'] = $pass;
+                                header('location:Home.php');
+                            }
+                            if($user[$i][2] == "Faculty")
+                            {
+                                $_SESSION['Username'] = $uname;
+                                $_SESSION['Password'] = $pass;
+                                header('location:FacultyHome.php');
+                            }
+                            if($user[$i][2] == "Alumni")
+                            {
+                                $_SESSION['Username'] = $uname;
+                                $_SESSION['Password'] = $pass;
+                                header('location:AlumniHome.php');
+                            }
+                        }
+                    }
+                }
+
+                if($uname=="admin")
+                {
+
                 }
                 else
                 {

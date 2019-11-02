@@ -56,17 +56,24 @@
             }
             else
             {
-                if($uname == "Nazib" && $pass == "002")
+                if($uname == "Nazib" && $pass == "002")  //For Admin Login
                 {
                     $_SESSION['Username'] = $uname;
                     $_SESSION['Password'] == $pass;
                     header('location:Admin.php');
                 }
-                if($uname == $pass)
+                if($uname == $pass)  //For Students Login
                 {
                     $_SESSION['Username'] = $uname;
                     $_SESSION['Password'] = $pass;
                     header('location:Home.php');
+                }
+
+                if($uname == "Faculty" && $pass == "123") //For Faculty Login
+                {
+                    $_SESSION['Username'] = $uname;
+                    $_SESSION['Password'] = $pass;
+                    header('location:FacultyHome.php');
                 }
                 else
                 {

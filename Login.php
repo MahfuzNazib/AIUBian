@@ -56,7 +56,7 @@
             }
             else
             {
-                /*if($uname == "Nazib" && $pass == "002")  //For Admin Login
+                if($uname == "Nazib" && $pass == "002")  //For Admin Login
                 {
                     $_SESSION['Username'] = $uname;
                     $_SESSION['Password'] == $pass;
@@ -81,10 +81,10 @@
                     $_SESSION['Username'] = $uname;
                     $_SESSION['Password'] = $pass;
                     header('location:AlumniHome.php');
-                }*/
+                }
 
                 //File Write
-                $mydata = fopen('MemberInfo.txt','r');
+                /*$mydata = fopen('MemberInfo.txt','r');
                 $data = fgets($mydata);
                 fclose($mydata);
 
@@ -116,12 +116,7 @@
                             }
                         }
                     }
-                }
-
-                if($uname=="admin")
-                {
-
-                }
+                }*/
                 else
                 {
                     $errInvalid = "<div class=\"invalid_User_Pass\">Invalid Username or Password</div>";

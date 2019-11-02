@@ -78,8 +78,7 @@
 
                 if($uname == "Alumni" && $pass == "333") //For Alumni
                 {
-                    $_SESSION['Username'] = $uname;
-                    $_SESSION['Password'] = $pass;
+                    setcookie("Username", $uname, time()+3600, "/");
                     header('location:AlumniHome.php');
                 }
 

@@ -1,6 +1,6 @@
 <?php
     session_start();
-    if(isset($_SESSION['Username']))
+    if(isset($_COOKIE['Username']))
     {
         if(isset($_POST['profile']))
         {

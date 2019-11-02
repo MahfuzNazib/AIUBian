@@ -1,6 +1,6 @@
 <?php
     session_start();
-    if(isset($_SESSION['Username']))
+    if(isset($_COOKIE['Username']))
     {
 
         if(isset($_POST['btnHome']))
@@ -38,7 +38,7 @@
         <tr class="Profile-Header">
             <td width=25%>
                 <center>
-                <?=$_SESSION['Username'] ?>
+                <?=$_COOKIE['Username'] ?>
                 </center>
             </td>
             <td>

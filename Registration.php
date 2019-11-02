@@ -6,6 +6,18 @@
         $ID = $_POST['txtID'];
         $status = $_POST['status'];
         $email = $_POST['txtmail'];
+        $phone = $_POST['txtphone'];
+        $username = $_POST['username'];
+        $password = $_POST['password'];
+
+
+        $data = $name." ".$ID." ".$status." ".$email." ".$phone." ".$username." ".$password."\r\n";
+
+        $myfile = fopen('MemberInfo.txt','a');
+        fwrite($myfile,$data);
+        fclose($myfile);
+
+        echo "Successfully Registered";
         
     }
 
@@ -27,7 +39,7 @@
     <table border="0" class="form-Center">
         <tr class="header">
             <td>
-                <marquee><img src="Images/Logo.png"></marquee>
+                <img src="Images/Logo.png">
                 
             </td>
             <td>
@@ -80,7 +92,7 @@
                 Phone
             </td>
             <td>
-                <input type="number" name="txtPhone" class="txt-Box" >
+                <input type="number" name="txtphone" class="txt-Box" >
             </td>
         </tr>
 
@@ -89,7 +101,7 @@
                 Set Username
             </td>
             <td>
-               <input type="text" class="txt-Box" required="required"> 
+               <input type="text" class="txt-Box" name="username" required="required"> 
             </td>
         </tr>
 
@@ -98,7 +110,7 @@
                 Password
             </td>
             <td>
-                <input type="password" class="txt-Box" required="required">
+                <input type="password" class="txt-Box" name="password" required="required">
             </td>
         </tr>
         <tr>

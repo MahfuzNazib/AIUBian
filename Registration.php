@@ -10,15 +10,22 @@
         $username = $_POST['username'];
         $password = $_POST['password'];
 
-
-        $data = $name." ".$ID." ".$status." ".$email." ".$phone." ".$username." ".$password."\r\n";
-
-        $myfile = fopen('MemberInfo.txt','a');
-        fwrite($myfile,$data);
-        fclose($myfile);
-
-        echo "Successfully Registered";
-        
+        //$conn = mysqli_connect('localhost','root','','test');
+        $conn = mysqli_connect('localhost','root','','test');
+        if(!$conn)
+        {
+            die("Connection Failed : ". mysqli_connect_error());
+        }
+        $sql = "INSERT INTO studentlist (Name,AIUB_ID,Email,Phone) values($name,$ID,$email,$phone)";
+        if(mysqli_query($conn,$sql))
+        {
+            echo "New Recored Successfully Saved";
+        }
+        else
+        {
+            echo "Error : ".$sql."<br>".mysqli_error($conn);
+        }
+        mysqli_close($conn);
     }
 
 ?>

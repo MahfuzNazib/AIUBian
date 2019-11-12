@@ -32,11 +32,11 @@
                         </td>
                             <td>
                                 <center>
-                                    <button class="profile-HeaderButton" name="btnProfile">Profile</button>
-                                    <button class="profile-HeaderButton" name="btnMembers">Members</button>
-                                    <button class="profile-HeaderButton" name="btnPosts">Posts</button>
-                                    <button class="profile-HeaderButton" name="btnTimeLine">TimeLine</button>
-                                    <button class="profile-HeaderButton" name="btnChat">Chat</button>
+                                    <button class="profile-HeaderButton" name="btnHome">Home</button>
+                                    <button class="profile-HeaderButton" name="btnAllPosts">All Posts</button>
+                                    <button class="profile-HeaderButton" name="btnFaculty">Faculty</button>
+                                    <button class="profile-HeaderButton" name="btnAlumni">Alumni</button>
+                                    <button class="profile-HeaderButton" name="btnStudents">Students</button>
                                     <button class="profile-HeaderButton" name="btnLogout">Logout</button>
                                     
                                 </center>
@@ -63,21 +63,9 @@
     {
         header('location:Logout.php');
     }
-    elseif(isset($_POST['btnProfile']))
+    elseif(isset($_POST['btnHome']))
     {
-        header('location:Adminprofile.php');
-    }
-    elseif(isset($_POST['btnTimeLine']))
-    {
-        header('location:AdminTimeLine.php');
-    }
-    elseif(isset($_POST['btnChat']))
-    {
-        header('location:AdminChat.php');
-    }
-    elseif(isset($_POST['btnPosts']))
-    {
-        header('location:PostVerify.php');
+        header('location:Admin.php');
     }
     
 ?>

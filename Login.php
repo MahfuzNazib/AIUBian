@@ -56,66 +56,40 @@
             }
             else
             {
-                if($uname == "Nazib" && $pass == "002")  //For Admin Login
-                {
-                    $_SESSION['Username'] = $uname;
-                    $_SESSION['Password'] == $pass;
-                    header('location:Admin.php');
-                }
-                if($uname == $pass)  //For Students Login
-                {
-                    $_SESSION['Username'] = $uname;
-                    $_SESSION['Password'] = $pass;
-                    header('location:Home.php');
-                }
 
-                if($uname == "Faculty" && $pass == "123") //For Faculty Login
+                $conn = mysqli_connect('localhost','root','','test');
+                $sql = "select * from logininfo where Username='{$uname}' and Password='{$pass}'";
+                $result = mysqli_query($conn,$sql);
+                $data = mysqli_fetch_assoc($result);
+
+                if(count($data) > 0)
                 {
-                    $_SESSION['Username'] = $uname;
-                    $_SESSION['Password'] = $pass;
-                    header('location:FacultyHome.php');
-                }
-
-                if($uname == "Alumni" && $pass == "333") //For Alumni
-                {
-                    setcookie("Username", $uname, time()+3600, "/");
-                    header('location:AlumniHome.php');
-                }
-
-                //File Write
-                /*$mydata = fopen('MemberInfo.txt','r');
-                $data = fgets($mydata);
-                fclose($mydata);
-
-                $user = explode(" ",$data);
-
-                for($i=0; $i<5;$i++)
-                {
-                    for($j=0;$j<6;$j++)
+                    //$_SESSION['Username'] = $uname;
+                    //header('location:Admin.php');
+                    //$conn = mysqli_connect('localhost','root','','test');
+                    $Status = "select Status from logininfo ";
+                    $results = mysqli_query($conn,$Status);
+                    $datas = mysqli_fetch_assoc($results); 
+                    
+                    if($datas == 1)
                     {
-                        if($user[$i][$j] == $uname && $user[$i][$j] == $pass)
-                        {
-                            if($user[$i][2] == "Student")
-                            {
-                                $_SESSION['Username'] = $uname;
-                                $_SESSION['Password'] = $pass;
-                                header('location:Home.php');
-                            }
-                            if($user[$i][2] == "Faculty")
-                            {
-                                $_SESSION['Username'] = $uname;
-                                $_SESSION['Password'] = $pass;
-                                header('location:FacultyHome.php');
-                            }
-                            if($user[$i][2] == "Alumni")
-                            {
-                                $_SESSION['Username'] = $uname;
-                                $_SESSION['Password'] = $pass;
-                                header('location:AlumniHome.php');
-                            }
-                        }
+                        $_SESSION['Username'] = $uname;
+                        header('location:Admin.php');
                     }
-                }*/
+                    elseif($datas == "2")
+                    {
+                        $_SESSION['Username'] = $uname;
+                        header('location:Home.php');
+                    }
+                    elseif($datas == "3")
+                    {
+                        $_SESSION['Username'] = $uname;
+                        header('location:AlumniHome.php');
+                    }
+                }
+                
+
+                
                 else
                 {
                     $errInvalid = "<div class=\"invalid_User_Pass\">Invalid Username or Password</div>";

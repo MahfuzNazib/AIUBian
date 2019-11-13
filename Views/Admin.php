@@ -59,7 +59,7 @@
 
     if(isset($_POST['btnLogout']))
     {
-        header('location:Logout.php');
+        header('location:../php/Logout.php');
     }
     elseif(isset($_POST['btnProfile']))
     {
@@ -148,7 +148,7 @@
                                     Nazib Mahfuz
                                 </td>
                                 <td width=35%>
-                                    <img src="Images/bg.jpg" height="180px" width="200px">
+                                    <img src="../Images/bg.jpg" height="180px" width="200px">
                                 </td>
                                 <td width=20%>
                                     <button class="btn-Block"> Block </button>
@@ -282,7 +282,7 @@
                                     Nazib Mahfuz
                                 </td>
                                 <td width=35%>
-                                    <img src="Images/bg.jpg" height="180px" width="200px">
+                                    <img src="../Images/bg.jpg" height="180px" width="200px">
                                 </td>
                                 <td width=20%>
                                     <button class="btn-Block"> Block </button>

@@ -90,7 +90,7 @@
                     MD.Al Amin
                 </td>
                 <td>
-                    <img src="Images/AlAminSir.png" height="100px" width="130px">
+                    <img src="../Images/AlAminSir.png" height="100px" width="130px">
                 </td>
                 <td>
                     alamin@aiub.edu
@@ -120,7 +120,7 @@
                     Mohaimen Bin Noor
                 </td>
                 <td>
-                    <img src="Images/NiloySir.png" height="100px" width="130px">
+                    <img src="../Images/NiloySir.png" height="100px" width="130px">
                 </td>
                 <td>
                     niloy@aiub.edu

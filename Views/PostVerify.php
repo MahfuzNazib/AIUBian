@@ -61,7 +61,7 @@
 
     if(isset($_POST['btnLogout']))
     {
-        header('location:Logout.php');
+        header('location:../php/Logout.php');
     }
     elseif(isset($_POST['btnHome']))
     {
@@ -138,7 +138,7 @@
                                     Nazib Mahfuz
                                 </td>
                                 <td width=35%>
-                                    <img src="Images/bg.jpg" height="180px" width="200px">
+                                    <img src="../Images/bg.jpg" height="180px" width="200px">
                                 </td>
                                 <td width=20%>
                                     <button class="btn-Block"> Block </button>
@@ -186,7 +186,7 @@
                                         </td>
                                         <td width=35%> <!--Description..Video/Audio/Image/Post-->
                                             <video controls>
-                                                    <source src="Videos/short-video-clip-nature-mp4.mp4" type="video/mp4">
+                                                    <source src="../Videos/short-video-clip-nature-mp4.mp4" type="video/mp4">
                                                 </video>
                                         </td>
                                         <td width=20%>
@@ -272,7 +272,7 @@
                                     Nazib Mahfuz
                                 </td>
                                 <td width=35%>
-                                    <img src="Images/bg.jpg" height="180px" width="200px">
+                                    <img src="../Images/bg.jpg" height="180px" width="200px">
                                 </td>
                                 <td width=20%>
                                     <button class="btn-Block"> Block </button>
@@ -405,7 +405,7 @@
                                     Nazib Mahfuz
                                 </td>
                                 <td width=35%>
-                                    <img src="Images/bg.jpg" height="180px" width="200px">
+                                    <img src="../Images/bg.jpg" height="180px" width="200px">
                                 </td>
                                 <td width=20%>
                                     <button class="btn-Block"> Block </button>

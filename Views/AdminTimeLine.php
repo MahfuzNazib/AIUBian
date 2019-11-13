@@ -79,7 +79,7 @@
                                 </tr>
                                 <tr>
                                     <td>
-                                        <img src="Images/adminicon.png" height="250px" width="100%">
+                                        <img src="../Images/adminicon.png" height="250px" width="100%">
                                     </td>
                                 </tr>
                                 <tr>
@@ -97,7 +97,7 @@
                                     </tr>
                                     <tr>
                                         <td>
-                                            <img src="Images/posts1.jpg" height="250px" width="100%">
+                                            <img src="../Images/posts1.jpg" height="250px" width="100%">
                                         </td>
                                     </tr>
                                     <tr>
@@ -116,7 +116,7 @@
                                     <tr>
                                         <td>
                                             <video controls>
-                                                <source src="Vedios/short-video-clip-nature-mp4.mp4" type="video/mp4">
+                                                <source src="../Vedios/short-video-clip-nature-mp4.mp4" type="video/mp4">
                                             </video>
                                         </td>
                                     </tr>
@@ -135,7 +135,7 @@
                                     </tr>
                                     <tr>
                                         <td>
-                                            <img src="Images/posts2.jpg" width="100%">
+                                            <img src="../Images/posts2.jpg" width="100%">
                                         </td>
                                     </tr>
                                     <tr>

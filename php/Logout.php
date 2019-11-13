@@ -3,6 +3,6 @@
     session_destroy();
 
     setcookie("Username", $uname, time()-3, "/"); //destroy cookie
-    header('location:Login.php');
+    header('location:../Views/Login.php');
 
 ?>

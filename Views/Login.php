@@ -56,44 +56,11 @@
             }
             else
             {
-
-                $conn = mysqli_connect('localhost','root','','test');
-                $sql = "select * from logininfo where Username='{$uname}' and Password='{$pass}'";
-                $result = mysqli_query($conn,$sql);
-                $data = mysqli_fetch_assoc($result);
-
-                if(count($data) > 0)
-                {
-                    $_SESSION['Username'] = $uname;
-                    header('location:Admin.php');
-                    //$conn = mysqli_connect('localhost','root','','test');
-                    /*$Status = "select Status from logininfo ";
-                    $results = mysqli_query($conn,$Status);
-                    $datas = mysqli_fetch_assoc($results); 
-                    
-                    if($datas == 1)
-                    {
-                        $_SESSION['Username'] = $uname;
-                        header('location:Admin.php');
-                    }
-                    elseif($datas == "2")
-                    {
-                        $_SESSION['Username'] = $uname;
-                        header('location:Home.php');
-                    }
-                    elseif($datas == "3")
-                    {
-                        $_SESSION['Username'] = $uname;
-                        header('location:AlumniHome.php');
-                    }*/
-                }
-                
-
-                
-                else
-                {
-                    $errInvalid = "<div class=\"invalid_User_Pass\">Invalid Username or Password</div>";
-                }
+                header('location:../php/LoginCheck.php');
+                //else
+                //{
+                  //  $errInvalid = "<div class=\"invalid_User_Pass\">Invalid Username or Password</div>";
+                //}
             }
         }
         
@@ -113,14 +80,14 @@
     <style type="text/css">
         body
         {
-            background-image: url(bg.jpg);
+            background-image: url(../bg.jpg);
             background-size: cover;
         }
     </style>
 </head>
 <body>
     <table border="0" class="table" width="320px" height="400px">
-        <form method="POST" action="#">
+        <form method="POST" action="../php/LoginCheck.php">
         <tr>
             <td>
                 <center>

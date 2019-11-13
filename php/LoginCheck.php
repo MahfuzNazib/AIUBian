@@ -16,6 +16,10 @@
             $_SESSION['Username'] = $uname;
             header('location:../Views/Admin.php');
         }
+        else
+        {
+            header('location:../Views/Login.php?msg=Invalid Username or Password');
+        }
     }
 
 ?>

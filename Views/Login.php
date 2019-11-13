@@ -57,10 +57,10 @@
             else
             {
                 header('location:../php/LoginCheck.php');
-                //else
-                //{
-                  //  $errInvalid = "<div class=\"invalid_User_Pass\">Invalid Username or Password</div>";
-                //}
+                if(isset($_GET['msg']))
+                {
+                    $errInvalid = "<div class=\"invalid_User_Pass\">Invalid Username or Password</div>";
+                }
             }
         }
         
@@ -87,7 +87,8 @@
 </head>
 <body>
     <table border="0" class="table" width="320px" height="400px">
-        <form method="POST" action="../php/LoginCheck.php">
+        <!--<form method="POST" action="../php/LoginCheck.php">-->
+        <form method="POST" action="#">
         <tr>
             <td>
                 <center>

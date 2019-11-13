@@ -14,7 +14,10 @@
         if(count($data) > 0)
         {
             $_SESSION['Username'] = $uname;
-            header('location:../Views/Admin.php');
+            //header('location:../Views/Admin.php');
+            header('location:../Views/FacultyHome.php');
+            //header('location:..//Views/StudentHome.php');
+            //header('location:../AlumniHome.php');
         }
         else
         {

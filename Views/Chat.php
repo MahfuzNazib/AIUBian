@@ -5,19 +5,19 @@
 
         if(isset($_POST['btnHome']))
         {
-            header('location:FacultyHome.php');
+            header('location:StudentHome.php');
         }
         if(isset($_POST['btnProfile']))
         {
-            header('location:FProfile.php');
+            header('location:SProfile.php');
         }
         if(isset($_POST['btnTimeLine']))
         {
-            header('location:FTimeLine.php');
+            header('location:TimeLine.php');
         }
         if(isset($_POST['btnLogout']))
         {
-            header('location:Logout.php');
+            header('location:../php/Logout.php');
         }
     
 ?>

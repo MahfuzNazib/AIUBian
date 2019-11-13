@@ -5,15 +5,15 @@
 
         if(isset($_POST['btnProfile']))
         {
-            header('location:FProfile.php');
+            header('location:SProfile.php');
         }
         if(isset($_POST['btnTimeLine']))
         {
-            header('location:FTimeLine.php');
+            header('location:TimeLine.php');
         }
         if(isset($_POST['btnChat']))
         {
-            header('location:FChat.php');
+            header('location:Chat.php');
         }
         if(isset($_POST['btnLogout']))
         {

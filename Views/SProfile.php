@@ -9,7 +9,7 @@
         }
         elseif(isset($_POST['btnHome']))
         {
-            header('location:Home.php');
+            header('location:StudentHome.php');
         }
         elseif(isset($_POST['btnTimeLine']))
         {
@@ -17,7 +17,7 @@
         }
         elseif(isset($_POST['btnLogout']))
         {
-            header('location:Logout.php');
+            header('location:../php/Logout.php');
         }
         elseif(isset($_POST['btnChat']))
         {
@@ -57,8 +57,8 @@
             <tr height="150px">  <!--Profile Picture -->
                 <td colspan="2">
                     <center>
-                            <img src="Images/DSC_5841.JPG" height="150px" width="200px">
-                            <img class="edit-button" src="Images/editicon.png" height="20px" width="40px">
+                            <img src="../Images/DSC_5841.JPG" height="150px" width="200px">
+                            <img class="edit-button" src="../Images/editicon.png" height="20px" width="40px">
                     </center>
                 </td>
             </tr>  <!--Edit Profile Button -->
@@ -119,31 +119,31 @@
                         <tr>
                             <td>
                                 <center>
-                                    <img src="Images/gold.png" height="50px" width="50px">
+                                    <img src="../Images/gold.png" height="50px" width="50px">
                                 </center>
                                 
                             </td>
                             <td>
                                 <center>
-                                    <img src="Images/gold.png" height="50px" width="50px">
+                                    <img src="../Images/gold.png" height="50px" width="50px">
                                 </center>
                                 
                             </td>
                             <td>
                                 <center>
-                                    <img src="Images/gold.png" height="50px" width="50px">
+                                    <img src="../Images/gold.png" height="50px" width="50px">
                                 </center>
                                 
                             </td>
 
                             <td>
                                 <center>
-                                    <img src="Images/gold.png" height="50px" width="50px">
+                                    <img src="../Images/gold.png" height="50px" width="50px">
                                 </center>
                             </td>
                             <td>
                                 <center>
-                                    <img src="Images/gold.png" height="50px" width="50px">
+                                    <img src="../Images/gold.png" height="50px" width="50px">
                                 </center>
                             </td>
                         </tr>

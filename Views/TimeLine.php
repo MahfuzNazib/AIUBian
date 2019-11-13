@@ -25,11 +25,11 @@
             <td>
                 <center>
                     
-                    <a href="Home.php"><button class="profile-HeaderButton">Home</button></a>
+                    <a href="StudentHome.php"><button class="profile-HeaderButton">Home</button></a>
                     <a href="SProfile.php"><button class="profile-HeaderButton">Profile</button></a>
                     <a href="TimeLine.php"><button class="profile-HeaderButton">TimeLine</button></a>
                     <a href="Chat.php"><button class="profile-HeaderButton">Chat</button></a>
-                    <a href="Logout.php"><button class="profile-HeaderButton">Logout</button></a>
+                    <a href="../php/Logout.php"><button class="profile-HeaderButton">Logout</button></a>
                     </center>
                     
             </td>
@@ -79,7 +79,7 @@
                                 </tr>
                                 <tr>
                                     <td>
-                                        <img src="Images/Logo.png" height="250px" width="100%">
+                                        <img src="../Images/Logo.png" height="250px" width="100%">
                                     </td>
                                 </tr>
                                 <tr>
@@ -97,7 +97,7 @@
                                     </tr>
                                     <tr>
                                         <td>
-                                            <img src="Images/posts1.jpg" height="250px" width="100%">
+                                            <img src="../Images/posts1.jpg" height="250px" width="100%">
                                         </td>
                                     </tr>
                                     <tr>

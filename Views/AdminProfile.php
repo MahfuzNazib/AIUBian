@@ -74,7 +74,7 @@
                     <tr>
                         <td colspan="3">
                             <center>
-                                <img src="Images/DSC_5841.JPG" height="150px" width="200px">
+                                <img src="../Images/DSC_5841.JPG" height="150px" width="200px">
                             </center>
                         </td>
                         

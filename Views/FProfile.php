@@ -1,27 +1,27 @@
 <?php
     session_start();
-    if(isset($_COOKIE['Username']))
+    if(isset($_SESSION['Username']))
     {
 
         if(isset($_POST['edit']))
         {
-            header('location:AlumniProfile.php');
+            header('location:FacultyProfile.php');
         }
         elseif(isset($_POST['btnHome']))
         {
-            header('location:AlumniHome.php');
+            header('location:FacultyHome.php');
         }
         elseif(isset($_POST['btnTimeLine']))
         {
-            header('location:ATimeLine.php');
+            header('location:FTimeLine.php');
         }
         elseif(isset($_POST['btnLogout']))
         {
-            header('location:Logout.php');
+            header('location:../php/Logout.php');
         }
         elseif(isset($_POST['btnChat']))
         {
-            header('location:AChat.php');
+            header('location:FChat.php');
         }
        
 
@@ -58,7 +58,7 @@
             <tr height="150px">  <!--Profile Picture -->
                 <td>
                     <center>
-                            <img src="Images/zaheed.png" height="150px" width="200px">
+                            <img src="../Images/AlAminSir.png" height="150px" width="200px">
                             <img class="edit-button" src="Images/editicon.png" height="20px" width="40px">
                     </center>
                 </td>
@@ -83,7 +83,7 @@
                                             Name :-
                                         </td>
                                         <td>
-                                            Zaheed Sabur
+                                            MD Al Amin 
                                         </td>
                                     </tr>
 
@@ -92,7 +92,7 @@
                                             E-mail :-
                                         </td>
                                         <td>
-                                            zaheed@.gmail.com
+                                            alamin@aiub.edu
                                         </td>
                                     </tr>
 
@@ -159,20 +159,29 @@
                                                 Semester :-
                                             </td>
                                             <td>
-                                                Spring
+                                                7
                                             </td>
                                         </tr>
 
                                         <tr>
                                             <td class="font-Normal">
-                                                Year :-
+                                                Published Paper :-
                                             </td>
                                             <td>
-                                                2005
+                                                05
                                             </td>
                                         </tr>
 
-                                        
+                                        <tr>
+                                            <td class="font-Normal">
+                                                Thesis Domain :-
+                                            </td>
+                                            <td>
+                                                Quantum Computing,Nuclear Science, Advanced Web Techonology
+                                            </td>
+                                        </tr>
+
+
                                     </table>
                             </fieldset>
                         </form>
@@ -192,7 +201,7 @@
                                             Working Place :-
                                         </td>
                                         <td>
-                                            Google
+                                            American International University-Bangladesh
                                         </td>
                                         
                                     </tr>
@@ -202,7 +211,7 @@
                                             Web Site :-
                                         </td>
                                         <td>
-                                            <a href="https://google.com/">www.google.com</a>
+                                            <a href="https://stackoverflow.com/">www.aiub.edu</a>
                                         </td>
                                         <td>
                                             <a href="http://www.aiub.edu/" class="link-Button">Go</a>
@@ -214,7 +223,7 @@
                                             Joining Date :-
                                         </td>
                                         <td>
-                                            02-09-2014
+                                            02-09-2017
                                         </td>
                                         
                                     </tr>

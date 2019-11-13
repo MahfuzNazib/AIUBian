@@ -1,19 +1,19 @@
 <?php
-    //session_start();
-    if(isset($_COOKIE['Username']))
+    session_start();
+    if(isset($_SESSION['Username']))
     {
 
         if(isset($_POST['btnProfile']))
         {
-            header('location:AProfile.php');
+            header('location:FProfile.php');
         }
         if(isset($_POST['btnTimeLine']))
         {
-            header('location:ATimeLine.php');
+            header('location:FTimeLine.php');
         }
         if(isset($_POST['btnChat']))
         {
-            header('location:AChat.php');
+            header('location:FChat.php');
         }
         if(isset($_POST['btnLogout']))
         {
@@ -29,7 +29,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="App.css">
     <link rel="stylesheet" href="Admin.css">
-    <title>Alumni Home</title>
+    <title>Home</title>
 </head>
 <body class="body-margin">
     <form action="#" method="POST">
@@ -37,7 +37,7 @@
         <tr class="Profile-Header">
             <td width=25%>
                 <center>
-                    <h3><?=$_COOKIE['Username'] ?></h3>
+                    <h3><?=$_SESSION['Username'] ?></h3>
                 </center>
             </td>
             <td>
@@ -90,11 +90,14 @@
             </tr>
             <tr>
                 <td>
-                    <h3>Zahid Sabur</h3>
+                    <h3>MD Al Amin</h3>
                     <i>1st Nov. 19</i>
                     <p>
-                        Joining Google Principle Engineer<br>
-                        Works at- Google
+                        jkbvfdkjbvkjfbvfvfdnvbfdjkhb<br>
+                        dkbdfvbfdkjbvfkdjbvfkjd<br>
+                        hvbfdjhbvkjdfbvkjdfbvfjdv<br>
+                        cjdhscvgjhdfsbdfkjbvfd<br>
+                        hvb fdjhvbfdhjbv<br>
                     </p>
                     <center>
                         <button class="profile-HeaderButton">1 Likes</button>

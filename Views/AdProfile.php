@@ -8,7 +8,7 @@
         }
         elseif(isset($_POST['logout']))
         {
-            header('location:Logout.php');
+            header('location:../php/Logout.php');
         }
         elseif(isset($_POST['timeline']))
         {
@@ -31,7 +31,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="App.css">
-    <title>StudentProfile</title>
+    <title>AdminProfile</title>
 </head>
 <body class="body-margin">
     <form method="POST" action="#">
@@ -55,7 +55,7 @@
             <tr height="150px">  <!--Profile Picture -->
                 <td>
                     <center>
-                            <img src="Images/me.png" height="150px" width="200px">
+                            <img src="../Images/me.png" height="150px" width="200px">
                             <!--<img class="edit-button" src="Images/editicon.png" height="20px" width="40px">-->
                             <form action="upload.php" method="POST" enctype="multipart/form-data">
                         <input type="file" name="file">
@@ -75,7 +75,7 @@
                                             Name
                                         </td>
                                         <td>
-                                            <input type="text" class="txt-Box" name ="txtName">
+                                            <input type="text" class="txt-Box" name ="txtName" value="Nazib Mahfuz">
                                         </td>
                                     </tr>
 
@@ -84,7 +84,7 @@
                                             E-mail
                                         </td>
                                         <td>
-                                            <input type="email" class="txt-Box" name="txtMail">
+                                            <input type="email" class="txt-Box" name="txtMail" value = "nazibmahfuz60@gmail.com">
                                         </td>
                                     </tr>
 

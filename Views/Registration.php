@@ -1,52 +1,20 @@
-<?php
-
-    if(isset($_POST['submit']))
-    {
-        $name = $_POST['txtName'];
-        $ID = $_POST['txtID'];
-        $status = $_POST['status'];
-        $email = $_POST['txtmail'];
-        $phone = $_POST['txtphone'];
-        $username = $_POST['username'];
-        $password = $_POST['password'];
-
-        //$conn = mysqli_connect('localhost','root','','test');
-        $conn = mysqli_connect('localhost','root','','test');
-        if(!$conn)
-        {
-            die("Connection Failed : ". mysqli_connect_error());
-        }
-        $sql = "INSERT INTO studentlist (Name,AIUB_ID,Email,Phone) values($name,$ID,$email,$phone)";
-        if(mysqli_query($conn,$sql))
-        {
-            echo "New Recored Successfully Saved";
-        }
-        else
-        {
-            echo "Error : ".$sql."<br>".mysqli_error($conn);
-        }
-        mysqli_close($conn);
-    }
-
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="Stylesheet" href="App.css">
+    <link rel="Stylesheet" href="../App.css">
     <title>Registration</title>
 </head>
 <body>
-    <form action="#" method="POST">
+    <form action="../php/RegistrationCheck.php" method="POST">
 
     
     <table border="0" class="form-Center">
         <tr class="header">
             <td>
-                <img src="Images/Logo.png">
+                <img src="../Images/Logo.png">
                 
             </td>
             <td>

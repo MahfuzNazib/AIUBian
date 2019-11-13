@@ -64,10 +64,10 @@
 
                 if(count($data) > 0)
                 {
-                    //$_SESSION['Username'] = $uname;
-                    //header('location:Admin.php');
+                    $_SESSION['Username'] = $uname;
+                    header('location:Admin.php');
                     //$conn = mysqli_connect('localhost','root','','test');
-                    $Status = "select Status from logininfo ";
+                    /*$Status = "select Status from logininfo ";
                     $results = mysqli_query($conn,$Status);
                     $datas = mysqli_fetch_assoc($results); 
                     
@@ -85,7 +85,7 @@
                     {
                         $_SESSION['Username'] = $uname;
                         header('location:AlumniHome.php');
-                    }
+                    }*/
                 }
                 
 

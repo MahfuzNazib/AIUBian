@@ -15,9 +15,10 @@
         {
             $_SESSION['Username'] = $uname;
             //header('location:../Views/Admin.php');
-            header('location:../Views/FacultyHome.php');
+            //header('location:../Views/FacultyHome.php');
             //header('location:..//Views/StudentHome.php');
             //header('location:../AlumniHome.php');
+            header('location:../Views/AlumniHome.php');
         }
         else
         {

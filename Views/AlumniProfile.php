@@ -1,6 +1,6 @@
 <?php
     session_start();
-    if(isset($_COOKIE['Username']))
+    if(isset($_SESSION['Username']))
     {
 
         if(isset($_POST['edit']))
@@ -58,8 +58,8 @@
             <tr height="150px">  <!--Profile Picture -->
                 <td>
                     <center>
-                            <img src="Images/zaheed.png" height="150px" width="200px">
-                            <img class="edit-button" src="Images/editicon.png" height="20px" width="40px">
+                            <img src="../Images/zaheed.png" height="150px" width="200px">
+                            <img class="edit-button" src="../Images/editicon.png" height="20px" width="40px">
                     </center>
                 </td>
             </tr>  <!--Edit Profile Button -->
@@ -110,7 +110,7 @@
                                             Facebook Profile :-
                                         </td>
                                         <td>
-                                            <a href="https://www.facebook.com/alamin200290">Al Amin</a>
+                                            <a href="https://www.facebook.com/alamin200290">Zaheed Sabur</a>
                                         </td>
                                     </tr>
 

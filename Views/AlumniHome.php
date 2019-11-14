@@ -1,21 +1,21 @@
 <?php
-    //session_start();
-    if(isset($_COOKIE['Username']))
+    session_start();
+    if(isset($_SESSION['Username']))
     {
 
         if(isset($_POST['btnProfile']))
         {
-            header('location:AProfile.php');
+            header('location:AlumniProfile.php');
         }
-        if(isset($_POST['btnTimeLine']))
+        elseif(isset($_POST['btnTimeLine']))
         {
-            header('location:ATimeLine.php');
+            header('location:AlumniTimeLine.php');
         }
-        if(isset($_POST['btnChat']))
+        elseif(isset($_POST['btnChat']))
         {
-            header('location:AChat.php');
+            header('location:AdminChat.php');
         }
-        if(isset($_POST['btnLogout']))
+        elseif(isset($_POST['btnLogout']))
         {
             header('location:../php/Logout.php');
         }
@@ -37,7 +37,7 @@
         <tr class="Profile-Header">
             <td width=25%>
                 <center>
-                    <h3><?=$_COOKIE['Username'] ?></h3>
+                    <h3><?=$_SESSION['Username'] ?></h3>
                 </center>
             </td>
             <td>
@@ -556,7 +556,7 @@
 </html>
 
 <?php
-    }
+   }
 ?>
         
         <table width="100%">

@@ -13,7 +13,7 @@
         }
         elseif(isset($_POST['btnChat']))
         {
-            header('location:AdminChat.php');
+            header('location:AlumniChat.php');
         }
         elseif(isset($_POST['btnLogout']))
         {

@@ -1,6 +1,6 @@
 <?php
     session_start();
-    if(isset($_COOKIE['Username']))
+    if(isset($_SESSION['Username']))
     {
 
         if(isset($_POST['btnHome']))
@@ -9,15 +9,15 @@
         }
         if(isset($_POST['btnProfile']))
         {
-            header('location:AProfile.php');
+            header('location:AlumniProfile.php');
         }
         if(isset($_POST['btnTimeLine']))
         {
-            header('location:ATimeLine.php');
+            header('location:AlumniTimeLine.php');
         }
         if(isset($_POST['btnLogout']))
         {
-            header('location:Logout.php');
+            header('location:../php/Logout.php');
         }
     
 ?>
@@ -38,7 +38,7 @@
         <tr class="Profile-Header">
             <td width=25%>
                 <center>
-                <?=$_COOKIE['Username'] ?>
+                <?=$_SESSION['Username'] ?>
                 </center>
             </td>
             <td>

@@ -26,10 +26,10 @@
                 <center>
                     
                     <a href="AlumniHome.php"><button class="profile-HeaderButton">Home</button></a>
-                    <a href="AProfile.php"><button class="profile-HeaderButton">Profile</button></a>
-                    <a href="ATimeLine.php"><button class="profile-HeaderButton">TimeLine</button></a>
-                    <a href="AChat.php"><button class="profile-HeaderButton">Chat</button></a>
-                    <a href="Logout.php"><button class="profile-HeaderButton">Logout</button></a>
+                    <a href="AlumniProfile.php"><button class="profile-HeaderButton">Profile</button></a>
+                    <a href="AlumniTimeLine.php"><button class="profile-HeaderButton">TimeLine</button></a>
+                    <a href="AlumniChat.php"><button class="profile-HeaderButton">Chat</button></a>
+                    <a href="../php/Logout.php"><button class="profile-HeaderButton">Logout</button></a>
                     </center>
                     
             </td>

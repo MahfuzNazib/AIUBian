@@ -17,7 +17,7 @@
         }
         if(isset($_POST['btnLogout']))
         {
-            header('location:Logout.php');
+            header('location:../php/Logout.php');
         }
 
 ?>

@@ -13,9 +13,7 @@
 
         $status = login($uname,$pass);
 
-        print_r($status);
-
-        //if($status == "Student")
+        //print_r($status);
         if($status['status'] == "Student")
         {
             echo "Hellow";
@@ -29,20 +27,22 @@
             $_SESSION['Password'] = $pass;
             header('location:../Views/AlumniHome.php');
         }
-
-        /*$count = login($uname,$pass);
-
-        if($count > 0)
+        elseif($status['status'] == "Faculty")
         {
             $_SESSION['Username'] = $uname;
-            header('location:../Views/StudentHome.php');
+            $_SESSION['Password'] = $pass;
+            header('location:../Views/FacultyHome.php');
+        }
+        elseif($status['status'] == "Admin")
+        {
+            $_SESSION['Username'] = $uname;
+            $_SESSION['Password'] = $pass;
+            header('location:../Views/Admin/Admin.php');
         }
         else
         {
-            header('location:../Views/Login.php?$err=Invalid Username or Password');
-        }*/
-
-        
+            header('location:../Views/Login.php?$err = Invalid Username or Password');
+        }
     }
 
 ?>

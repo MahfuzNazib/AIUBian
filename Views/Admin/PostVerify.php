@@ -12,8 +12,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="App.css">
-    <link rel="stylesheet" href="Admin.css">
+    <link rel="stylesheet" href="../App.css">
+    <link rel="stylesheet" href="../Admin.css">
     <title>admin</title>
 </head>
 <body>
@@ -138,7 +138,7 @@
                                     Nazib Mahfuz
                                 </td>
                                 <td width=35%>
-                                    <img src="../Images/bg.jpg" height="180px" width="200px">
+                                    <img src="../Admin/Images/bg.jpg" height="180px" width="200px">
                                 </td>
                                 <td width=20%>
                                     <button class="btn-Block"> Block </button>

@@ -1,28 +1,48 @@
 
 <?php
+    
     session_start();
+    require_once('../DB/dbLogin/LoginFunctions.php');
+    
     if(isset($_POST['submit']))
     {
         $uname = $_POST['Username'];
         $pass = $_POST['Password'];
         
-        $conn = mysqli_connect('localhost','root','','test');
-        $sql = "select * from logininfo where Username='{$uname}' and Password='{$pass}'";
-        $result = mysqli_query($conn,$sql);
-        $data = mysqli_fetch_assoc($result);
+        
 
-        if(count($data) > 0)
+        $status = login($uname,$pass);
+
+        print_r($status);
+
+        //if($status == "Student")
+        if($status['status'] == "Student")
+        {
+            echo "Hellow";
+            $_SESSION['Username'] = $uname;
+            $_SESSION['Password'] = $pass;
+            header('location:../Views/StudentHome.php');
+        }
+        elseif($status['status'] == "Alumni")
         {
             $_SESSION['Username'] = $uname;
-            //header('location:../Views/Admin.php');
-            //header('location:../Views/FacultyHome.php');
-            header('location:..//Views/StudentHome.php');
-            //header('location:../Views/AlumniHome.php');
+            $_SESSION['Password'] = $pass;
+            header('location:../Views/AlumniHome.php');
+        }
+
+        /*$count = login($uname,$pass);
+
+        if($count > 0)
+        {
+            $_SESSION['Username'] = $uname;
+            header('location:../Views/StudentHome.php');
         }
         else
         {
-            header('location:../Views/Login.php?msg=Invalid Username or Password');
-        }
+            header('location:../Views/Login.php?$err=Invalid Username or Password');
+        }*/
+
+        
     }
 
 ?>

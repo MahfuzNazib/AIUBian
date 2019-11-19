@@ -1,5 +1,8 @@
 <?php
-
+    require_once('../DB/dbLogin/LoginFunctions.php');
+    require_once('../DB/dbStudent/StudentFunctions.php');
+    require_once('../DB/dbAlumni/AlumniFunctions.php');
+    require_once('../DB/dbFaculty/FacultyFunctions.php');
     if(isset($_POST['submit']))
     {
         $name = $_POST['txtName'];
@@ -10,21 +13,69 @@
         $username = $_POST['username'];
         $password = $_POST['password'];
         
-        $conn = mysqli_connect('localhost','root','','test');
-        if(!$conn)
+        if($status == "Student")  //For Student 
         {
-            die("Connection Failed : ". mysqli_connect_error());
+            $register = StudentProfile($email,$name,$ID,$phone);
+            $login = Login($email,$username,$password,$status);
+            if($register)
+            {
+                if($login)
+                {
+                    header('location:../Views/Login.php?$msg=Successfully Register');
+                }
+                else
+                {
+                    header('location:../Views/Registration.php?$msg=Invalid Login Info');
+                }
+            }
+            else
+            {
+                header('location:../Views/Registration.php?$msg=Not Enough Information');
+            }
         }
-        $sql = "INSERT INTO studentlist values('{$name}','{$ID}','{$email}',{$phone})";
-        if(mysqli_query($conn,$sql))
+
+        if($status == "Alumni")  //For Alumni 
         {
-            echo "Successfully Registered.";
+            $register = AlumniProfile($email,$name,$ID,$phone);
+            $login = Login($email,$username,$password,$status);
+            if($register)
+            {
+                if($login)
+                {
+                    header('location:../Views/Login.php?$msg=Successfully Register');
+                }
+                else
+                {
+                    header('location:../Views/Registration.php?$msg=Invalid Login Info');
+                }
+            }
+            else
+            {
+                header('location:../Views/Registration.php?$msg=Not Enough Information');
+            }
         }
-        else
+
+        if($status == "Faculty")  //For Faculty 
         {
-            echo "Error : ".$sql."<br>".mysqli_error($conn);
+            $register = FacultyProfile($email,$name,$ID,$phone);
+            $login = Login($email,$username,$password,$status);
+            if($register)
+            {
+                if($login)
+                {
+                    header('location:../Views/Login.php?$msg=Successfully Register');
+                }
+                else
+                {
+                    header('location:../Views/Registration.php?$msg=Invalid Login Info');
+                }
+            }
+            else
+            {
+                header('location:../Views/Registration.php?$msg=Not Enough Information');
+            }
         }
-        mysqli_close($conn);
+        
     }
 
 ?>

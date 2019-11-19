@@ -1,7 +1,7 @@
 <?php
     require_once('../DB/db.php');
     
-    function login($username, $password)
+    function logininfo($username, $password)
     {
         $conn = getConnection();
         $sql = "SELECT * FROM logininfo WHERE username='{$username}' and password='{$password}'";
@@ -18,4 +18,19 @@
             return $status;
         }
     }
+
+    function Login($email,$username,$password,$status)
+    {
+        $conn = getConnection();
+        $sql = "INSERT INTO logininfo VALUES('{$email}','{$username}','{$password}','{$status}')";
+        if(mysqli_query($conn,$sql))
+        {
+            return true;
+        }
+        else
+        {
+            false;
+        }
+    }
+     
 ?>

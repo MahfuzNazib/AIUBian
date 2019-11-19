@@ -11,7 +11,7 @@
         
         
 
-        $status = login($uname,$pass);
+        $status = logininfo($uname,$pass);
 
         //print_r($status);
         if($status['status'] == "Student")

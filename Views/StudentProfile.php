@@ -1,7 +1,13 @@
 <?php
     session_start();
+    require_once('../DB/dbStudent/StudentFunctions.php');
     if(isset($_SESSION['Username']))
     {
+        $username = $_SESSION['Username'];
+        $password = $_SESSION['Password'];
+
+        $data = getStudentData($username,$password);
+
         if(isset($_POST['profile']))
         {
             header('location:SProfile.php');
@@ -75,7 +81,7 @@
                                             Name
                                         </td>
                                         <td>
-                                            <input type="text" class="txt-Box" name ="txtName">
+                                            <input type="text" class="txt-Box" name ="txtName" value="<?=$data['Name']; ?>">
                                         </td>
                                     </tr>
 
@@ -178,7 +184,7 @@
                                             Github
                                         </td>
                                         <td>
-                                            <input type="url" class="txt-Box" name ="txtGithub">
+                                            <input type="url" class="txt-Box" name ="txtGithub" value="<?=$data['Github']; ?>">
                                         </td>
                                         <td>
                                             <a href="#" class="link-Button">Go</a>

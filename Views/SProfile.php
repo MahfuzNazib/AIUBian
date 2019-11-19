@@ -1,7 +1,12 @@
 <?php
     session_start();
+    require_once('../DB/dbStudent/StudentFunctions.php');
     if(isset($_SESSION['Username']))
     {
+        $username = $_SESSION['Username'];
+        $password = $_SESSION['Password'];
+
+        $data = getStudentData($username,$password);
 
         if(isset($_POST['edit']))
         {
@@ -82,7 +87,7 @@
                                             Name :-
                                         </td>
                                         <td>
-                                            Nazib Mahfuz
+                                            <?=$data['Name']; ?>
                                         </td>
                                     </tr>
 
@@ -91,7 +96,7 @@
                                             E-mail :-
                                         </td>
                                         <td>
-                                            nazibmahfuz60@gmail.com
+                                            <?=$data['email']; ?>
                                         </td>
                                     </tr>
 
@@ -100,7 +105,7 @@
                                             Phone No :-
                                         </td>
                                         <td>
-                                            01777127618
+                                            <?=$data['Phone']; ?>
                                         </td>
                                     </tr>
                                 </table>
@@ -165,7 +170,7 @@
                                                 Department :-
                                             </td>
                                             <td>
-                                                Faculty of Science and Engineering
+                                                <?=$data['Dept']; ?>
                                             </td>
                                         </tr>
     
@@ -174,7 +179,7 @@
                                                 Program :-
                                             </td> 
                                             <td>
-                                                CSE
+                                                <?=$data['Program']; ?>
                                             </td>
                                         </tr>
     
@@ -183,7 +188,7 @@
                                                 Semester :-
                                             </td>
                                             <td>
-                                                7
+                                                <?=$data['SemesterNo']; ?>
                                             </td>
                                         </tr>
                                     </table>
@@ -209,10 +214,10 @@
                                             Github :-
                                         </td>
                                         <td>
-                                            <a href="https://github.com/MahfuzNazib">Github</a>
+                                            <a href="<?=$data['Github']; ?>"><?=$data['Github']; ?></a>
                                         </td>
                                         <td>
-                                            <a href="https://github.com/MahfuzNazib" class="link-Button">Go</a>
+                                            <a href="<?=$data['Github']; ?>" class="link-Button">Go</a>
                                         </td>
                                     </tr>
 
@@ -221,7 +226,7 @@
                                             StackOverflow :-
                                         </td>
                                         <td>
-                                            <a href="https://stackoverflow.com/">StackOver Flow</a>
+                                            <a href="<?=$data['StackOverFlow']; ?>"><?=$data['StackOverFlow']; ?></a>
                                         </td>
                                         <td>
                                             <a href="https://stackoverflow.com/" class="link-Button">Go</a>
@@ -233,7 +238,7 @@
                                             Hacker Rank :-
                                         </td>
                                         <td>
-                                            <a href="https://stackoverflow.com/">Hacker Rank</a>
+                                            <a href="<?=$data['HackerRank']; ?>"><?=$data['HackerRank']; ?></a>
                                         </td>
                                         <td>
                                             <a href="https://stackoverflow.com/" class="link-Button">Go</a>

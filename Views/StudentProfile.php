@@ -6,6 +6,7 @@
         $username = $_SESSION['Username'];
         $password = $_SESSION['Password'];
 
+        
         $data = getStudentData($username,$password);
 
         if(isset($_POST['profile']))
@@ -27,6 +28,32 @@
         elseif(isset($_POST['chat']))
         {
             header('location:Chat.php');
+        }
+
+        //for Updation
+
+        /*$email = null;
+        $name = null;
+        $phone = null;*/
+        $conn = getConnection();
+        if(isset($_POST['save']))
+        {
+            $email = $_POST['mail'];
+            $name = $_POST['name'];
+            $phone =$_POST['phone'];
+            $dept = $_POST['dept'];
+            $program = $_POST['program'];
+            $semester = $_POST['semester'];
+
+            $sql = "UPDATE studentprofile SET Name='{$name}',Phone='{$phone}',Dept='{$_dept}',Program='{$program}' $SemesterNo='$semester' where email=$email";
+            if(mysqli_query($conn,$sql))
+            {
+                echo "Complete";
+            }
+            else
+            {
+                echo "Wrong";
+            }
         }
 
 ?>
@@ -81,7 +108,7 @@
                                             Name
                                         </td>
                                         <td>
-                                            <input type="text" class="txt-Box" name ="txtName" value="<?=$data['Name']; ?>">
+                                            <input type="text" class="txt-Box" name ="name" value="<?=$data['Name']; ?>">
                                         </td>
                                     </tr>
 
@@ -90,7 +117,7 @@
                                             E-mail
                                         </td>
                                         <td>
-                                            <input type="email" class="txt-Box" name="txtMail">
+                                            <input type="email" class="txt-Box" name="mail" value="<?=$data['email']; ?>" disabled>
                                         </td>
                                     </tr>
 
@@ -99,7 +126,7 @@
                                             Phone No
                                         </td>
                                         <td>
-                                            <input type="number" class="txt-Box" name="txtPhone">
+                                            <input type="number" class="txt-Box" name="phone" value="<?=$data['Phone']; ?>">
                                         </td>
                                     </tr>
                                 </table>
@@ -124,7 +151,8 @@
                                                 Department
                                             </td>
                                             <td>
-                                                <select class="txt-Box">
+                                                <select class="txt-Box" name="dept">
+                                                    <option><?=$data['Dept']; ?></option>
                                                     <option>Faculty of Science & Technology</option>
                                                     <option>Faculty of Engineering</option>
                                                     <option>Faculty of Art Social Sciences</option>
@@ -138,7 +166,8 @@
                                                 Program
                                             </td>
                                             <td>
-                                                <select class="txt-Box">
+                                                <select class="txt-Box" name = "program">
+                                                    <option><?=$data['Program']; ?></option>
                                                     <option>CSE</option>
                                                     <option>CSSE</option>
                                                     <option>CIS</option>
@@ -156,7 +185,7 @@
                                                 Semester
                                             </td>
                                             <td>
-                                                <input type="number" class="txt-Box" name="txtPhone">
+                                                <input type="number" class="txt-Box" name="semester" value="<?=$data['SemesterNo']; ?>">
                                             </td>
                                         </tr>
                                     </table>
@@ -187,7 +216,7 @@
                                             <input type="url" class="txt-Box" name ="txtGithub" value="<?=$data['Github']; ?>">
                                         </td>
                                         <td>
-                                            <a href="#" class="link-Button">Go</a>
+                                            <a href="<?=$data['Github']; ?>" class="link-Button">Go</a>
                                         </td>
                                     </tr>
 
@@ -196,10 +225,10 @@
                                             StackOverflow
                                         </td>
                                         <td>
-                                            <input type="url" class="txt-Box" name="txtStackOverflow">
+                                            <input type="url" class="txt-Box" name="txtStackOverflow" value="<?=$data['StackOverFlow']; ?>">
                                         </td>
                                         <td>
-                                            <a href="#" class="link-Button">Go</a>
+                                            <a href="<?=$data['StackOverFlow']; ?>" class="link-Button">Go</a>
                                         </td>
                                     </tr>
 
@@ -208,10 +237,10 @@
                                             Hacker Rank
                                         </td>
                                         <td>
-                                            <input type="url" class="txt-Box" name="txtHackerRank">
+                                            <input type="url" class="txt-Box" name="txtHackerRank" value="<?=$data['HackerRank']; ?>">
                                         </td>
                                         <td>
-                                            <a href="#" class="link-Button">Go</a>
+                                            <a href="<?=$data['HackerRank']; ?>" class="link-Button">Go</a>
                                         </td>
                                     </tr>
                                     <tr>
@@ -219,10 +248,10 @@
                                             Online Judge
                                         </td>
                                         <td>
-                                            <input type="url" class="txt-Box" name="OnlineJudge">
+                                            <input type="url" class="txt-Box" name="OnlineJudge" value="<?=$data['UVA']; ?>">
                                         </td>
                                         <td>
-                                            <a href="#" class="link-Button">Go</a>
+                                            <a href="<?=$data['UVA']; ?>" class="link-Button">Go</a>
                                         </td>
                                     </tr>
                                     <tr>
@@ -230,10 +259,10 @@
                                             IEEE
                                         </td>
                                         <td>
-                                            <input type="url" class="txt-Box" name="txtIEEE">
+                                            <input type="url" class="txt-Box" name="txtIEEE" value="<?=$data['IEEE']; ?>">
                                         </td>
                                         <td>
-                                            <a href="#" class="link-Button">Go</a>
+                                            <a href="<?=$data['IEEE']; ?>" class="link-Button">Go</a>
                                         </td>
                                     </tr>
                                     <tr>
@@ -241,10 +270,10 @@
                                             Portfolio
                                         </td>
                                         <td>
-                                            <input type="url" class="txt-Box" name="txtPortfolio">
+                                            <input type="url" class="txt-Box" name="txtPortfolio" value="<?=$data['Website']; ?>">
                                         </td>
                                         <td>
-                                            <a href="#" class="link-Button">Go</a>
+                                            <a href="<?=$data['Website']; ?>" class="link-Button">Go</a>
                                         </td>
                                     </tr>
                                     <tr>
@@ -253,10 +282,10 @@
                                         </td>
                                         
                                         <td>
-                                            <input type="url" class="txt-Box" name="txtYoutube">
+                                            <input type="url" class="txt-Box" name="txtYoutube" value="<?=$data['Youtube']; ?>">
                                         </td>
                                         <td>
-                                            <a href="#" class="link-Button">Go</a>
+                                            <a href="<?=$data['Youtube']; ?>" class="link-Button">Go</a>
                                         </td>
                                     </tr>
                                 </table>
@@ -267,7 +296,7 @@
             <tr> <!--Buttons -->
                 <td>
                     <center>
-                        <button class="btn-Confirm">Save</button>
+                        <button class="btn-Confirm" name="save">Save</button>
                         <button class="btn-Reset">Delete</button>
                     </center>
                 </td>

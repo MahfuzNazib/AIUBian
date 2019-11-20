@@ -6,7 +6,9 @@
         $username = $_SESSION['Username'];
         $password = $_SESSION['Password'];
 
+        $dept = 
         $data = getStudentData($username,$password);
+        $upadte = updateStudentProfile($username,$password);
 
         if(isset($_POST['edit']))
         {
@@ -229,7 +231,7 @@
                                             <a href="<?=$data['StackOverFlow']; ?>"><?=$data['StackOverFlow']; ?></a>
                                         </td>
                                         <td>
-                                            <a href="https://stackoverflow.com/" class="link-Button">Go</a>
+                                            <a href="<?=$data['StackOverFlow']; ?>" class="link-Button">Go</a>
                                         </td>
                                     </tr>
 
@@ -241,7 +243,7 @@
                                             <a href="<?=$data['HackerRank']; ?>"><?=$data['HackerRank']; ?></a>
                                         </td>
                                         <td>
-                                            <a href="https://stackoverflow.com/" class="link-Button">Go</a>
+                                            <a href="<?=$data['HackerRank']; ?>" class="link-Button">Go</a>
                                         </td>
                                     </tr>
                                     <tr>
@@ -249,10 +251,10 @@
                                             Online Judge :-
                                         </td>
                                         <td>
-                                            <a href="#">UVA</a>
+                                            <a href="<?=$data['UVA']; ?>"> <?=$data['UVA']; ?> </a>
                                         </td>
                                         <td>
-                                            <a href="https://stackoverflow.com/" class="link-Button">Go</a>
+                                            <a href="<?=$data['UVA']; ?>" class="link-Button">Go</a>
                                         </td>
                                     </tr>
                                     <tr>
@@ -260,10 +262,10 @@
                                             IEEE :-
                                         </td>
                                         <td>
-                                            N/A
+                                            <a href="<?=$data['IEEE']; ?>"> <?=$data['IEEE']; ?> </a>
                                         </td>
                                         <td>
-                                            <a href="#" class="link-Button">Go</a>
+                                            <a href="<?=$data['IEEE']; ?>" class="link-Button">Go</a>
                                         </td>
                                     </tr>
                                     <tr>
@@ -271,22 +273,22 @@
                                             Portfolio :-
                                         </td>
                                         <td>
-                                            <a href="mahfuznazib.github.io">Website</a>
+                                            <a href="<?=$data['Website']; ?>"><?=$data['Website']; ?></a>
                                         </td>
                                         <td>
-                                            <a href="http://www.mahfuznazib,github.io" class="link-Button">Go</a>
+                                            <a href="<?=$data['Website']; ?>" class="link-Button">Go</a>
                                         </td>
                                     </tr>
                                     <tr>
                                         <td class="font-Normal">
                                             Youtube :-
                                         </td>
-                                        
+                                            
                                         <td>
-                                            N/A
+                                            <a href="<?=$data['Youtube']; ?>"><?=$data['Youtube']; ?></a>
                                         </td>
                                         <td>
-                                            <a href="#" class="link-Button">Go</a>
+                                            <a href="<?=$data['Youtube']; ?>" class="link-Button">Go</a>
                                         </td>
                                     </tr>
                                 </table>

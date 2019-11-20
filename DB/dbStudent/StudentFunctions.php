@@ -2,17 +2,17 @@
     require_once('../DB/db.php');
 
 
-    function StudentProfile($email,$name,$aiub_id,$phone)  //Insert Student Genaral Information Into DB Table
+    function StudentProfile($email,$name,$phone,$aiub_id)  //Insert Student Genaral Information Into DB Table
     {
         $conn = getConnection();
-        $sql = "INSERT INTO studentprofile VALUES('{$email}','{$name}','{$phone}','{$aiub_id}',null,null,null,null,null,null,null,null,null,null,0)";
+        $sql = "INSERT INTO studentprofile VALUES ('{$email}','{$name}','{$phone}','{$aiub_id}',null,null,null,null,null,null,null,null,null,null,null,null,null,0)";
         if(mysqli_query($conn,$sql))
         {
             return true;
         }
         else
         {
-            return false;
+            false;
         }
     }
 
@@ -24,6 +24,21 @@
         $data = mysqli_fetch_assoc($result);
 
         return $data;
+    }
+
+    function updateStudentProfile($email,$name,$phone)
+    {
+        $conn = getConnection();
+        $sql = "UPDATE studentprofile SET Name='{$name}', Phone='{$phone}' where email = '{$email}'";
+        if(mysqli_query($conn,$sql))
+        {
+            echo "Updating Done";
+            //header("refresh:1; url=StudentProfile.php");
+        }
+        else
+        {
+            echo "Update Problem";
+        }
     }
 
 ?>

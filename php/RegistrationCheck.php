@@ -15,7 +15,7 @@
         
         if($status == "Student")  //For Student 
         {
-            $register = StudentProfile($email,$name,$ID,$phone);
+            $register = StudentProfile($email,$name,$phone,$ID);
             $login = Login($email,$username,$password,$status);
             if($register)
             {
@@ -30,7 +30,7 @@
             }
             else
             {
-                header('location:../Views/Registration.php?$msg=Not Enough Information');
+                header('location:../Views/Registration.php?$msg=problem in register');
             }
         }
 
@@ -57,7 +57,7 @@
 
         if($status == "Faculty")  //For Faculty 
         {
-            $register = FacultyProfile($email,$name,$ID,$phone);
+            $register = FacultyProfile($email,$name,$phone,$ID);
             $login = Login($email,$username,$password,$status);
             if($register)
             {

@@ -1,7 +1,10 @@
 <?php
     session_start();
+    require_once('../DB/dbAlumni/AlumniFunctions.php');
     if(isset($_SESSION['Username']))
     {
+        $username = $_SESSION['Username'];
+        $password = $_SESSION['Password'];
 
         if(isset($_POST['edit']))
         {
@@ -23,6 +26,8 @@
         {
             header('location:AlumniChat.php');
         }
+
+        $data = getData($username,$password);
        
 
 
@@ -83,7 +88,7 @@
                                             Name :-
                                         </td>
                                         <td>
-                                            Zaheed Sabur
+                                            <?=$data['Name']; ?>
                                         </td>
                                     </tr>
 

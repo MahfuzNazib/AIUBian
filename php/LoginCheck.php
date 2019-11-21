@@ -37,7 +37,8 @@
         {
             $_SESSION['Username'] = $uname;
             $_SESSION['Password'] = $pass;
-            header('location:../Views/Admin/Admin.php');
+            //header('location:../Views/Admin/Admin.php');
+            header('location:../Views/Admin.php');
         }
         else
         {

@@ -15,4 +15,14 @@
             return false;
         }
     }
+
+    function getData($username,$password)
+    {
+        $conn = getConnection();
+        $sql = "SELECT * FROM alumniprofile where email = (select email from logininfo where username='{$username}' and Password='{$password}')";
+        $result = mysqli_query($conn,$sql);
+        $data = mysqli_fetch_assoc($result);
+
+        return $data;
+    }
 ?>

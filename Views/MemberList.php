@@ -14,8 +14,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="../App.css">
-    <link rel="stylesheet" href="../Admin.css">
+    <link rel="stylesheet" href="App.css">
+    <link rel="stylesheet" href="Admin.css">
     <title>MemberList</title>
 </head>
 <body class="body-margin">
@@ -60,7 +60,7 @@
     }
     if(isset($_POST['btnLogout']))
     {
-        header('location:Logout.php');
+        header('location:../php/Logout.php');
     }
 ?>
 <?php
@@ -418,10 +418,8 @@
     }
     elseif(isset($_POST['btnStudentMember'])) //Student Member List
     {
-        $conn = mysqli_connect('localhost', 'root', '', 'aiubian');
-        $sql = "SELECT Name,ProfilePicture,email,Phone,AIUB_ID FROM studentprofile";
-        $result = mysqli_query($conn,$sql);
-        
+        require_once('../DB/dbAdmin/AdminFunctions.php');
+        $row = getAllStudentList();
 ?>
 
 <html>  <!--Student All Member List-->
@@ -443,167 +441,25 @@
             </tr>
             
             <?php
-                while($row = mysqli_fetch_assoc($result))
+                
+                for($i=0;$i<count($row);$i++)
                 {
             ?>
             <tr>
-                <td> <?=$row['Name']; ?> </td>
-                <td> <img src="../Images/ProfilePicture/<?=$row['ProfilePicture']; ?>" width="100px" height="100px"> </td>
-                <td> <?=$row['email']; ?> </td>
-                <td> <?=$row['AIUB_ID']; ?> </td>
-                <td> <?=$row['Phone']; ?> </td>
+                <td> <center> <h3><?=$row[$i]['Name']; ?></h3> </center></td>
+                <td> <Center><img src="../Images/ProfilePicture/<?=$row[$i]['ProfilePicture']; ?>" width="150px" height="150px"> </Center></td>
+                <td> <center><?=$row[$i]['email']; ?> </center></td>
+                <td> <center><?=$row[$i]['AIUB_ID']; ?> </center></td>
+                <td> <center><?=$row[$i]['Phone']; ?> </center></td>
+                <td>
+                    <button class="btn-Delete" name="btnDelete">Delete</button>
+                    <button class="btn-Block" name="btnBlock">Block</button>
+                </td>
             </tr>
             <?php
                 }
             ?>
-                <td>
-                    Nazib Mahfuz
-                </td>
-                <td>
-                    <img src="Images/me.png" height="100px" width="130px">
-                </td>
-                <td>
-                    nazibmahfuz60@gmail.com
-                </td>
-                <td>
-                    0178888888
-                </td>
-                <td>
-                    02-05-1996
-                </td>
-                <td>
-                    Active
-                </td>
-                <td>
-                    <button class="btn-Delete" name="btnDelete">Delete</button>
-                    <button class="btn-Block" name="btnBlock">Block</button>
-                </td>
-            </tr>
-            <tr> <!--For Horizontal Line-->
-                <td colspan="7">
-                    <hr>
-                </td>
-            </tr>
-
-            <tr>
-                <td>
-                    Hasib Ahmed
-                </td>
-                <td>
-                    <img src="Images/hasib.png" height="100px" width="130px">
-                </td>
-                <td>
-                    hasib3030@gmail.com
-                </td>
-                <td>
-                    025999464
-                </td>
-                <td>
-                    02-05-1986
-                </td>
-                <td>
-                    InActive
-                </td>
-                <td>
-                    <button class="btn-Delete" name="btnDelete">Delete</button>
-                    <button class="btn-Block" name="btnBlock">Block</button>
-                </td>
-            </tr>
-            <tr> <!--For Horizontal Line-->
-                <td colspan="7">
-                    <hr>
-                </td>
-            </tr>
-
-            <tr>
-                <td>
-                    Ali Hasan Mitho
-                </td>
-                <td>
-                    <img src="Images/mitho.png" height="100px" width="130px">
-                </td>
-                <td>
-                    alihasn@gmail.com
-                </td>
-                <td>
-                    025999464
-                </td>
-                <td>
-                    02-05-1986
-                </td>
-                <td>
-                    Active
-                </td>
-                <td>
-                    <button class="btn-Delete" name="btnDelete">Delete</button>
-                    <button class="btn-Block" name="btnBlock">Block</button>
-                </td>
-            </tr>
-            <tr> <!--For Horizontal Line-->
-                <td colspan="7">
-                    <hr>
-                </td>
-            </tr>
-
-            <tr>
-                <td>
-                    Sha Naim Shourov
-                </td>
-                <td>
-                    <img src="Images/guti.png" height="100px" width="130px">
-                </td>
-                <td>
-                    guti@gmail.com
-                </td>
-                <td>
-                    025999464
-                </td>
-                <td>
-                    02-05-1986
-                </td>
-                <td>
-                    InActive
-                </td>
-                <td>
-                    <button class="btn-Delete" name="btnDelete">Delete</button>
-                    <button class="btn-Block" name="btnBlock">Block</button>
-                </td>
-            </tr>
-            <tr> <!--For Horizontal Line-->
-                <td colspan="7">
-                    <hr>
-                </td>
-            </tr>
-
-            <tr>
-                <td>
-                    Tarik bin Shams
-                </td>
-                <td>
-                    <img src="Images/tarik.png" height="100px" width="130px">
-                </td>
-                <td>
-                    shams@gmail.com
-                </td>
-                <td>
-                    0178888888
-                </td>
-                <td>
-                    02-05-1986
-                </td>
-                <td>
-                    Active
-                </td>
-                <td>
-                    <button class="btn-Delete" name="btnDelete">Delete</button>
-                    <button class="btn-Block" name="btnBlock">Block</button>
-                </td>
-            </tr>
-            <tr> <!--For Horizontal Line-->
-                <td colspan="7">
-                    <hr>
-                </td>
-            </tr>
+            
         </table>
     </body>
 </html>

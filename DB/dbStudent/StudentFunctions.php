@@ -26,7 +26,7 @@
         return $data;
     }
 
-    function updateStudentProfile($email,$name,$phone)
+    /*function updateStudentProfile($email,$name,$phone)
     {
         $conn = getConnection();
         $sql = "UPDATE studentprofile SET Name='{$name}', Phone='{$phone}' where email = '{$email}'";
@@ -39,6 +39,6 @@
         {
             echo "Update Problem";
         }
-    }
+    }*/
 
 ?>

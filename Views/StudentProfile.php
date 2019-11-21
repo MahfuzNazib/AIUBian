@@ -1,12 +1,14 @@
 <?php
     session_start();
     require_once('../DB/dbStudent/StudentFunctions.php');
+    
     if(isset($_SESSION['Username']))
     {
+        $conn = getConnection();  //DataBase Connection
+
         $username = $_SESSION['Username'];
         $password = $_SESSION['Password'];
-
-        
+        $update = null;
         $data = getStudentData($username,$password);
 
         if(isset($_POST['profile']))
@@ -30,29 +32,53 @@
             header('location:Chat.php');
         }
 
-        //for Updation
+        if(isset($_POST['submit']))
+            {
+                //update profile picture
+                $file_name = $_FILES['image']['name'];
+                $file_temp_location = $_FILES['image']['tmp_name'];
+                $file_store = "../Images/ProfilePicture/".$file_name;
+                move_uploaded_file($file_temp_location,$file_store);
+                
+                $sql = "UPDATE studentprofile SET ProfilePicture='{$file_name}'";
+                if(mysqli_query($conn,$sql))
+                {
+                    $update = "Profile Picture Update";
+                    header("refresh:1; url=StudentProfile.php");
+                }
+                else
+                {
+                    $update = "Profile Picture Not Update";
+                }
 
-        /*$email = null;
-        $name = null;
-        $phone = null;*/
-        $conn = getConnection();
+            }
+
         if(isset($_POST['save']))
         {
-            $email = $_POST['mail'];
+            $email = $data['email'];
             $name = $_POST['name'];
-            $phone =$_POST['phone'];
-            $dept = $_POST['dept'];
+            $phone = $_POST['phone'];
+            $dept = $_POST["dept"];
             $program = $_POST['program'];
             $semester = $_POST['semester'];
+            $linkedIn = $_POST['txtLinkedIn'];
+            $github = $_POST['txtGithub'];
+            $stackoverflow = $_POST['txtStackOverflow'];
+            $hackerrank = $_POST['txtHackerRank'];
+            $onlinejudge = $_POST['OnlineJudge'];
+            $ieee = $_POST['txtIEEE'];
+            $portfolio = $_POST['txtPortfolio'];
+            $youtube = $_POST['txtYoutube'];
 
-            $sql = "UPDATE studentprofile SET Name='{$name}',Phone='{$phone}',Dept='{$_dept}',Program='{$program}' $SemesterNo='$semester' where email=$email";
+            $sql = "UPDATE studentprofile SET Name='{$name}',Phone='{$phone}',Dept='{$dept}',Program='{$program}',SemesterNo='{$semester}',LinkedIn='{$linkedIn}',Github='{$github}',StackOverFlow='{$stackoverflow}',HackerRank='{$hackerrank}',UVA='{$onlinejudge}',IEEE='{$ieee}',Website='{$portfolio}',Youtube='{$youtube}' where email='{$email}'";
             if(mysqli_query($conn,$sql))
             {
-                echo "Complete";
+                $update =  "Successfully Updated";
+                header("refresh:1; url=StudentProfile.php");
             }
             else
             {
-                echo "Wrong";
+                $update = "Something went Wrong.Try Again";
             }
         }
 
@@ -67,11 +93,18 @@
     <title>StudentProfile</title>
 </head>
 <body class="body-margin">
+    
     <form method="POST" action="#">
-
     <center>
         <table border="0" width="100%">
 
+            <tr>
+                <td colspa="2">
+                    <h3>
+                        <?=$update ?>
+                    </h3>
+                </td>
+            </tr>
             <tr> <!--Header-->
                 <td colspan="2" class="Profile-Header">
                     <!--<img src="Images/pp.jpg">-->
@@ -85,21 +118,24 @@
                     </center>
                 </td>
             </tr>
+            </form>
             <tr height="150px">  <!--Profile Picture -->
                 <td colspan="2">
                     <center>
-                            <img src="../Images/DSC_5841.JPG" height="150px" width="200px">
+                            <img src="../Images/ProfilePicture/<?=$data['ProfilePicture']; ?>" height="150px" width="200px">
                             <!--<img class="edit-button" src="Images/editicon.png" height="20px" width="40px">-->
-                            <form action="upload.php" method="POST" enctype="multipart/form-data">
-                        <input type="file" name="file">
+                            <form method="POST" enctype="multipart/form-data">
+                                <input type="file" name="image"> <input type="submit" name="submit" value="Upload Profile Picture">
+                            </form>
                     </center>
                 </td>
             </tr>  <!--Edit Profile Button -->
+            <form method="POST" action="#">
             
             <tr> <!--Student Personal Info -->
                 <td width="50%">
                     
-                    <form>
+                    
                         <fieldset>
                             <legend>Personal Info</legend>
                             <table border="0" width="100%">
@@ -131,7 +167,7 @@
                                     </tr>
                                 </table>
                         </fieldset>
-                    </form>
+                    
 
                 </td>
                 <td width="50%"> <!--Profile Strength -->
@@ -141,8 +177,6 @@
                 
             <tr>  
                 <td>  <!--Student Academic Info -->
-                    
-                    <form>
                             <fieldset>
                                 <legend>Academic Info</legend>
                                 <table border="0" width="100%">
@@ -152,11 +186,11 @@
                                             </td>
                                             <td>
                                                 <select class="txt-Box" name="dept">
-                                                    <option><?=$data['Dept']; ?></option>
-                                                    <option>Faculty of Science & Technology</option>
-                                                    <option>Faculty of Engineering</option>
-                                                    <option>Faculty of Art Social Sciences</option>
-                                                    <option>Faculty of Business Administration</option>
+                                                    <option><?=$data["Dept"]; ?></option>
+                                                    <option value="Faculty of Science & Technology">Faculty of Science & Technology</option>
+                                                    <option value="Faculty of Engineering">Faculty of Engineering</option>
+                                                    <option value="Faculty of Art Social Sciences">Faculty of Art Social Sciences</option>
+                                                    <option value="Faculty of Business Administration">Faculty of Business Administration</option>
                                                 </select>
                                             </td>
                                         </tr>
@@ -168,14 +202,14 @@
                                             <td>
                                                 <select class="txt-Box" name = "program">
                                                     <option><?=$data['Program']; ?></option>
-                                                    <option>CSE</option>
-                                                    <option>CSSE</option>
-                                                    <option>CIS</option>
-                                                    <option>CS</option>
-                                                    <option>EEE</option>
-                                                    <option>CoE</option>
-                                                    <option>BBA</option>
-                                                    <option>Arch.</option>
+                                                    <option value="CSE">CSE</option>
+                                                    <option value="CSSE">CSSE</option>
+                                                    <option value="CIS">CIS</option>
+                                                    <option value="CS">CS</option>
+                                                    <option value="EEE">EEE</option>
+                                                    <option value="CoE">CoE</option>
+                                                    <option value="BBA">BBA</option>
+                                                    <option value="Arch.">Arch.</option>
                                                 </select>
                                             </td>
                                         </tr>
@@ -190,8 +224,6 @@
                                         </tr>
                                     </table>
                             </fieldset>
-                        </form>
-
                 </td>
                 <td rowspan="3"> <!--CV Upload Button -->
                     <form action="upload.php" method="POST" enctype="multipart/form-data">
@@ -204,10 +236,21 @@
 
             <tr>  <!--Student Others Info -->
                 <td>
-                    <form>
                         <fieldset>
                             <legend>Others Activity</legend>
                             <table border="0" width="100%">
+
+                                     <tr>
+                                        <td class="font-Normal" width="20%">
+                                            LinkedIn
+                                        </td>
+                                        <td>
+                                            <input type="url" class="txt-Box" name ="txtLinkedIn" value="<?=$data['LinkedIn']; ?>">
+                                        </td>
+                                        <td>
+                                            <a href="<?=$data['LinkedIn']; ?>" class="link-Button">Go</a>
+                                        </td>
+                                    </tr>
                                     <tr>
                                         <td class="font-Normal" width="20%">
                                             Github
@@ -290,7 +333,7 @@
                                     </tr>
                                 </table>
                         </fieldset>
-                    </form>
+                    
                 </td>
             </tr>
             <tr> <!--Buttons -->

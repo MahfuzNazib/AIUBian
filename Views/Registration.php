@@ -67,7 +67,7 @@
                 Phone
             </td>
             <td>
-                <input type="number" name="txtphone" class="txt-Box" >
+                <input type="number" name="txtphone" class="txt-Box">
             </td>
         </tr>
 

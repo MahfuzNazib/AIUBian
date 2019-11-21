@@ -8,7 +8,7 @@
 
         $dept = 
         $data = getStudentData($username,$password);
-        $upadte = updateStudentProfile($username,$password);
+        //$upadte = updateStudentProfile($username,$password);
 
         if(isset($_POST['edit']))
         {
@@ -64,7 +64,7 @@
             <tr height="150px">  <!--Profile Picture -->
                 <td colspan="2">
                     <center>
-                            <img src="../Images/DSC_5841.JPG" height="150px" width="200px">
+                            <img src="../Images/ProfilePicture/<?=$data['ProfilePicture']; ?>" height="150px" width="200px">
                             <img class="edit-button" src="../Images/editicon.png" height="20px" width="40px">
                     </center>
                 </td>
@@ -211,6 +211,18 @@
                         <fieldset>
                             <legend>Others Activity</legend>
                             <table border="0" width="100%">
+
+                                    <tr>
+                                        <td class="font-Normal" width="23%">
+                                            LinkedIn :-
+                                        </td>
+                                        <td>
+                                            <a href="<?=$data['LinkedIn']; ?>"><?=$data['LinkedIn']; ?></a>
+                                        </td>
+                                        <td>
+                                            <a href="<?=$data['LinkedIn']; ?>" class="link-Button">Go</a>
+                                        </td>
+                                    </tr>
                                     <tr>
                                         <td class="font-Normal" width="23%">
                                             Github :-

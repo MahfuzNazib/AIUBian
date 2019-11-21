@@ -32,14 +32,18 @@
             header('location:Chat.php');
         }
 
-        if(isset($_POST['submit']))
+
+
+        if(isset($_POST['submit'])) //upload Profile Picture
             {
                 //update profile picture
+                //print_r($_FILES['image']);
                 $email = $data['email'];
                 $file_name = $_FILES['image']['name'];
                 $file_temp_location = $_FILES['image']['tmp_name'];
                 $file_store = "../Images/ProfilePicture/".$file_name;
                 move_uploaded_file($file_temp_location,$file_store);
+
                 
                 $sql = "UPDATE studentprofile SET ProfilePicture='{$file_name}' where email='{$email}'";
                 if(mysqli_query($conn,$sql))
@@ -62,6 +66,7 @@
             $dept = $_POST["dept"];
             $program = $_POST['program'];
             $semester = $_POST['semester'];
+            $skills = $_POST['skill'];
             $linkedIn = $_POST['txtLinkedIn'];
             $github = $_POST['txtGithub'];
             $stackoverflow = $_POST['txtStackOverflow'];
@@ -71,7 +76,7 @@
             $portfolio = $_POST['txtPortfolio'];
             $youtube = $_POST['txtYoutube'];
 
-            $sql = "UPDATE studentprofile SET Name='{$name}',Phone='{$phone}',Dept='{$dept}',Program='{$program}',SemesterNo='{$semester}',LinkedIn='{$linkedIn}',Github='{$github}',StackOverFlow='{$stackoverflow}',HackerRank='{$hackerrank}',UVA='{$onlinejudge}',IEEE='{$ieee}',Website='{$portfolio}',Youtube='{$youtube}' where email='{$email}'";
+            $sql = "UPDATE studentprofile SET Name='{$name}',Phone='{$phone}',Dept='{$dept}',Program='{$program}',SemesterNo='{$semester}',Skills='{$skills}',LinkedIn='{$linkedIn}',Github='{$github}',StackOverFlow='{$stackoverflow}',HackerRank='{$hackerrank}',UVA='{$onlinejudge}',IEEE='{$ieee}',Website='{$portfolio}',Youtube='{$youtube}' where email='{$email}'";
             if(mysqli_query($conn,$sql))
             {
                 $update =  "Successfully Updated";
@@ -98,16 +103,8 @@
     <form method="POST" action="#">
     <center>
         <table border="0" width="100%">
-
-            <tr>
-                <td colspa="2">
-                    <h3>
-                        <?=$update ?>
-                    </h3>
-                </td>
-            </tr>
             <tr> <!--Header-->
-                <td colspan="2" class="Profile-Header">
+                <td colspan="3" class="Profile-Header">
                     <!--<img src="Images/pp.jpg">-->
                     <center>
                         <button class="profile-HeaderButton" name="home">Home</button>
@@ -121,22 +118,28 @@
             </tr>
             </form>
             <tr height="150px">  <!--Profile Picture -->
-                <td colspan="2">
+                <td colspan="3">
                     <center>
                             <img src="../Images/ProfilePicture/<?=$data['ProfilePicture']; ?>" height="150px" width="200px">
                             <!--<img class="edit-button" src="Images/editicon.png" height="20px" width="40px">-->
                             <form method="POST" enctype="multipart/form-data">
-                                <input type="file" name="image"> <input type="submit" name="submit" value="Upload Profile Picture">
+                                <input type="file" name="image"> <input type="submit" name="submit" value="Upload" class="edit-button">
                             </form>
                     </center>
                 </td>
             </tr>  <!--Edit Profile Button -->
         <form method="POST" action="#">
+        <tr>
+                <td colspan="3">
+                    <h3>
+                        <center><?=$update ?></center>
+                    </h3>
+                </td>
+            </tr>
             
             <tr> <!--Student Personal Info -->
+                <td width="10%"></td>
                 <td width="50%">
-                    
-                    
                         <fieldset>
                             <legend>Personal Info</legend>
                             <table border="0" width="100%">
@@ -168,15 +171,13 @@
                                     </tr>
                                 </table>
                         </fieldset>
-                    
-
                 </td>
-                <td width="50%"> <!--Profile Strength -->
-                    <p>Student Profile Marks</p>
-                </td>
-            </tr>
+                <td width="10%"></td>
                 
+            </tr>
+            
             <tr>  
+                <td width="10%"></td>
                 <td>  <!--Student Academic Info -->
                             <fieldset>
                                 <legend>Academic Info</legend>
@@ -226,23 +227,59 @@
                                     </table>
                             </fieldset>
                 </td>
-                <td rowspan="3"> <!--CV Upload Button -->
-                    <!--<form action="upload.php" method="POST" enctype="multipart/form-data">
-                        <input type="file" name="file">
-                        <button type="submit" name=submit>Upload CV</button>
-                        <a href="Files/MyCV.pdf" target="_blank">View CV</a>
-                    </form>-->
+                <td width="10%"></td>
+                
+            </tr>
+            
+            <tr>
+                <td width="10%"></td>
+                <td>
+                    <fieldset>
+                        <legend>Skills</legend>
+                        <table border="0" width="100%">
+                            <tr>
+                                <td class="font-Normal" width="23%">
+                                    Add Skills
+                                </td>
+                                <td>
+                                    <input type="text" name="skill" class="txt-Box" value="<?=$data['Skills']; ?>">
+                                </td>
+                            </tr>
+                        </table>
+                    </fieldset>
                 </td>
+                <td width="10%"></td>
+            </tr>
+
+            <tr>
+                <td width="10%"></td>
+                <td>
+                    <fieldset>
+                        <legend>Curriculum Vitae</legend>
+                        <table border="0" width="100%">
+                            <tr>
+                                <td class="font-Normal" width="23%">
+                                    Upload CV
+                                </td>
+                                <td>
+                                    <input type="file" name="cv">
+                                </td>
+                            </tr>
+                        </table>
+                    </fieldset>
+                </td>
+                <td width="10%"></td>
             </tr>
 
             <tr>  <!--Student Others Info -->
+                <td width="10%"></td>
                 <td>
                         <fieldset>
                             <legend>Others Activity</legend>
                             <table border="0" width="100%">
 
                                      <tr>
-                                        <td class="font-Normal" width="20%">
+                                        <td class="font-Normal" width="23%">
                                             LinkedIn
                                         </td>
                                         <td>
@@ -336,18 +373,18 @@
                         </fieldset>
                     
                 </td>
+                <td width="10%"></td>
             </tr>
             <tr> <!--Buttons -->
-                <td>
+                <td colspan="3">
                     <center>
                         <button class="btn-Confirm" name="save">Save</button>
-                        <button class="btn-Reset">Delete</button>
                     </center>
                 </td>
             </tr>
 
             <tr>
-                <td colspan="2" class="fotter">
+                <td colspan="3" class="fotter">
                     <center>
                         Copyright@MahfuzNazib
                     </center>

@@ -50,7 +50,7 @@
         <table border="0" width="100%">
 
             <tr> <!--Header-->
-                <td colspan="2" class="Profile-Header">
+                <td colspan="3" class="Profile-Header">
                     <!--<img src="Images/pp.jpg">-->
                     <center>
                         <button class="profile-HeaderButton" name="btnHome">Home</button>
@@ -62,7 +62,7 @@
                 </td>
             </tr>
             <tr height="150px">  <!--Profile Picture -->
-                <td colspan="2">
+                <td colspan="3">
                     <center>
                             <img src="../Images/ProfilePicture/<?=$data['ProfilePicture']; ?>" height="150px" width="200px">
                             <img class="edit-button" src="../Images/editicon.png" height="20px" width="40px">
@@ -70,52 +70,16 @@
                 </td>
             </tr>  <!--Edit Profile Button -->
             <tr height="30px">
-                <td colspan="2">
+                <td colspan="3">
                     <center>
                             
                             <input type="submit" name="edit" value="Edit Profile" class="edit-button">
                     </center>
                 </td>
             </tr>
-            <tr> <!--Student Personal Info -->
-                <td width="60%">
-                    
-                    <form>
-                        <fieldset>
-                            <legend>Personal Info</legend>
-                            <table border="0" width="100%">
-                                    <tr>
-                                        <td class="font-Normal" width="23%">
-                                            Name :-
-                                        </td>
-                                        <td>
-                                            <?=$data['Name']; ?>
-                                        </td>
-                                    </tr>
-
-                                    <tr>
-                                        <td class="font-Normal">
-                                            E-mail :-
-                                        </td>
-                                        <td>
-                                            <?=$data['email']; ?>
-                                        </td>
-                                    </tr>
-
-                                    <tr>
-                                        <td class="font-Normal">
-                                            Phone No :-
-                                        </td>
-                                        <td>
-                                            <?=$data['Phone']; ?>
-                                        </td>
-                                    </tr>
-                                </table>
-                        </fieldset>
-                    </form>
-
-                </td>
-                <td width="50%"> <!--Profile Strength -->
+            <tr>  <!-- Profile Marks-->
+                <td width="10%"></td>
+                <td>
                     <center>
                     <table border="0" width="50%">
                         <tr>
@@ -156,13 +120,56 @@
                         </tr>
                     </table>
                     </center>
+                </td>
+                <td width="10%"></td>
+            </tr>
+            <tr> <!--Student Personal Info -->
+                <td width="10%"></td>
+                <td width="60%">
                     
+                    <form>
+                        <fieldset>
+                            <legend>Personal Info</legend>
+                            <table border="0" width="100%">
+                                    <tr>
+                                        <td class="font-Normal" width="23%">
+                                            Name :-
+                                        </td>
+                                        <td>
+                                            <?=$data['Name']; ?>
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td class="font-Normal">
+                                            E-mail :-
+                                        </td>
+                                        <td>
+                                            <?=$data['email']; ?>
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td class="font-Normal">
+                                            Phone No :-
+                                        </td>
+                                        <td>
+                                            <?=$data['Phone']; ?>
+                                        </td>
+                                    </tr>
+                                </table>
+                        </fieldset>
+                    </form>
+                </td>
+                <td width="10%"> <!--Profile Strength -->
+                
                 </td>
             </tr>
                 
             <tr>  
+                <td width="10%"></td>
+
                 <td>  <!--Student Academic Info -->
-                    
                     <form>
                             <fieldset>
                                 <legend>Academic Info</legend>
@@ -198,14 +205,29 @@
                         </form>
 
                 </td>
-                <td rowspan="3"> <!--CV Upload Button -->
-                        <h4>Under Construction</h4>
-                        <a href="Files/MyCV.pdf" target="_blank">View CV</a>
-                    </form>
+                
+                <td width="10%"> </td>
+            </tr>
+
+            <tr> <!--Skills-->
+                <td width="10%"></td>
+                <td>
+                    <fieldset>
+                        <legend>Skills</legend>
+                            <table border="0" width="100%">
+                                <tr>
+                                    <td class="font-Normal" width="23%">Skills :-</td>
+                                    <td><?=$data['Skills']; ?></td>
+                                </tr>
+                            </table>
+                    </fieldset>
                 </td>
+
+                <td width="10%"></td>
             </tr>
 
             <tr>  <!--Student Others Info -->
+                <td width="10%"></td>
                 <td>
                     <form>
                         <fieldset>
@@ -307,10 +329,11 @@
                         </fieldset>
                     </form>
                 </td>
+                <td width="10%"></td>
             </tr>
             
             <tr>
-                <td colspan="2" class="fotter">
+                <td colspan="3" class="fotter">
                     <center>
                         Copyright@MahfuzNazib
                     </center>

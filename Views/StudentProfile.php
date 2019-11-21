@@ -35,12 +35,13 @@
         if(isset($_POST['submit']))
             {
                 //update profile picture
+                $email = $data['email'];
                 $file_name = $_FILES['image']['name'];
                 $file_temp_location = $_FILES['image']['tmp_name'];
                 $file_store = "../Images/ProfilePicture/".$file_name;
                 move_uploaded_file($file_temp_location,$file_store);
                 
-                $sql = "UPDATE studentprofile SET ProfilePicture='{$file_name}'";
+                $sql = "UPDATE studentprofile SET ProfilePicture='{$file_name}' where email='{$email}'";
                 if(mysqli_query($conn,$sql))
                 {
                     $update = "Profile Picture Update";
@@ -130,7 +131,7 @@
                     </center>
                 </td>
             </tr>  <!--Edit Profile Button -->
-            <form method="POST" action="#">
+        <form method="POST" action="#">
             
             <tr> <!--Student Personal Info -->
                 <td width="50%">
@@ -226,11 +227,11 @@
                             </fieldset>
                 </td>
                 <td rowspan="3"> <!--CV Upload Button -->
-                    <form action="upload.php" method="POST" enctype="multipart/form-data">
+                    <!--<form action="upload.php" method="POST" enctype="multipart/form-data">
                         <input type="file" name="file">
                         <button type="submit" name=submit>Upload CV</button>
                         <a href="Files/MyCV.pdf" target="_blank">View CV</a>
-                    </form>
+                    </form>-->
                 </td>
             </tr>
 

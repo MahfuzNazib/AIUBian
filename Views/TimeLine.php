@@ -1,9 +1,48 @@
 <?php
     session_start();
+    require_once('../DB/dbStudent/StudentFunctions.php');
+
     if(isset($_SESSION['Username']))
     {
+        $username = $_SESSION['Username'];
+        $password = $_SESSION['Password'];
 
-    
+        //GetAllMyPost
+
+        $row = getAllMyPost();
+
+        if(isset($_POST['posts']))
+        {
+            $status = getStatus($username,$password);
+            $text = $_POST['text'];
+            //echo $status['status']." ".$status['username']." ".$status['email'];
+            $userStatus = $status['status'];
+            $userName = $_SESSION['Username'];
+            $userEmail = $status['email'];
+            $date = date("d/m/Y");
+            $time = date("h:i:sa");
+            $postDate = $date." ".$time;
+            
+
+            $file_name = $_FILES['image']['name'];
+            $file_temp_location = $_FILES['image']['tmp_name'];
+            $file_store = "../Images/Posts/".$file_name;
+
+            move_uploaded_file($file_temp_location, $file_store);
+
+            //echo $text."<br> ".$file_name."<br> ".$postDate."<br> ".$userStatus."<br> ".$userEmail."<br> ".$userName;
+            $insertPost = insertPost($text,$file_name,$postDate,$userStatus,$userEmail,$userName);
+            
+            if($insertPost)
+            {
+                echo "Post Successfully Done";
+                header("refresh:1; url=TimeLine.php");
+            }
+            else
+            {
+                echo "Posting Problem Occure";
+            }
+        }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -43,110 +82,64 @@
                 <!--Left Area-->
             </td>
             <td>
-                <form>
+                <form action="#" method="POST" enctype="multipart/form-data">
                     <fieldset>
                         <legend>Create Post</legend>
-                        <textarea row="4" col="50" placeholder="What's on Your Mind?" class="postArea" >
+                        <textarea row="4" col="50" placeholder="What's on Your Mind?" class="postArea" name="text">
 
                         </textarea>
                     </fieldset>
-                </form> <br>
+                 <br>
                 <center>
-                    <button class="postsButton">Photo</button>
-                    <button class="postsButton">Video</button>
-                    <button class="postsButton">Post</button> <br>
+                    <input type="file" name="image">
+                    <input type="submit" class="postsButton" name="posts" value="Post"> <br>
                     <hr></hr>
                     <h3>My Posts</h3>
                 </center>
                 
-            </td>
-            <td>
-                <!--Right Area-->
-            </td>
-        </tr>
-
-        <tr>
-            <td>
-                
-            </td>
-            <td>
+                </td>
+                <td>
+                    <!--Right Area-->
+                </td>
+            </tr>
+            
+            <tr>
+                <td>
+                    
+                </td>
+                <td>
+                <center>
                 <table border="0" width="100%" class="tblbgColor-Posts" class="tblLoad">
-                    <tr>
-                            <tr>
-                                    <td>
-                                        <p class="posts-Date">11th October,2019</p>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <img src="../Images/Logo.png" height="250px" width="100%">
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <center>
-                                            <button class="profile-HeaderButton">205 Likes</button>
-                                        </center>
-                                    </td>
-                                </tr>
+                    <?php
 
-                                <tr>
-                                        <td>
-                                            <p class="posts-Date">11th October,2019</p>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <img src="../Images/posts1.jpg" height="250px" width="100%">
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <center>
-                                                <button class="profile-HeaderButton">205 Likes</button>
-                                            </center>
-                                        </td>
-                                    </tr>
+                        for($i=0;$i<count($row);$i++)
+                        {    
+                    ?>
+                    <tr width="100%">
+                    
+                        <tr width="100%" bgcolor="red"><?=$row[$i]['Date']; ?></tr> <br>
+                        <tr width="100%"><?=$row[$i]['Text']; ?></tr> <br>
+                        <?php
+                            if($row[$i]['Image'] == null)
+                            {
 
-                                    <tr>
-                                        <td>
-                                            <p class="posts-Date">09th October,2019</p>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <video controls>
-                                                <source src="Vedios/short-video-clip-nature-mp4.mp4" type="video/mp4">
-                                            </video>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <center>
-                                                <button class="profile-HeaderButton">95 Likes</button>
-                                            </center>
-                                        </td>
-                                    </tr>
-
-                                    <tr>
-                                        <td>
-                                            <p class="posts-Date">09th October,2019</p>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <img src="Images/posts2.jpg" width="100%">
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <center>
-                                                <button class="profile-HeaderButton">09 Likes</button>
-                                            </center>
-                                        </td>
-                                    </tr>
+                            }
+                            else
+                            {
+                        ?>
+                        <tr width="100%"><img src="../Images/Posts/<?=$row[$i]['Image']; ?>" width="200px" height="200px"></tr> <br>
+                        <?php
+                            }
+                        ?>
+                        <tr width="100%">Like</tr>
+                    
                     </tr>
+
+                    <?php
+                        }
+                    ?>
                 </table>
+                </center>
             </td>
             <td>
 
@@ -161,6 +154,7 @@
             </td>
         </tr>
     </table>
+    </form>
 </body>
 </html>
 

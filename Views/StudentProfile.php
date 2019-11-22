@@ -10,6 +10,8 @@
         $password = $_SESSION['Password'];
         $update = null;
         $data = getStudentData($username,$password);
+        
+        
 
         if(isset($_POST['profile']))
         {
@@ -37,7 +39,7 @@
         if(isset($_POST['submit'])) //upload Profile Picture
             {
                 //update profile picture
-                //print_r($_FILES['image']);
+                print_r($_FILES['image']);
                 $email = $data['email'];
                 $file_name = $_FILES['image']['name'];
                 $file_temp_location = $_FILES['image']['tmp_name'];
@@ -112,6 +114,7 @@
                         <button class="profile-HeaderButton" name="timeline">TimeLine</button>
                         <button class="profile-HeaderButton" name="chat">Chat</button>
                         <button class="profile-HeaderButton" name="logout">Logout</button>
+                       
                         
                     </center>
                 </td>

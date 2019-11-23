@@ -1,8 +1,12 @@
 <?php
     session_start();
+    require_once('../DB/dbStudent/StudentFunctions.php');
     if(isset($_SESSION['Username']))
     {
+        $username = $_SESSION['Username'];
+        $password = $_SESSION['Password'];
 
+        
         if(isset($_POST['btnProfile']))
         {
             header('location:SProfile.php');
@@ -437,6 +441,7 @@
     }
     else  //All Post
     {
+        $post = getAllPost($username,$password);
 ?>
 
 <html>
@@ -451,22 +456,34 @@
                     </center>
                 </td>
             </tr>
+            <?php
+                for($i=0;$i<count($post);$i++)
+                {
+            ?>
             <tr>
                 <td>
-                    <h3>Nazib Mahfuz</h3>
-                    <i>1st Nov. 19</i>
-                    <p>
-                        jkbvfdkjbvkjfbvfvfdnvbfdjkhb<br>
-                        dkbdfvbfdkjbvfkdjbvfkjd<br>
-                        hvbfdjhbvkjdfbvkjdfbvfjdv<br>
-                        cjdhscvgjhdfsbdfkjbvfd<br>
-                        hvb fdjhvbfdhjbv<br>
-                    </p>
+                    <h3><?=$post[$i]['username']; ?></h3>
+                    <i><?=$post[$i]['Date']; ?></i>
+                    <p><?=$post[$i]['Text']; ?></p>
+                    <?php
+                        if($post[$i]['Image'] == null)
+                        {
+
+                        }
+                        else
+                        {
+                    ?>
+                    <p><img src="../Images/Posts/<?=$post[$i]['Image']; ?>" width="280px" height="210px"></p>
+                    <?php
+                        } 
+                    ?>
                     <center>
                         <button class="profile-HeaderButton">1 Likes</button>
                     </center>
                 </td>
+                    
             </tr>
+            <?php } ?>
             <tr>
                 <td>
                     <hr>

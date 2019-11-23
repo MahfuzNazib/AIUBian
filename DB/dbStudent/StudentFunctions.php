@@ -53,7 +53,7 @@
     function insertPost($text,$image,$date,$status,$email,$username)
     {
         $conn = getConnection();
-        $sql = "INSERT INTO post VALUES ('{$text}','{$image}','{$date}','{$status}','{$email}','{$username}')";
+        $sql = "INSERT INTO post VALUES ('{$text}','{$image}','{$date}','{$status}','{$email}','{$username}',0)";
         if(mysqli_query($conn,$sql))
         {
             return true;
@@ -64,10 +64,37 @@
         }
     }
 
-    function getAllMyPost()
+    function getAllMyPost($username,$password)
     {
         $conn = getConnection();
-        $sql = "SELECT * FROM `post` order by Date DESC";
+        $sql = "SELECT * FROM `post` where email = (select email from logininfo where username='{$username}' and Password='{$password}') order by Date DESC";
+        $result = mysqli_query($conn,$sql);
+        $data = array();
+        while($row = mysqli_fetch_assoc($result))
+        {
+            array_push($data,$row);
+        }
+        return $data;
+    }
+
+    function deletePost($email)
+    {
+        $conn = getConnection();
+        $sql = "DELETE FROM `post` WHERE email='{$email}'";
+        if(mysqli_query($conn,$sql))
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+
+    function getAllPost($username,$password)
+    {
+        $conn = getConnection();
+        $sql = "SELECT * FROM `post` WHERE email != (select email from logininfo where username='{$username}' and Password='{$password}') order by Date DESC ";
         $result = mysqli_query($conn,$sql);
         $data = array();
         while($row = mysqli_fetch_assoc($result))

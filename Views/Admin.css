@@ -176,4 +176,11 @@
   }
 
 
+.date
+{
+    background-color: rgb(76, 24, 197);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 25px;
+    font-style: bold;
+}
 

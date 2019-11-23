@@ -6,16 +6,15 @@
     {
         $username = $_SESSION['Username'];
         $password = $_SESSION['Password'];
-
+        $msgPost = null;
         //GetAllMyPost
 
-        $row = getAllMyPost();
+        $row = getAllMyPost($username,$password);
 
-        if(isset($_POST['posts']))
+        if(isset($_POST['posts']))  //Insert a New Post
         {
             $status = getStatus($username,$password);
             $text = $_POST['text'];
-            //echo $status['status']." ".$status['username']." ".$status['email'];
             $userStatus = $status['status'];
             $userName = $_SESSION['Username'];
             $userEmail = $status['email'];
@@ -28,19 +27,34 @@
             $file_temp_location = $_FILES['image']['tmp_name'];
             $file_store = "../Images/Posts/".$file_name;
 
-            move_uploaded_file($file_temp_location, $file_store);
-
-            //echo $text."<br> ".$file_name."<br> ".$postDate."<br> ".$userStatus."<br> ".$userEmail."<br> ".$userName;
             $insertPost = insertPost($text,$file_name,$postDate,$userStatus,$userEmail,$userName);
-            
             if($insertPost)
             {
-                echo "Post Successfully Done";
+                $msgPost =  "Post Successfully Done";
                 header("refresh:1; url=TimeLine.php");
             }
             else
             {
-                echo "Posting Problem Occure";
+                $msgPost =  "Posting Problem Occure";
+            }
+        }
+
+        if(isset($_POST['postDelete']))
+        {
+            $date = date("d/m/Y");
+            $time = date("h:i:sa");
+            $postDate = $date." ".$time;
+            $userEmail = $status['email'];
+            $delete = deletePost($userEmail);
+            if($delete)
+            {
+                $msgPost = "Post Deleted";
+                header("refresh:1; url=TimeLine.php");
+            }
+            else
+            {
+                $msgPost = "This post is not deleted";
+                header("refresh:1; url=TimeLine.php");
             }
         }
 ?>
@@ -51,6 +65,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="App.css">
+    <link rel="stylesheet" href="Admin.css">
     <title>MyTimeLine</title>
 </head>
 <body class="body-margin">
@@ -94,6 +109,7 @@
                     <input type="file" name="image">
                     <input type="submit" class="postsButton" name="posts" value="Post"> <br>
                     <hr></hr>
+                    <center><?=$msgPost ?></center>
                     <h3>My Posts</h3>
                 </center>
                 
@@ -116,9 +132,9 @@
                         {    
                     ?>
                     <tr width="100%">
-                    
-                        <tr width="100%" bgcolor="red"><?=$row[$i]['Date']; ?></tr> <br>
-                        <tr width="100%"><?=$row[$i]['Text']; ?></tr> <br>
+                        <tr><input type="submit" class="btnPost" name="postDelete" value="Delete Post"></tr>
+                        <tr> <p> Date : <?=$row[$i]['Date']; ?> </p></tr>
+                        <tr><?=$row[$i]['Text']; ?></tr> <br>
                         <?php
                             if($row[$i]['Image'] == null)
                             {
@@ -127,11 +143,12 @@
                             else
                             {
                         ?>
-                        <tr width="100%"><img src="../Images/Posts/<?=$row[$i]['Image']; ?>" width="200px" height="200px"></tr> <br>
+                        <tr ><img src="../Images/Posts/<?=$row[$i]['Image']; ?>" width="280px" height="210px"></tr> <br>
                         <?php
                             }
                         ?>
-                        <tr width="100%">Like</tr>
+                        <tr ><input type="submit" name="like" class="profile-HeaderButton" value="<?=$row[$i]['Likes']?> Like">  </tr> <br>
+                        <tr> <hr> </tr>
                     
                     </tr>
 

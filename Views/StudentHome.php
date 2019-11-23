@@ -460,11 +460,12 @@
                 for($i=0;$i<count($post);$i++)
                 {
             ?>
-            <tr>
+            <tr class="tblbgColor-Posts">
                 <td>
                     <h3><?=$post[$i]['username']; ?></h3>
                     <i><?=$post[$i]['Date']; ?></i>
-                    <p><?=$post[$i]['Text']; ?></p>
+                    
+                    <p> <center><?=$post[$i]['Text']; ?> </center></p>
                     <?php
                         if($post[$i]['Image'] == null)
                         {
@@ -473,14 +474,16 @@
                         else
                         {
                     ?>
-                    <p><img src="../Images/Posts/<?=$post[$i]['Image']; ?>" width="280px" height="210px"></p>
+                    <p><center><img src="../Images/Posts/<?=$post[$i]['Image']; ?>" width="380px" height="310px"> </center> </p>
                     <?php
                         } 
                     ?>
                     <center>
                         <button class="profile-HeaderButton">1 Likes</button>
-                    </center>
+                    </center> <br><br>  
+                    <hr>
                 </td>
+                
                     
             </tr>
             <?php } ?>

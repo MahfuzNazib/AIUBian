@@ -1,8 +1,61 @@
 <?php
     session_start();
+    require_once('../DB/dbAlumni/AlumniFunctions.php');
+    require_once('../DB/Functions.php');
     if(isset($_SESSION['Username']))
     {
+        $username = $_SESSION['Username'];
+        $password = $_SESSION['Password'];
+        $msgPost = null;
 
+        $row = getAllAlumniPost($username,$password);
+        if(isset($_POST['posts']))  //Insert a New Post
+        {
+            $status = getAlumniStatus($username,$password);
+            $text = $_POST['text'];
+            $userStatus = $status['status'];
+            $userName = $_SESSION['Username'];
+            $userEmail = $status['email'];
+            $date = date("d/m/Y");
+            $time = date("h:i:sa");
+            $postDate = $date." ".$time;
+            
+
+            $file_name = $_FILES['image']['name'];
+            $file_temp_location = $_FILES['image']['tmp_name'];
+            $file_store = "../Images/Posts/".$file_name;
+            move_uploaded_file($file_temp_location,$file_store);
+
+            $insertPost = insertAlumniPost($text,$file_name,$postDate,$userStatus,$userEmail,$userName);
+            if($insertPost)
+            {
+                $msgPost =  "Post Successfully Done";
+                header("refresh:1; url=AlumniTimeLine.php");
+            }
+            else
+            {
+                $msgPost =  "Posting Problem Occure";
+            }
+        }
+
+        if(isset($_POST['postDelete']))
+        {
+            $date = date("d/m/Y");
+            $time = date("h:i:sa");
+            $postDate = $date." ".$time;
+            $userEmail = $status['email'];
+            $delete = deletePost($userEmail);
+            if($delete)
+            {
+                $msgPost = "Post Deleted";
+                header("refresh:1; url=TimeLine.php");
+            }
+            else
+            {
+                $msgPost = "This post is not deleted";
+                header("refresh:1; url=TimeLine.php");
+            }
+        }
     
 ?>
 <!DOCTYPE html>
@@ -43,110 +96,66 @@
                 <!--Left Area-->
             </td>
             <td>
-                <form>
+                <form action="#" method="POST" enctype="multipart/form-data">
                     <fieldset>
                         <legend>Create Post</legend>
-                        <textarea row="4" col="50" placeholder="What's on Your Mind?" class="postArea" >
+                        <textarea row="4" col="50" placeholder="What's on Your Mind?" class="postArea" name="text">
 
                         </textarea>
                     </fieldset>
-                </form> <br>
+                 <br>
                 <center>
-                    <button class="postsButton">Photo</button>
-                    <button class="postsButton">Video</button>
-                    <button class="postsButton">Post</button> <br>
-                    <hr>
+                    <input type="file" name="image">
+                    <input type="submit" class="postsButton" name="posts" value="Post"> <br>
+                    <hr></hr>
+                    <center><?=$msgPost ?></center>
                     <h3>My Posts</h3>
                 </center>
                 
-            </td>
-            <td>
-                <!--Right Area-->
-            </td>
-        </tr>
-
-        <tr>
-            <td>
-                
-            </td>
-            <td>
+                </td>
+                <td>
+                    <!--Right Area-->
+                </td>
+            </tr>
+            
+            <tr>
+                <td>
+                    
+                </td>
+                <td>
+                <center>
                 <table border="0" width="100%" class="tblbgColor-Posts" class="tblLoad">
-                    <tr>
-                            <tr>
-                                    <td>
-                                        <p class="posts-Date">11th October,2019</p>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <img src="Images/a.jpg" height="250px" width="100%">
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <center>
-                                            <button class="profile-HeaderButton">205 Likes</button>
-                                        </center>
-                                    </td>
-                                </tr>
+                    <?php
 
-                                <tr>
-                                        <td>
-                                            <p class="posts-Date">11th October,2019</p>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <img src="Images/posts1.jpg" height="250px" width="100%">
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <center>
-                                                <button class="profile-HeaderButton">205 Likes</button>
-                                            </center>
-                                        </td>
-                                    </tr>
+                        for($i=0;$i<count($row);$i++)
+                        {    
+                    ?>
+                    <tr width="100%">
+                        <!--<tr><input type="submit" class="btnPost" name="postDelete" value="Delete Post"></tr>-->
+                        <tr> <p> Date : <?=$row[$i]['Date']; ?> </p></tr>
+                        <tr><?=$row[$i]['Text']; ?></tr> <br>
+                        <?php
+                            if($row[$i]['Image'] == null)
+                            {
 
-                                    <tr>
-                                        <td>
-                                            <p class="posts-Date">09th October,2019</p>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <video controls>
-                                                <source src="Vedios/short-video-clip-nature-mp4.mp4" type="video/mp4">
-                                            </video>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <center>
-                                                <button class="profile-HeaderButton">95 Likes</button>
-                                            </center>
-                                        </td>
-                                    </tr>
-
-                                    <tr>
-                                        <td>
-                                            <p class="posts-Date">09th October,2019</p>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <img src="Images/posts2.jpg" width="100%">
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <center>
-                                                <button class="profile-HeaderButton">09 Likes</button>
-                                            </center>
-                                        </td>
-                                    </tr>
+                            }
+                            else
+                            {
+                        ?>
+                        <tr ><img src="../Images/Posts/<?=$row[$i]['Image']; ?>" width="280px" height="210px"></tr> <br>
+                        <?php
+                            }
+                        ?>
+                        <tr ><input type="submit" name="like" class="profile-HeaderButton" value="<?=$row[$i]['Likes']?> Like">  </tr> <br>
+                        <tr> <hr> </tr>
+                    
                     </tr>
+
+                    <?php
+                        }
+                    ?>
                 </table>
+                </center>
             </td>
             <td>
 
@@ -161,6 +170,7 @@
             </td>
         </tr>
     </table>
+    </form>
 </body>
 </html>
 

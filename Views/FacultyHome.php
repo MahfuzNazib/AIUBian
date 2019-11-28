@@ -1,6 +1,7 @@
 <?php
     session_start();
     require_once('../DB/dbFaculty/FacultyFunctions.php');
+    require_once('../DB/Functions.php');
     if(isset($_SESSION['Username']))
     {
         $username = $_SESSION['Username'];
@@ -24,7 +25,6 @@
         {
             header('location:../php/Logout.php');
         }
-
 ?>
 <!DOCTYPE html>
 <html lang="en">

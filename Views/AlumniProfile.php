@@ -6,6 +6,8 @@
         $username = $_SESSION['Username'];
         $password = $_SESSION['Password'];
 
+        $data = getAlumniData($username,$password);
+
         if(isset($_POST['edit']))
         {
             header('location:AlmProfile.php');
@@ -26,11 +28,6 @@
         {
             header('location:AlumniChat.php');
         }
-
-        $data = getData($username,$password);
-       
-
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -63,7 +60,7 @@
             <tr height="150px">  <!--Profile Picture -->
                 <td>
                     <center>
-                            <img src="../Images/zaheed.png" height="150px" width="200px">
+                    <img src="../Images/ProfilePicture/<?=$data['ProfilePicture']; ?>" height="150px" width="200px">
                             <img class="edit-button" src="../Images/editicon.png" height="20px" width="40px">
                     </center>
                 </td>
@@ -78,8 +75,6 @@
             </tr>
             <tr> <!--Student Personal Info -->
                 <td width="50%">
-          
-                    <form>
                         <fieldset>
                             <legend>Personal Info</legend>
                             <table border="0" width="100%">
@@ -97,7 +92,7 @@
                                             E-mail :-
                                         </td>
                                         <td>
-                                            zaheed@.gmail.com
+                                            <?=$data['Email']; ?>
                                         </td>
                                     </tr>
 
@@ -106,7 +101,7 @@
                                             Phone No :-
                                         </td>
                                         <td>
-                                            01258962555
+                                            <?=$data['Phone']; ?>
                                         </td>
                                     </tr>
 
@@ -115,7 +110,7 @@
                                             Facebook Profile :-
                                         </td>
                                         <td>
-                                            <a href="https://www.facebook.com/alamin200290">Zaheed Sabur</a>
+                                            <a href="<?=$data['Facebook']; ?>"><?=$data['Facebook']; ?></a>
                                         </td>
                                     </tr>
 
@@ -124,7 +119,7 @@
                                             LinkedIn :-
                                         </td>
                                         <td>
-                                            <a href="https://www.facebook.com/alamin200290">Al Amin</a>
+                                            <a href="<?=$data['LinkedIn']; ?>"><?=$data['LinkedIn']; ?></a>
                                         </td>
                                     </tr>
 
@@ -133,12 +128,12 @@
                                             Portfolio :-
                                         </td>
                                         <td>
-                                            <a href="https://www.facebook.com/alamin200290">alamin.github.io</a>
+                                            <a href="<?=$data['Portfolio']; ?>"><?=$data['Portfolio']; ?></a>
                                         </td>
                                     </tr>
                                 </table>
                         </fieldset>
-                    </form>
+                    
                     <center>
                 </td>
              
@@ -146,8 +141,6 @@
                 
             <tr>  
                 <td>  <!--Student Academic Info -->
-                    
-                    <form>
                             <fieldset>
                                 <legend>Academic Info</legend>
                                 <table border="0" width="100%">
@@ -156,7 +149,7 @@
                                                 Department :-
                                             </td>
                                             <td>
-                                                Computer Science (CS)
+                                                <?=$data['Dept']; ?>
                                             </td>
                                         </tr>
                                         <tr>
@@ -164,7 +157,7 @@
                                                 Semester :-
                                             </td>
                                             <td>
-                                                Spring
+                                                <?=$data['Semester']; ?>
                                             </td>
                                         </tr>
 
@@ -173,14 +166,13 @@
                                                 Year :-
                                             </td>
                                             <td>
-                                                2005
+                                                <?=$data['Year']; ?>
                                             </td>
                                         </tr>
 
                                         
                                     </table>
                             </fieldset>
-                        </form>
 
                 </td>
             </tr>
@@ -188,7 +180,7 @@
 
             <tr>  <!--Working Activity -->
                 <td>
-                    <form>
+                    
                         <fieldset>
                             <legend>Working Activity</legend>
                             <table border="0" width="100%">
@@ -197,36 +189,44 @@
                                             Working Place :-
                                         </td>
                                         <td>
-                                            Google
+                                            <?=$data['WorkingPlace']; ?>
                                         </td>
                                         
                                     </tr>
 
                                     <tr>
                                         <td class="font-Normal">
-                                            Web Site :-
+                                            Website :-
                                         </td>
                                         <td>
-                                            <a href="https://google.com/">www.google.com</a>
+                                            <a href="<?=$data['Website']; ?>"><?=$data['Website']; ?></a>
                                         </td>
                                         <td>
-                                            <a href="http://www.aiub.edu/" class="link-Button">Go</a>
+                                            <a href="<?=$data['Website']; ?>" class="link-Button">Go</a>
                                         </td>
                                     </tr>
 
                                     <tr>
                                         <td class="font-Normal">
+                                            Working Domain :-
+                                        </td>
+                                        <td>
+                                            <?=$data['WorkingDomain']; ?>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="font-Normal">
                                             Joining Date :-
                                         </td>
                                         <td>
-                                            02-09-2014
+                                            <?=$data['JoiningDate']; ?>
                                         </td>
                                         
                                     </tr>
                                     
                                 </table>
                         </fieldset>
-                    </form>
+                    
                 </td>
             </tr>
 

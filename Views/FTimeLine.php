@@ -1,5 +1,6 @@
 <?php
     require_once('../DB/dbFaculty/FacultyFunctions.php');
+    require_once('../DB/Functions.php');
     session_start();
     if(isset($_SESSION['Username']))
     {
@@ -11,11 +12,11 @@
         $data = getFacultyData($username,$password);
 
         $email = $data['email'];
-        $row = getAllMyPost($username,$password);
+        $row = getAllFacultyPost($username,$password);
 
         if(isset($_POST['posts']))  //Insert a New Post
         {
-            $status = getStatus($username,$password);
+            $status = getFacultyStatus($username,$password);
             $text = $_POST['text'];
             $userStatus = $status['status'];
             $userName = $_SESSION['Username'];
@@ -30,7 +31,7 @@
             $file_store = "../Images/Posts/".$file_name;
             move_uploaded_file($file_temp_location,$file_store);
 
-            $insertPost = insertPost($text,$file_name,$postDate,$userStatus,$userEmail,$userName);
+            $insertPost = insertFacultyPost($text,$file_name,$postDate,$userStatus,$userEmail,$userName);
             if($insertPost)
             {
                 $msgPost =  "Post Successfully Done";
@@ -48,7 +49,7 @@
             $time = date("h:i:sa");
             $postDate = $date." ".$time;
             //$userEmail = $status['email'];
-            $deletepost = deletePost($email);
+            $deletepost = deleteFacultyPost($email);
             if($deletepost)
             {
                 $msgPost = "Post Deleted";

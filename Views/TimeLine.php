@@ -1,6 +1,7 @@
 <?php
     session_start();
     require_once('../DB/dbStudent/StudentFunctions.php');
+    require_once('../DB/Functions.php');
 
     if(isset($_SESSION['Username']))
     {

@@ -9,22 +9,58 @@
         $user = mysqli_fetch_assoc($result);
         
         return $user;
-        /*if(count($user) > 0)
-        {
-            $conn = getConnection();
-            $query = "select status from logininfo where username='{$username}' and password='{$password}'";
-            $rst = mysqli_query($conn,$query);
-            $status = mysqli_fetch_assoc($rst);
-            /*if($status == "Student")
-            {
-                header('location:../Views/StudentHome.php');
-            }
-            elseif($status == "Alumni")
-            {
-                header('location:../Views/AlumniHome.php');
-            }*/
-            
-            //return $status;
-        }
     }
+
+
+    function getAllPost($username,$password)
+    {
+        $conn = getConnection();
+        $sql = "SELECT * FROM `post` WHERE email != (select email from logininfo where username='{$username}' and Password='{$password}') order by Date DESC ";
+        $result = mysqli_query($conn,$sql);
+        $data = array();
+        while($row = mysqli_fetch_assoc($result))
+        {
+            array_push($data,$row);
+        }
+        return $data;
+    }
+
+    function getStudentPost($username,$password)
+    {
+        $conn = getConnection();
+        $sql = "SELECT * FROM `post` WHERE Status='Student' and email != (select email from logininfo where username='{$username}' and Password='{$password}') order by Date DESC ";
+        $result = mysqli_query($conn,$sql);
+        $data = array();
+        while($row = mysqli_fetch_assoc($result))
+        {
+            array_push($data,$row);
+        }
+        return $data;
+    }
+
+    function getAlumniPost($username,$password)
+    {
+        $conn = getConnection();
+        $sql = "SELECT * FROM `post` WHERE Status='Alumni' and email != (select email from logininfo where username='{$username}' and Password='{$password}') order by Date DESC ";
+        $result = mysqli_query($conn,$sql);
+        $data = array();
+        while($row = mysqli_fetch_assoc($result))
+        {
+            array_push($data,$row);
+        }
+        return $data;
+    }
+    function getFacultyPost($username,$password)
+    {
+        $conn = getConnection();
+        $sql = "SELECT * FROM `post` WHERE Status='Faculty' and email != (select email from logininfo where username='{$username}' and Password='{$password}') order by Date DESC ";
+        $result = mysqli_query($conn,$sql);
+        $data = array();
+        while($row = mysqli_fetch_assoc($result))
+        {
+            array_push($data,$row);
+        }
+        return $data;
+    }
+    
 ?>

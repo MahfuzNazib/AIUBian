@@ -28,7 +28,7 @@
         }
         elseif(isset($_POST['chat']))
         {
-            header('location:FChat.php');
+            header('location:FacultyChat.php');
         }
 
         //update Profile Picture

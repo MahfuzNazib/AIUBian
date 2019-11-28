@@ -80,7 +80,7 @@
     function deletePost($email)
     {
         $conn = getConnection();
-        $sql = "DELETE FROM `post` WHERE email='{$email}'";
+        $sql = "DELETE FROM `post` WHERE email= (select email from logininfo where username='{$username}' and Password='{$password}') ";
         if(mysqli_query($conn,$sql))
         {
             return true;

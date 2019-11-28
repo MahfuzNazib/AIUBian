@@ -81,6 +81,7 @@
     }
     if(isset($_POST['btnFacultyPost']))  //Faculty Post
     {
+        $post = getFacultyPost($username,$password);
 ?>
 
     <center>
@@ -93,17 +94,35 @@
                     </center>
                 </td>
             </tr>
+            <?php
+                for($i=0;$i<count($post);$i++)
+                {
+            ?>
             <tr>
                 <td>
-                    <h3>MD Al Amin</h3>
-                    <i>1st Nov. 19</i>
+                    <h3><?=$post[$i]['username']; ?></h3>
+                    <i><?=$post[$i]['Date'] ?></i>
+                    <p><center><?=$post[$i]['Text'] ?></center></p>
+
+                    <?php
+                        if($post[$i]['Image'] == null)
+                        {
+
+                        }
+                        else
+                        {
+
+                        
+                    ?>
                     <p>
-                        jkbvfdkjbvkjfbvfvfdnvbfdjkhb<br>
-                        dkbdfvbfdkjbvfkdjbvfkjd<br>
-                        hvbfdjhbvkjdfbvkjdfbvfjdv<br>
-                        cjdhscvgjhdfsbdfkjbvfd<br>
-                        hvb fdjhvbfdhjbv<br>
+                        <center>
+                            <img src="../Images/Posts/<?=$post[$i]['Image']; ?>" width="380px" height="310px">
+                        </center>
                     </p>
+
+                    <?php
+                        }
+                    ?>
                     <center>
                         <button class="profile-HeaderButton">1 Likes</button>
                     </center>
@@ -114,93 +133,16 @@
                     <hr>
                 </td>
             </tr>
-
-            <tr>
-                <td>
-                    <h3>Niloy</h3>
-                    <i>1st Nov. 19</i>
-                    <p>
-                        <img src="Images/NiloySir.png" height="300px" width="100%">
-                    </p>
-                    <center>
-                        <button class="profile-HeaderButton">1 Likes</button>
-                    </center>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <hr>
-                </td>
-            </tr>
-
-            <tr>
-                <td>
-                    <h3>Rahim</h3>
-                    <i>1st Nov. 19</i>
-                    <p>
-                        <img src="Images/boysimg.png" height="300px" width="100%">
-                    </p>
-                    <center>
-                        <button class="profile-HeaderButton">1 Likes</button>
-                    </center>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <hr>
-                </td>
-            </tr>
-
-            <tr>
-                <td>
-                    <h3>Ali Hasan</h3>
-                    <i>31th Oct. 19</i>
-                    <p>
-                        vkfjdbvkjdfbvjkbfdv<br>
-                        jbfdbvfdjkbvkjfdbv<br>
-                        kjbvfdbvjdfkbdkjbdfjk<br>
-                        jdhfvcdfjhvbfdjkbvjkfdnvkfbvdfbvdfbvbdfjbvdfkj
-                        djhvbdfjhvbfdvbdfkvbfdkvbdjfkvdf
-                        fdkvdfkvbdfkvbdfvd
-                        fdkvbdfjvbdfvnd
-                        vdfjvdfkvbdflkv
-                        dvdfkbvfdkjbv
-                    </p>
-                    <center>
-                        <button class="profile-HeaderButton">25 Likes</button>
-                    </center>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <hr>
-                </td>
-            </tr>
-
-        
-            <tr>
-                <td>
-                    <h3>Rahim</h3>
-                    <i>30th Oct. 19</i><br>
-                        <video controls>
-                            <source src="Videos/short-video-clip-nature-mp4.mp4" type="video/mp4">
-                        </video>
-                    <center>
-                        <button class="profile-HeaderButton">1 Likes</button>
-                    </center>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <hr>
-                </td>
-            </tr>
+            <?php
+                }
+            ?>
         </table>
     </center>
 <?php
     }
     elseif(isset($_POST['btnAlumniPost']))  //Alumni Post
     {
+        $post = getAlumniPost($username,$password);
 ?>
 <html>
     <body>
@@ -214,31 +156,35 @@
                     </center>
                 </td>
             </tr>
+            <?php
+                for($i=0;$i<count($post);$i++)
+                {
+            ?>
             <tr>
                 <td>
-                    <h3>Sakib Al Hasan</h3>
-                    <i>1st Nov. 19</i> <br>
-                    <video controls>
-                        <source src="Videos/short-video-clip-nature-mp4.mp4" type="video/mp4">
-                    </video>
-                    <center>
-                        <button class="profile-HeaderButton">1 Likes</button>
-                    </center>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <hr>
-                </td>
-            </tr>
+                    <h3><?=$post[$i]['username']; ?></h3>
+                    <i><?=$post[$i]['Date'] ?></i>
+                    <p><center><?=$post[$i]['Text'] ?></center></p>
 
-            <tr>
-                <td>
-                    <h3>Rahim</h3>
-                    <i>1st Nov. 19</i>
+                    <?php
+                        if($post[$i]['Image'] == null)
+                        {
+
+                        }
+                        else
+                        {
+
+                        
+                    ?>
                     <p>
-                        <img src="Images/p1.jpg" height="300px" width="100%">
+                        <center>
+                            <img src="../Images/Posts/<?=$post[$i]['Image']; ?>" width="380px" height="310px">
+                        </center>
                     </p>
+
+                    <?php
+                        }
+                    ?>
                     <center>
                         <button class="profile-HeaderButton">1 Likes</button>
                     </center>
@@ -249,69 +195,9 @@
                     <hr>
                 </td>
             </tr>
-
-            <tr>
-                <td>
-                    <h3>Rahim</h3>
-                    <i>1st Nov. 19</i>
-                    <p>
-                        <img src="Images/boysimg.png" height="300px" width="100%">
-                    </p>
-                    <center>
-                        <button class="profile-HeaderButton">1 Likes</button>
-                    </center>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <hr>
-                </td>
-            </tr>
-
-            <tr>
-                <td>
-                    <h3>Ali Hasan</h3>
-                    <i>31th Oct. 19</i>
-                    <p>
-                        vkfjdbvkjdfbvjkbfdv<br>
-                        jbfdbvfdjkbvkjfdbv<br>
-                        kjbvfdbvjdfkbdkjbdfjk<br>
-                        jdhfvcdfjhvbfdjkbvjkfdnvkfbvdfbvdfbvbdfjbvdfkj
-                        djhvbdfjhvbfdvbdfkvbfdkvbdjfkvdf
-                        fdkvdfkvbdfkvbdfvd
-                        fdkvbdfjvbdfvnd
-                        vdfjvdfkvbdflkv
-                        dvdfkbvfdkjbv
-                    </p>
-                    <center>
-                        <button class="profile-HeaderButton">25 Likes</button>
-                    </center>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <hr>
-                </td>
-            </tr>
-
-        
-            <tr>
-                <td>
-                    <h3>Rahim</h3>
-                    <i>30th Oct. 19</i><br>
-                        <video controls>
-                            <source src="Videos/short-video-clip-nature-mp4.mp4" type="video/mp4">
-                        </video>
-                    <center>
-                        <button class="profile-HeaderButton">1 Likes</button>
-                    </center>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <hr>
-                </td>
-            </tr>
+            <?php
+                }
+            ?>
         </table>
     </center>
     </body>
@@ -321,7 +207,7 @@
     }
     elseif(isset($_POST['btnStudentPost']))  //student Post
     {
-
+        $post = getStudentPost($username,$password);
 ?>
 <html>
     <body>
@@ -335,13 +221,35 @@
                     </center>
                 </td>
             </tr>
+            <?php
+                for($i=0;$i<count($post);$i++)
+                {
+            ?>
             <tr>
                 <td>
-                    <h3>Nazib Mahfuz</h3>
-                    <i>1st Nov. 19</i>
+                    <h3><?=$post[$i]['username']; ?></h3>
+                    <i><?=$post[$i]['Date'] ?></i>
+                    <p><center><?=$post[$i]['Text'] ?></center></p>
+
+                    <?php
+                        if($post[$i]['Image'] == null)
+                        {
+
+                        }
+                        else
+                        {
+
+                        
+                    ?>
                     <p>
-                        <img src="Images/me.png" height="300px" width="100%">
+                        <center>
+                            <img src="../Images/Posts/<?=$post[$i]['Image']; ?>" width="380px" height="310px">
+                        </center>
                     </p>
+
+                    <?php
+                        }
+                    ?>
                     <center>
                         <button class="profile-HeaderButton">1 Likes</button>
                     </center>
@@ -352,87 +260,9 @@
                     <hr>
                 </td>
             </tr>
-
-            <tr>
-                <td>
-                    <h3>Rahim</h3>
-                    <i>1st Nov. 19</i>
-                    <p>
-                        <img src="Images/p2.png" height="300px" width="100%">
-                    </p>
-                    <center>
-                        <button class="profile-HeaderButton">1 Likes</button>
-                    </center>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <hr>
-                </td>
-            </tr>
-
-            <tr>
-                <td>
-                    <h3>Rahim</h3>
-                    <i>1st Nov. 19</i>
-                    <p>
-                        <img src="Images/p3.png" height="300px" width="100%">
-                    </p>
-                    <center>
-                        <button class="profile-HeaderButton">1 Likes</button>
-                    </center>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <hr>
-                </td>
-            </tr>
-
-            <tr>
-                <td>
-                    <h3>Ali Hasan</h3>
-                    <i>31th Oct. 19</i>
-                    <p>
-                        vkfjdbvkjdfbvjkbfdv<br>
-                        jbfdbvfdjkbvkjfdbv<br>
-                        kjbvfdbvjdfkbdkjbdfjk<br>
-                        jdhfvcdfjhvbfdjkbvjkfdnvkfbvdfbvdfbvbdfjbvdfkj
-                        djhvbdfjhvbfdvbdfkvbfdkvbdjfkvdf
-                        fdkvdfkvbdfkvbdfvd
-                        fdkvbdfjvbdfvnd
-                        vdfjvdfkvbdflkv
-                        dvdfkbvfdkjbv
-                    </p>
-                    <center>
-                        <button class="profile-HeaderButton">25 Likes</button>
-                    </center>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <hr>
-                </td>
-            </tr>
-
-        
-            <tr>
-                <td>
-                    <h3>Rahim</h3>
-                    <i>30th Oct. 19</i><br>
-                        <video controls>
-                            <source src="Videos/short-video-clip-nature-mp4.mp4" type="video/mp4">
-                        </video>
-                    <center>
-                        <button class="profile-HeaderButton">1 Likes</button>
-                    </center>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <hr>
-                </td>
-            </tr>
+            <?php
+                }
+            ?>
         </table>
     </center>
     </body>

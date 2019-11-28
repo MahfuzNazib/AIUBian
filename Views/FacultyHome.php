@@ -5,6 +5,9 @@
     {
         $username = $_SESSION['Username'];
         $password = $_SESSION['Password'];
+
+        //$status = getStatus($username,$password);
+        //echo [$status][$status];
         if(isset($_POST['btnProfile']))
         {
             header('location:FProfile.php');

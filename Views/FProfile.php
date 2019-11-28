@@ -1,7 +1,12 @@
 <?php
     session_start();
+    require_once('../DB/dbFaculty/FacultyFunctions.php');
     if(isset($_SESSION['Username']))
     {
+        $username = $_SESSION['Username'];
+        $password = $_SESSION['Password'];
+
+        $data = getFacultyData($username,$password);
 
         if(isset($_POST['edit']))
         {
@@ -58,8 +63,8 @@
             <tr height="150px">  <!--Profile Picture -->
                 <td>
                     <center>
-                            <img src="../Images/AlAminSir.png" height="150px" width="200px">
-                            <img class="edit-button" src="Images/editicon.png" height="20px" width="40px">
+                            
+                            <img src="../Images/ProfilePicture/<?=$data['ProfilePicture']; ?>" height="150px" width="200px">
                     </center>
                 </td>
             </tr>  <!--Edit Profile Button -->
@@ -74,7 +79,7 @@
             <tr> <!--Student Personal Info -->
                 <td width="50%">
           
-                    <form>
+                    
                         <fieldset>
                             <legend>Personal Info</legend>
                             <table border="0" width="100%">
@@ -83,7 +88,7 @@
                                             Name :-
                                         </td>
                                         <td>
-                                            MD Al Amin 
+                                            <?=$data['Name']; ?> 
                                         </td>
                                     </tr>
 
@@ -92,7 +97,7 @@
                                             E-mail :-
                                         </td>
                                         <td>
-                                            alamin@aiub.edu
+                                        <?=$data['email']; ?>
                                         </td>
                                     </tr>
 
@@ -101,7 +106,7 @@
                                             Phone No :-
                                         </td>
                                         <td>
-                                            01258962555
+                                        <?=$data['Phone']; ?>
                                         </td>
                                     </tr>
 
@@ -110,7 +115,7 @@
                                             Facebook Profile :-
                                         </td>
                                         <td>
-                                            <a href="https://www.facebook.com/alamin200290">Al Amin</a>
+                                            <a href="<?=$data['FaceBook']; ?>"><?=$data['FaceBook']; ?></a>
                                         </td>
                                     </tr>
 
@@ -119,7 +124,7 @@
                                             LinkedIn :-
                                         </td>
                                         <td>
-                                            <a href="https://www.facebook.com/alamin200290">Al Amin</a>
+                                            <a href="<?=$data['LinkedIn']; ?>"><?=$data['LinkedIn']; ?></a>
                                         </td>
                                     </tr>
 
@@ -128,12 +133,12 @@
                                             Portfolio :-
                                         </td>
                                         <td>
-                                            <a href="https://www.facebook.com/alamin200290">alamin.github.io</a>
+                                            <a href="<?=$data['Portfolio']; ?>"><?=$data['Portfolio']; ?></a>
                                         </td>
                                     </tr>
                                 </table>
                         </fieldset>
-                    </form>
+                    
                     <center>
                 </td>
              
@@ -142,33 +147,41 @@
             <tr>  
                 <td>  <!--Student Academic Info -->
                     
-                    <form>
+                    
                             <fieldset>
                                 <legend>Academic Info</legend>
                                 <table border="0" width="100%">
                                         <tr>
                                             <td class="font-Normal" width="23%">
-                                                Department :-
+                                                AIUB ID :-
                                             </td>
                                             <td>
-                                                Computer Science (CS)
+                                                <?=$data['AIUB_ID']; ?>
                                             </td>
                                         </tr>
                                         <tr>
-                                            <td class="font-Normal">
-                                                Semester :-
+                                            <td class="font-Normal" width="23%">
+                                                Department :-
                                             </td>
                                             <td>
-                                                7
+                                                <?=$data['Dept']; ?>
                                             </td>
                                         </tr>
-
+                                        
+                                        <tr>
+                                            <td class="font-Normal">
+                                                Semester No :-
+                                            </td>
+                                            <td>
+                                                <?=$data['Semester']; ?>
+                                            </td>
+                                        </tr>
                                         <tr>
                                             <td class="font-Normal">
                                                 Published Paper :-
                                             </td>
                                             <td>
-                                                05
+                                                <?=$data['PublishedPaper']; ?>
                                             </td>
                                         </tr>
 
@@ -177,14 +190,14 @@
                                                 Thesis Domain :-
                                             </td>
                                             <td>
-                                                Quantum Computing,Nuclear Science, Advanced Web Techonology
+                                                <?=$data['ThesisDomain']; ?>
                                             </td>
                                         </tr>
 
 
                                     </table>
                             </fieldset>
-                        </form>
+                        
 
                 </td>
             </tr>
@@ -192,7 +205,7 @@
 
             <tr>  <!--Working Activity -->
                 <td>
-                    <form>
+                    
                         <fieldset>
                             <legend>Working Activity</legend>
                             <table border="0" width="100%">
@@ -201,7 +214,7 @@
                                             Working Place :-
                                         </td>
                                         <td>
-                                            American International University-Bangladesh
+                                            <?=$data['WorkingPlace']; ?>
                                         </td>
                                         
                                     </tr>
@@ -211,10 +224,10 @@
                                             Web Site :-
                                         </td>
                                         <td>
-                                            <a href="https://stackoverflow.com/">www.aiub.edu</a>
+                                            <a href="<?=$data['Website']; ?>"><?=$data['Website']; ?></a>
                                         </td>
                                         <td>
-                                            <a href="http://www.aiub.edu/" class="link-Button">Go</a>
+                                            <a href="<?=$data['Website']; ?>" class="link-Button">Go</a>
                                         </td>
                                     </tr>
 
@@ -223,14 +236,14 @@
                                             Joining Date :-
                                         </td>
                                         <td>
-                                            02-09-2017
+                                            <?=$data['JoiningDate']; ?>
                                         </td>
                                         
                                     </tr>
                                     
                                 </table>
                         </fieldset>
-                    </form>
+                    
                 </td>
             </tr>
 

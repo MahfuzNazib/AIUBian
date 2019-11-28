@@ -6,7 +6,7 @@
         $username = $_SESSION['Username'];
         $password = $_SESSION['Password'];
 
-        $dept = 
+        //$dept = 
         $data = getStudentData($username,$password);
         //$upadte = updateStudentProfile($username,$password);
 

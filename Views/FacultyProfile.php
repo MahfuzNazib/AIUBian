@@ -1,7 +1,15 @@
 <?php
     session_start();
+    require_once('../DB/dbFaculty/FacultyFunctions.php');
     if(isset($_SESSION['Username']))
     {
+        $conn = getConnection();
+
+        $username = $_SESSION['Username'];
+        $password = $_SESSION['Password'];
+        $update = null;
+        $data = getFacultyData($username,$password);
+
         if(isset($_POST['profile']))
         {
             header('location:FProfile.php');
@@ -21,6 +29,66 @@
         elseif(isset($_POST['chat']))
         {
             header('location:FChat.php');
+        }
+
+        //update Profile Picture
+
+        if(isset($_POST['submit']))
+        {
+            //update profile picture
+            print_r($_FILES['image']);
+            $email = $data['email'];
+            $file_name = $_FILES['image']['name'];
+            $file_temp_location = $_FILES['image']['tmp_name'];
+            $file_store = "../Images/ProfilePicture/".$file_name;
+            move_uploaded_file($file_temp_location,$file_store);
+            
+            $sql = "UPDATE facultyprofile SET ProfilePicture='{$file_name}' where email='{$email}'";
+            if(mysqli_query($conn,$sql))
+            {
+                $update = "Profile Picture Updated";
+                
+                header("refresh:1; url=FacultyProfile.php");
+            }
+            else
+            {
+                $update = "Profile Picture Not Updated";
+                echo $email;
+            }
+        }
+        //Update Profile Information
+
+        if(isset($_POST['save']))
+        {
+            $email = $data['email'];
+            $name = $_POST['name'];
+            $phone = $_POST['phone'];
+            $facebook = $_POST['faceBook'];
+            $linkedIn = $_POST['linkedIn'];
+            $portfolio = $_POST['portfolio'];
+            $aiubId = $_POST['AIUB_ID'];
+            $dept = $_POST['dept'];
+            $semester = $_POST['semester'];
+            $publishedPaper = $_POST['publishedPaper'];
+            $thesisDomain = $_POST['thesisDomain'];
+            $workingPlace = $_POST['workingPlace'];
+            $website = $_POST['website'];
+            $joiningDate = $_POST['joiningDate'];
+
+            echo $email.$name.$phone.$facebook.$linkedIn.$portfolio.$aiubId.$dept.$semester.$publishedPaper.$thesisDomain.$workingPlace.$website.$joiningDate;
+
+            $sql = "UPDATE facultyprofile SET Name='{$name}',Phone='{$phone}',AIUB_ID='{$aiubId}',Dept='{$dept}', Semester='{$semester}',ThesisDomain='{$thesisDomain}',PublishedPaper='{$publishedPaper}',Portfolio='{$portfolio}',LinkedIn='{$linkedIn}',FaceBook='{$facebook}',WorkingPlace='{$workingPlace}',Website='{$website}',JoiningDate='{$joiningDate}' where email='{$email}' ";
+            if(mysqli_query($conn,$sql))
+            {
+                $update = "Successfully Updated";
+                header("refresh:1; url=FacultyProfile.php");
+            }
+            
+            else
+            {
+                $update = "Something Wrong.Try again!";
+
+            }
         }
 
 ?>
@@ -52,21 +120,32 @@
                     </center>
                 </td>
             </tr>
+            </form>
             <tr height="150px">  <!--Profile Picture -->
                 <td>
                     <center>
-                            <img src="../Images/AlAminSir.png" height="150px" width="200px">
+                            <img src="../Images/ProfilePicture/<?=$data['ProfilePicture']; ?>" height="150px" width="200px">
                             <!--<img class="edit-button" src="Images/editicon.png" height="20px" width="40px">-->
-                            <form action="upload.php" method="POST" enctype="multipart/form-data">
-                        <input type="file" name="file">
+                            <form method="POST" enctype="multipart/form-data">
+                                <input type="file" name="image"> <input type="submit" name="submit" value="Upload" class="edit-button">
+                            </form>
                     </center>
                 </td>
             </tr>  <!--Edit Profile Button -->
-            
+            <form method="POST" action="#">
+            <tr>
+                <td colspan="2">
+                    <h3>
+                        <center>
+                            <?=$update; ?>
+                        </center>
+                    </h3>
+                </td>
+            </tr>
             <tr> <!--Student Personal Info -->
                 <td width="50%">
                     
-                    <form>
+                    
                         <fieldset>
                             <legend>Personal Info</legend>
                             <table border="0" width="80%">
@@ -75,7 +154,7 @@
                                             Name
                                         </td>
                                         <td>
-                                            <input type="text" class="txt-Box" name ="txtName">
+                                            <input type="text" class="txt-Box" name ="name" value="<?=$data['Name']; ?>">
                                         </td>
                                     </tr>
 
@@ -84,7 +163,7 @@
                                             E-mail
                                         </td>
                                         <td>
-                                            <input type="email" class="txt-Box" name="txtMail">
+                                            <input type="email" class="txt-Box" name="email" value="<?=$data['email']; ?>" disabled>
                                         </td>
                                     </tr>
 
@@ -93,7 +172,7 @@
                                             Phone No
                                         </td>
                                         <td>
-                                            <input type="number" class="txt-Box" name="txtPhone">
+                                            <input type="number" class="txt-Box" name="phone" value="<?=$data['Phone']; ?>">
                                         </td>
                                     </tr>
 
@@ -102,7 +181,7 @@
                                             Facebook 
                                         </td>
                                         <td>
-                                            <input type="url" class="txt-Box" name="txtPhone">
+                                            <input type="url" class="txt-Box" name="faceBook" value="<?=$data['FaceBook']; ?>">
                                         </td>
                                     </tr>
 
@@ -111,7 +190,7 @@
                                             LinkedIn
                                         </td>
                                         <td>
-                                            <input type="url" class="txt-Box" name="txtPhone">
+                                            <input type="url" class="txt-Box" name="linkedIn" value="<?=$data['LinkedIn']; ?>">
                                         </td>
                                     </tr>
 
@@ -120,12 +199,12 @@
                                             Portfolio
                                         </td>
                                         <td>
-                                            <input type="url" class="txt-Box" name="txtPhone">
+                                            <input type="url" class="txt-Box" name="portfolio" value="<?=$data['Portfolio']; ?>">
                                         </td>
                                     </tr>
                                 </table>
                         </fieldset>
-                    </form>
+                    
 
                 </td>
             </tr>
@@ -133,20 +212,29 @@
             <tr>  
                 <td>  <!--Student Academic Info -->
                     
-                    <form>
+                    
                             <fieldset>
                                 <legend>Academic Info</legend>
-                                <table border="0" width="80%">
+                                <table border="0" width="80%">.
+                                        <tr>
+                                            <td class="font-Normal" width="23%">
+                                                AIUB ID
+                                            </td>
+                                            <td>
+                                                <input type="text" class="txt-Box" name="AIUB_ID" value="<?=$data['AIUB_ID']; ?>">
+                                            </td>
+                                        </tr>
                                         <tr>
                                             <td class="font-Normal" width="23%">
                                                 Department
                                             </td>
                                             <td>
-                                                <select class="txt-Box">
-                                                    <option>Faculty of Science & Technology</option>
-                                                    <option>Faculty of Engineering</option>
-                                                    <option>Faculty of Art Social Sciences</option>
-                                                    <option>Faculty of Business Administration</option>
+                                                <select class="txt-Box" name="dept">
+                                                    <option><?=$data['Dept']; ?></option>
+                                                    <option value="Faculty of Science & Technology">Faculty of Science & Technology</option>
+                                                    <option value="Faculty of Engineering">Faculty of Engineering</option>
+                                                    <option value="Faculty of Art Social Sciences">Faculty of Art Social Sciences</option>
+                                                    <option value="Faculty of Business Administration">Faculty of Business Administration</option>
                                                 </select>
                                             </td>
                                         </tr>
@@ -156,7 +244,7 @@
                                                 Semester
                                             </td>
                                             <td>
-                                                <input type="number" class="txt-Box" name="txtPhone">
+                                                <input type="number" class="txt-Box" name="semester" value="<?=$data['Semester']; ?>">
                                             </td>
                                         </tr>
 
@@ -165,7 +253,7 @@
                                                 Published Paper
                                             </td>
                                             <td>
-                                                <input type="number" class="txt-Box" name="txtPhone">
+                                                <input type="number" class="txt-Box" name="publishedPaper" value="<?=$data['PublishedPaper']; ?>">
                                             </td>
                                         </tr>
 
@@ -174,19 +262,19 @@
                                                 Thesis Domain
                                             </td>
                                             <td>
-                                                <input type="text" class="txt-Box" name="txtPhone">
+                                                <input type="text" class="txt-Box" name="thesisDomain" value="<?=$data['ThesisDomain']; ?>">
                                             </td>
                                         </tr>
                                     </table>
                             </fieldset>
-                        </form>
+                       
 
                 </td>
             </tr>
 
             <tr>  <!--Student Others Info -->
                 <td>
-                    <form>
+                    
                         <fieldset>
                             <legend>Working Activity</legend>
                             <table border="0" width="80%">
@@ -195,7 +283,7 @@
                                             Working Place
                                         </td>
                                         <td>
-                                            <input type="text" class="txt-Box" name ="txtGithub">
+                                            <input type="text" class="txt-Box" name ="workingPlace" value="<?=$data['WorkingPlace']; ?>">
                                         </td>
                                     
                                     </tr>
@@ -205,7 +293,7 @@
                                             Website
                                         </td>
                                         <td>
-                                            <input type="url" class="txt-Box" name="txtStackOverflow">
+                                            <input type="url" class="txt-Box" name="website" value="<?=$data['Website']; ?>">
                                         </td>
                                         
                                     </tr>
@@ -215,21 +303,20 @@
                                             Joining Date
                                         </td>
                                         <td>
-                                            <input type="date" class="txt-Box" name="txtHackerRank">
+                                            <input type="date" class="txt-Box" name="joiningDate" value="<?=$data['JoiningDate']; ?>">
                                         </td>
                                         
                                     </tr>
                                     
                                 </table>
                         </fieldset>
-                    </form>
+                    
                 </td>
             </tr>
             <tr> <!--Buttons -->
                 <td>
                     <center>
-                        <button class="btn-Confirm">Save</button>
-                        <button class="btn-Reset">Delete</button>
+                        <button class="btn-Confirm" name="save">Save</button>
                     </center>
                 </td>
             </tr>

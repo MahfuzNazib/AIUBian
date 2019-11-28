@@ -42,7 +42,7 @@
         $uname = $_POST['Username'];
         $pass = $_POST['Password'];
        
-        if(empty($uname) == true)
+        /*if(empty($uname) == true)
         {
             
            $errUsername =   "<div class=\"errMsg\">Empty Username </div>";
@@ -62,11 +62,32 @@
                     $errInvalid = "<div class=\"invalid_User_Pass\">Invalid Username or Password</div>";
                 }
             }
-        }
+        }*/
         
     }
 
 ?>
+
+<script>
+    function loginValueCheck()
+    {
+        var  username = document.getElementById('idUsername').value;
+        var password = document.getElementById('idPassword').value;
+        alert("username");
+
+        if(username == "")
+        {
+            alert("Empty Username not Accepted!");
+            else
+            {
+                if(password == "")
+                {
+                    alert("Empty Password not Accepted");
+                }
+            }
+        }
+    }
+</script>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -98,18 +119,18 @@
         </tr>
         <tr>  
             <td>
-                <input type="text" class="login-input" placeholder="Username" name="Username"> <?php echo $errUsername ?>
+                <input type="text" class="login-input" placeholder="Username" name="Username" id= "idUsername"> <?php echo $errUsername ?>
             </td>
             
         </tr>
         <tr>
             <td>
-                <input type="password" class="login-input" placeholder="Password" name="Password" > <?php echo $errPassword ?>
+                <input type="password" class="login-input" placeholder="Password" name="Password" id= "idPassword"> <?php echo $errPassword ?>
             </td>
         </tr>
         <tr>
             <td>
-                <input type="submit" value="Login" class="login-button" name="submit">
+                <input type="submit" value="Login" class="login-button" name="submit" onclick="loginValueCheck()">
             </td>
         </tr>
         <tr>

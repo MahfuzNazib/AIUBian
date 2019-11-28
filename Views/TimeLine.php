@@ -26,6 +26,7 @@
             $file_name = $_FILES['image']['name'];
             $file_temp_location = $_FILES['image']['tmp_name'];
             $file_store = "../Images/Posts/".$file_name;
+            move_uploaded_file($file_temp_location,$file_store);
 
             $insertPost = insertPost($text,$file_name,$postDate,$userStatus,$userEmail,$userName);
             if($insertPost)

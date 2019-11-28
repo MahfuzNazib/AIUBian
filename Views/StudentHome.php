@@ -39,6 +39,7 @@
     <form action="#" method="POST">
     <table border="0" width="100%">
         <tr class="Profile-Header">
+        <div class="sticky">
             <td width=25%>
                 <center>
                     <h3><?=$_SESSION['Username'] ?></h3>
@@ -53,11 +54,11 @@
                     <button class="profile-HeaderButton" name="btnChat">Chat</button>
                     <button class="profile-HeaderButton" name="btnLogout">Logout</button>
                     </center>
-                    
             </td>
             <td width=25%>
                 <input type="search" class="searchBox" name="txtsearch" placeholder="Search...">
             </td>
+            </div>
         </tr>
         <tr>
             <td colspan="3">
@@ -460,7 +461,7 @@
                 for($i=0;$i<count($post);$i++)
                 {
             ?>
-            <tr class="tblbgColor-Posts">
+            <tr >
                 <td>
                     <h3><?=$post[$i]['username']; ?></h3>
                     <i><?=$post[$i]['Date']; ?></i>
@@ -493,86 +494,7 @@
                 </td>
             </tr>
 
-            <tr>
-                <td>
-                    <h3>Rahim</h3>
-                    <i>1st Nov. 19</i>
-                    <p>
-                        <img src="Images/p1.jpg" height="300px" width="100%">
-                    </p>
-                    <center>
-                        <button class="profile-HeaderButton">1 Likes</button>
-                    </center>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <hr>
-                </td>
-            </tr>
-
-            <tr>
-                <td>
-                    <h3>Rahim</h3>
-                    <i>1st Nov. 19</i>
-                    <p>
-                        <img src="Images/boysimg.png" height="300px" width="100%">
-                    </p>
-                    <center>
-                        <button class="profile-HeaderButton">1 Likes</button>
-                    </center>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <hr>
-                </td>
-            </tr>
-
-            <tr>
-                <td>
-                    <h3>Ali Hasan</h3>
-                    <i>31th Oct. 19</i>
-                    <p>
-                        vkfjdbvkjdfbvjkbfdv<br>
-                        jbfdbvfdjkbvkjfdbv<br>
-                        kjbvfdbvjdfkbdkjbdfjk<br>
-                        jdhfvcdfjhvbfdjkbvjkfdnvkfbvdfbvdfbvbdfjbvdfkj
-                        djhvbdfjhvbfdvbdfkvbfdkvbdjfkvdf
-                        fdkvdfkvbdfkvbdfvd
-                        fdkvbdfjvbdfvnd
-                        vdfjvdfkvbdflkv
-                        dvdfkbvfdkjbv
-                    </p>
-                    <center>
-                        <button class="profile-HeaderButton">25 Likes</button>
-                    </center>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <hr>
-                </td>
-            </tr>
-
-        
-            <tr>
-                <td>
-                    <h3>Rahim</h3>
-                    <i>30th Oct. 19</i><br>
-                        <video controls>
-                            <source src="Videos/short-video-clip-nature-mp4.mp4" type="video/mp4">
-                        </video>
-                    <center>
-                        <button class="profile-HeaderButton">1 Likes</button>
-                    </center>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <hr>
-                </td>
-            </tr>
+            
         </table>
     </center>
     </body>

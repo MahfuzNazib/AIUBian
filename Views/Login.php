@@ -34,6 +34,7 @@
 
 <?php
     session_start();
+    sleep(3);
     $errUsername = null;
     $errPassword = null;
     $errInvalid = null;

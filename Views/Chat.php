@@ -1,8 +1,19 @@
 <?php
     session_start();
+    require_once('../DB/dbStudent/StudentFunctions.php');
+    require_once('../DB/Functions.php');
     if(isset($_SESSION['Username']))
     {
+        $conn = getConnection();
+        $username = $_SESSION['Username'];
+        $password = $_SESSION['Password'];
 
+        $status = getStatus($username,$password);
+        $getMyEmail = $status['email'];
+
+        
+
+        //echo $getMyEmail;
         if(isset($_POST['btnHome']))
         {
             header('location:StudentHome.php');
@@ -19,6 +30,37 @@
         {
             header('location:../php/Logout.php');
         }
+
+        $rmail = 'hasib3030@gmail.com';
+        $msgList = getMessage($rmail);
+
+        if(isset($_POST['send']))
+        {
+            $receiver_mail = $_POST['Receiver'];
+            $message = $_POST['msg'];
+            $date = date("d/m/Y");
+            $time = date("h:i:sa");
+            $msgDate = $date." ".$time;
+
+            echo $getMyEmail." ".$receiver_mail." ".$message." ".$msgDate;
+            if($receiver_mail == "" || $message == "")
+            {
+
+            }
+            else
+            {
+                $chatting = chat($getMyEmail,$receiver_mail,$message,$msgDate);
+                if($chatting)
+                {
+                    echo "Done";
+                    header('refresh:1; url=Chat.php');
+                }
+                else
+                {
+                    echo "Problem Occure";
+                }
+            }
+        }
     
 ?>
 
@@ -30,6 +72,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="App.css">
     <link rel="stylesheet" href="Admin.css">
+    <script type="text/javascript" src="../javascript/script.js"></script>
     <title>Home</title>
 </head>
 <body class="body-margin">
@@ -38,7 +81,8 @@
         <tr class="Profile-Header">
             <td width=25%>
                 <center>
-                <?=$_SESSION['Username'] ?>
+                <h3><?=$_SESSION['Username'] ?></h3>
+                
                 </center>
             </td>
             <td>
@@ -61,19 +105,7 @@
             <button class="frndList">Nazib Mahfuz</button>
             <button class="frndList">Hasib Ahmed</button>
             <button class="frndList">Zakaria Islam</button>
-            <button class="frndList">Mitho Hasan</button>
-            <button class="frndList">Bristy Talukder</button>
-            <button class="frndList">Jamil Ahmed</button>
-            <button class="frndList">MD.Al Amin</button>
-            <button class="frndList">Hasib Ahmed</button>
-            <button class="frndList">Nazib Mahfuz</button>
-            <button class="frndList">Hasib Ahmed</button>
-            <button class="frndList">Zakaria Islam</button>
-            <button class="frndList">Mitho Hasan</button>
-            <button class="frndList">Bristy Talukder</button>
-            <button class="frndList">Jamil Ahmed</button>
-            <button class="frndList">MD.Al Amin</button>
-            <button class="frndList">Hasib Ahmed</button>
+            
         </div>
         <div class="grid-item">
             <table border="0" width="100%" height="100%">
@@ -86,24 +118,44 @@
                 </tr>
                 <tr>
                     <td>
-                        <input type="text" name="txtReceiver" class="receiverTxt" placeholder="Receiver Username or Email">
+                        
+                        <input type="text" name="Receiver" class="receiverTxt" placeholder="Receiver Username or Email" id="receiver_mail">
                     </td>
                 </tr>
                 <tr>
                     <td>
-                    <textarea pleaceholder="Message Body" class="msgBody"></textarea>
+                    
+                        <div>
+                            <?php 
+
+                                $sql = "SELECT * FROM `chat` ";
+                                $result = mysqli_query($conn,$sql);
+
+                                while($row = mysqli_fetch_assoc($result))
+                                {
+                                    $text = $row['text'];
+                                    $receiver = $row['receiver'];
+                                    $sender = $row['sender'];
+                                    echo '<h5 style="color:black">'.$sender.'</h5>';
+                                    //echo '<h5 style="color:blue">'.$receiver.' says: '.'</h5>';
+                                    echo '<p style="text-aligh:left">'.$text.'</p>';
+                                    echo '<hr>';
+                                }
+                            ?>
+                        </div>
+                        
                     </td>
                 </tr>
 
                 <tr>
                     <td>
-                        <input type="text" name="txtReceiver" class="receiverTxt" placeholder="Type Your Message Here..">
+                        <input type="text" name="msg" class="receiverTxt" placeholder="Type Your Message Here.." id="message">
                     </td>
                 </tr>
                 <tr>
                     <td>
-                        <button class="btnsend">Send</button>
-
+                        <!--<button class="btnsend">Send</button> -->
+                        <input type="submit" name="send" value="Send" class="btnsend" onclick = "checkMessage()">
                     </td>
                 </tr>
             </table>

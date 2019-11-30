@@ -62,5 +62,45 @@
         }
         return $data;
     }
+
+    function search($search)
+    {
+        $conn = getConnection();
+        $sql = "SELECT * FROM post WHERE username = '{$search}'";
+        $result = mysqli_query($conn,$sql);
+        $srcResult = mysqli_fetch_assoc($result);
+        
+        return $srcResult;
+    }
+
+
+    function chat($sender,$receiver,$text,$date)
+    {
+        $conn = getConnection();
+        $sql = "INSERT INTO `chat` VALUES ('','{$sender}', '{$receiver}', '{$text}', '{$date}') ";
+        if(mysqli_query($conn,$sql))
+        {
+            return true;
+        }
+        else
+        {
+            false;
+        }
+    }
+
+    function getMessage($mail)
+    {
+        $conn = getConnection();
+        $sql = "SELECT * FROM `chat` WHERE receiver='{$mail}' order by time desc";
+        $result = mysqli_query($conn,$sql);
+        $data = array();
+        while($row = mysqli_fetch_assoc($result))
+        {
+            array_push($data,$row);
+        }
+        return $data;
+        //$msgList = mysqli_fetch_assoc($result);
+        //return $msgList;
+    }
     
 ?>

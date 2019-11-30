@@ -137,9 +137,10 @@
 .btnsend:hover
 {
     cursor: pointer;
-    background-color: honeydew;
+    background-color: rgb(136, 156, 136);
     color: black;
     font-size: 18px;
+    border-color: 1px solid green;
 }
 
 .frndList
@@ -170,7 +171,7 @@
     background-color: rgba(255, 255, 255, 0.8);
     border: 1px solid rgba(0, 0, 0, 0.8);
     font-size: 22px;
-    height: 550px;
+    height: 600px;
     text-align: center;
     overflow: scroll;
   }

@@ -8,6 +8,8 @@
         $username = $_SESSION['Username'];
         $password = $_SESSION['Password'];
 
+        //$searchData = search($search);
+
         if(isset($_POST['btnProfile']))
         {
             header('location:AlumniProfile.php');
@@ -23,6 +25,12 @@
         elseif(isset($_POST['btnLogout']))
         {
             header('location:../php/Logout.php');
+        }
+
+        if(isset($_POST['txtSearch']))
+        {
+            $src = $_POST['txtSearch'];
+            echo $src;
         }
 
 ?>

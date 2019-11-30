@@ -1,3 +1,17 @@
+<style>
+    .loginPage{
+        left-margin : 20% ; 
+        top-margin : 40%;
+        height : 50px;
+        width : 150px;
+        color : white;
+        backgroud-color : blue;
+        border-radius : 2px solid red;
+        cursor : pointer;
+    }
+</style>
+
+
 <?php
     require_once('../DB/dbLogin/LoginFunctions.php');
     require_once('../DB/dbStudent/StudentFunctions.php');
@@ -21,16 +35,33 @@
             {
                 if($login)
                 {
-                    header('location:../Views/Login.php?$msg=Successfully Register');
+                    //header('location:../Views/Login.php?$msg=Successfully Register');
+                    //header('location:../javascript/script.js');
+                    echo "<script>";
+                    echo 'alert("Successfully Registered")';
+                    echo "</script>";
+
+                    //header('location:../Views/Login.php');
+
+                    echo "<div class=\"loginPage\">Go to Login</div>";
                 }
                 else
                 {
-                    header('location:../Views/Registration.php?$msg=Invalid Login Info');
+                    echo "<script>";
+                    echo 'alert("Problem Occure on LoginInformation.")';
+                    echo "</script>";
+
+                    header('location:../Views/Registration.php');
                 }
+            
             }
             else
             {
-                header('location:../Views/Registration.php?$msg=problem in register');
+                echo "<script>";
+                echo 'alert("Please Provide all information Correctly.")';
+                echo "</script>";
+
+                header('location:../Views/Registration.php');
             }
         }
 
@@ -42,16 +73,29 @@
             {
                 if($login)
                 {
-                    header('location:../Views/Login.php?$msg=Successfully Register');
+                    echo "<script>";
+                    echo 'alert("Successfully Registered")';
+                    echo "</script>";
+
+                    header('location:../Views/Login.php');
+                    
                 }
                 else
                 {
-                    header('location:../Views/Registration.php?$msg=Invalid Login Info');
+                    echo "<script>";
+                    echo 'alert("Problem Occure on LoginInformation.")';
+                    echo "</script>";
+
+                    header('location:../Views/Registration.php');
                 }
             }
             else
             {
-                header('location:../Views/Registration.php?$msg=Not Enough Information');
+                echo "<script>";
+                echo 'alert("Please Provide all information Correctly.")';
+                echo "</script>";
+
+                header('location:../Views/Registration.php');
             }
         }
 
@@ -75,6 +119,8 @@
                 header('location:../Views/Registration.php?$msg=Not Enough Information');
             }
         }
+
+        
         
     }
 

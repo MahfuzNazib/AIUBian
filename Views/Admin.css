@@ -185,3 +185,35 @@
     font-style: bold;
 }
 
+/*
+************Delete Message Design
+*/
+
+.msgDelete
+{
+    height: 50px;
+    width: 60%;
+    background-color: rgb(110, 31, 31);
+    color: white;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size: medium;
+    font-style: bold;
+    cursor: pointer;
+}
+
+.backButton
+{
+    height: 50px;
+    width: 120px;
+    background-color: darkcyan;
+    color: white;
+    cursor: pointer;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: medium;
+}
+.backButton:hover
+{
+    background-color: rgb(14, 56, 56);
+    border-radius: 5px;
+}
+

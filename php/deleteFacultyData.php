@@ -3,25 +3,18 @@
     if(isset($_POST['btnDelete']))
     {
         //echo "Authorized Request";
+        $confirmationMessage;
         $email = $_POST['email'];
-        echo $email;
         $delete = deleteFaculty($email);
         $deleteFromLogin = deleteFromLogin($email);
         if($delete && $deleteFromLogin)
         {
-            echo "Faculty Successfully Deleted";
+            $confirmationMessage =  "Faculty Successfully Deleted";
         }
         else
         {
-            echo "Record Not Deleted";
+            $confirmationMessage =  "Record Not Deleted";
         }
-    }
-    else
-    {
-        echo 'Invalid Request 403';
-
-    }
-
 ?>
 
 <!DOCTYPE html>
@@ -30,12 +23,46 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="../Views/Admin.css">
     <title>Delete Data</title>
 </head>
 <body>
     <center>
-       <h5>Faculty Data</h5>
-       <a href="../Views/MemberList.php">Go to Member List</a>
+       <div class="msgDelete"><?=$confirmationMessage; ?></div>
+       <a href="../Views/MemberList.php"><button class="backButton">Back</button></a>
     </center>
 </body>
 </html>
+
+<?php
+    }
+    else
+    {  
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="../Views/Admin.css">
+    <title>Delete Data</title>
+</head>
+<body>
+    <center>
+       <div class="msgDelete">You are not Authorized to access this page
+           <a href="../Views/Login.php">Go Back</a>
+       </div>
+       
+    </center>
+    <div>
+        <img src="../Images/notFound.gif" width="100%" height="600px">
+    </div>
+</body>
+</html>
+        
+<?php
+    }
+?>
+

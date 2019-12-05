@@ -83,4 +83,66 @@
         return $result;
     }
 
+
+    //Get All Post
+
+    function getAllPost()
+    {
+        $conn = getConnection();
+        $sql = "SELECT * FROM `post` order by Date desc";
+        $result = mysqli_query($conn,$sql);
+        $data = array();
+        while($row = mysqli_fetch_assoc($result))
+        {
+            array_push($data,$row);
+        }
+        return $data;
+    }
+
+    //Get Faculty Post
+
+    function getFacultyPost()
+    {
+        $conn = getConnection();
+        $sql = " SELECT * FROM `post` WHERE Status='Faculty'  order by Date desc";
+        $result = mysqli_query($conn,$sql);
+        $data = array();
+        while($row = mysqli_fetch_assoc($result))
+        {
+            array_push($data,$row);
+        }
+        return $data;
+    }
+
+    //Get Alumni Post
+
+    function getAlumniPost()
+    {
+        $conn = getConnection();
+        $sql = " SELECT * FROM `post` WHERE Status='Alumni'  order by Date desc";
+        $result = mysqli_query($conn,$sql);
+        $data = array();
+        while($row = mysqli_fetch_assoc($result))
+        {
+            array_push($data,$row);
+        }
+        return $data;
+    }
+
+    //GetStudent Post
+
+    function getStudentPost()
+    {
+        $conn = getConnection();
+        $sql = " SELECT * FROM `post` WHERE Status='Student'  order by Date desc";
+        $result = mysqli_query($conn,$sql);
+        $data = array();
+        while($row = mysqli_fetch_assoc($result))
+        {
+            array_push($data,$row);
+        }
+        return $data;
+    }
+
+    
 ?>

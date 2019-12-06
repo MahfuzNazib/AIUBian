@@ -1,7 +1,13 @@
 <?php
     session_start();
+    require_once('../DB/dbAdmin/AdminFunctions.php');
     if(isset($_SESSION['Username']))
     {
+
+        $username = $_SESSION['Username'];
+        $password = $_SESSION['Password'];
+
+        $data = getAdminData($username,$password);
 
         if(isset($_POST['btnHome']))
         {
@@ -94,7 +100,7 @@
                             Name : 
                         </td>
                         <td>
-                            Nazib Mahfuz
+                            <?=$data['Name']; ?>
                         </td>
                     </tr>
 
@@ -103,7 +109,7 @@
                             Email : 
                         </td>
                         <td>
-                            nazibmahfuz60@gmail.com
+                            <?=$data['email']; ?>
                         </td>
                     </tr>
 
@@ -112,7 +118,7 @@
                             Phone : 
                         </td>
                         <td>
-                            01777127618
+                            <?=$data['phone']; ?>
                         </td>
                     </tr>
 
@@ -121,10 +127,10 @@
                             Address : 
                         </td>
                         <td>
-                            Nikunja-2,Khilkhet,Dhaka,Bangladesh
+                            <?=$data['address']; ?>
                         </td>
                     </tr>
-                    <tr>
+                    <!--<tr>
                         <td class="AP">
                             Username : 
                         </td>
@@ -139,7 +145,7 @@
                         <td>
                             002
                         </td>
-                    </tr>
+                    </tr>-->
                 </table>
                 </center>
                 

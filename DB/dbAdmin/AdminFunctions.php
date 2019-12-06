@@ -146,13 +146,35 @@
 
     //Add New Admin
 
-    function adminRegistration($name,$email,$phone,$address)
+    function adminRegistration($name,$email,$phone,$address,$profilepicture)
     {
         $conn = getConnection();
-        $sql = "INSERT INTO adminprofile VALUES('{$name}','{$email}','{$phone}','')";
+        $sql = "INSERT INTO adminprofile VALUES('{$name}','{$email}','{$phone}','',null)";
         $result = mysqli_query($conn,$sql);
 
         return $result;
+    }
+
+    //New Admin Login
+    function adminLogin($email,$username,$password,$status)
+    {
+        $conn = getConnection();
+        $sql = "INSERT INTO logininfo VALUES('{$email}','{$username}','{$password}','Admin')";
+        $result = mysqli_query($conn,$sql);
+
+        return $result;
+    }
+
+    //Get All MyData as Admin
+
+    function getAdminData($username,$password)
+    {
+        $conn = getConnection();
+        $sql = "SELECT * FROM adminprofile where email = (select email from logininfo where username='{$username}' and Password='{$password}')";
+        $result = mysqli_query($conn,$sql);
+        $data = mysqli_fetch_assoc($result);
+
+        return $data;
     }
     
 ?>

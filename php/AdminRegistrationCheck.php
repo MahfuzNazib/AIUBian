@@ -7,15 +7,28 @@
     $username = $_POST['Username'];
     $password = $_POST['Password'];
     $address = "";
-    //echo "Full Name = ".$name."<br>"."Mail = ".$email." ".$phone." ".$username." ".$password;
-    $register = adminRegistration($name,$email,$phone,$address);
-
-    if($register)
+    $profilePicture = null;
+    $status = "Admin";
+    if($name == "" && $email == "" && $phone == "" && $username == "" && $password == "")
     {
-        echo "Successfully Registered";
+        sleep(2);
+        echo "404 Bad Request";
+        header('location:../Views/Login.php');
     }
     else
     {
-        echo "Problem Occure in Registration";
+
+        $register = adminRegistration($name,$email,$phone,$address,$profilePicture);
+        $login = adminLogin($email,$username,$password,$status);
+
+        if($register && $login)
+        {
+            echo "Successfully Registered";
+        }
+        else
+        {
+            echo "Problem Occure in Registration";
+        }
     }
+
 ?>

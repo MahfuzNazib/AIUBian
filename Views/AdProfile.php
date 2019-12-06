@@ -1,7 +1,13 @@
 <?php
     session_start();
+    require_once('../DB/dbAdmin/AdminFunctions.php');
     if(isset($_SESSION['Username']))
     {
+        $username = $_SESSION['Username'];
+        $password = $_SESSION['Password'];
+
+        $data = getAdminData($username,$password);
+
         if(isset($_POST['profile']))
         {
             header('location:AdminProfile.php');
@@ -21,6 +27,15 @@
         elseif(isset($_POST['chat']))
         {
             header('location:AdminChat.php');
+        }
+
+        //Update Data
+        if(isset($_POST['save']))
+        {
+            //getData First
+            $name = $_POST['']
+            $conn = getConnection();
+            $sql = "UPDATE adminprofile SET Name='up',phone='555',address='jcdbd' WHERE email='nazib25@gmail.com'"
         }
 
 ?>
@@ -52,6 +67,7 @@
                     </center>
                 </td>
             </tr>
+            </form>
             <tr height="150px">  <!--Profile Picture -->
                 <td>
                     <center>
@@ -59,6 +75,7 @@
                             <!--<img class="edit-button" src="Images/editicon.png" height="20px" width="40px">-->
                             <form action="upload.php" method="POST" enctype="multipart/form-data">
                         <input type="file" name="file">
+                        </form>
                     </center>
                 </td>
             </tr>  <!--Edit Profile Button -->
@@ -75,7 +92,7 @@
                                             Name
                                         </td>
                                         <td>
-                                            <input type="text" class="txt-Box" name ="txtName" value="Nazib Mahfuz">
+                                            <input type="text" class="txt-Box" name ="txtName" value="<?=$data['Name']; ?>">
                                         </td>
                                     </tr>
 
@@ -84,7 +101,7 @@
                                             E-mail
                                         </td>
                                         <td>
-                                            <input type="email" class="txt-Box" name="txtMail" value = "nazibmahfuz60@gmail.com">
+                                            <input type="email" class="txt-Box" name="txtMail" value="<?=$data['email']; ?>">
                                         </td>
                                     </tr>
 
@@ -93,7 +110,7 @@
                                             Phone No
                                         </td>
                                         <td>
-                                            <input type="number" class="txt-Box" name="txtPhone">
+                                            <input type="number" class="txt-Box" name="txtPhone" value="<?=$data['phone']; ?>">
                                         </td>
                                     </tr>
 
@@ -102,11 +119,11 @@
                                             Address 
                                         </td>
                                         <td>
-                                            <input type="text" class="txt-Box" name="txtPhone">
+                                            <input type="text" class="txt-Box" name="txtAddress" value="<?=$data['address']; ?>">
                                         </td>
                                     </tr>
 
-                                    <tr>
+                                    <!--<tr>
                                         <td class="font-Normal">
                                             Username
                                         </td>
@@ -122,7 +139,7 @@
                                         <td>
                                             <input type="password" class="txt-Box" name="txtPhone">
                                         </td>
-                                    </tr>
+                                    </tr>-->
                                 </table>
                         </fieldset>
                     </form>
@@ -132,8 +149,8 @@
             <tr> <!--Buttons -->
                 <td>
                     <center>
-                        <button class="btn-Confirm">Save</button>
-                        <button class="btn-Reset">Delete</button>
+                        <button class="btn-Confirm" name="save">Save</button>
+    
                     </center>
                 </td>
             </tr>
@@ -146,7 +163,6 @@
                 </td>
             </tr>
         </table>
-        </form>
     </center>
 </body>
 </html>

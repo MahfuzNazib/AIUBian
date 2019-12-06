@@ -152,8 +152,7 @@ function adminDataValidation()
         var UserPhone = document.getElementById('phone').value;
         var Username = document.getElementById('username').value;
         var Password = document.getElementById('password').value;
-        alert(Fullname);
-        alert(usermail);
+        
         var xhttp = new XMLHttpRequest();
         xhttp.open("POST","../php/AdminRegistrationCheck.php",true);
         xhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");

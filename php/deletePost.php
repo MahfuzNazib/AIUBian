@@ -2,6 +2,7 @@
     require_once('../DB/dbAdmin/AdminFunctions.php');
     if(isset($_POST['btnDelete']))
     {
+        echo $_POST['Date'];
         echo "Authorized Request";
         
 ?>

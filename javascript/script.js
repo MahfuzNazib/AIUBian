@@ -146,11 +146,18 @@ function adminDataValidation()
     if(Name == null && Email == null && Phone == null && Username == null && Password == null)
     {
         //Pass the data in another php from through AJAX Request
-        var xhttp = new XMLHttpRequest();
-        xhttp.open("GET","../php/AdminRegistrationCheck.php",true);
-        xhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
-        xhttp.send("txtName="+name+"& txtEmail = "+email);
 
+        var Fullname = document.getElementById('name').value;
+        var usermail = document.getElementById('email').value;
+        var UserPhone = document.getElementById('phone').value;
+        var Username = document.getElementById('username').value;
+        var Password = document.getElementById('password').value;
+        alert(Fullname);
+        alert(usermail);
+        var xhttp = new XMLHttpRequest();
+        xhttp.open("POST","../php/AdminRegistrationCheck.php",true);
+        xhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+        xhttp.send("Name="+Fullname+"&Email="+usermail+"&Phone="+UserPhone+"&Username="+Username+"&Password="+Password);
         xhttp.onreadystatechange = function(){
             if(this.readyState == 4 && this.status == 200)
             {

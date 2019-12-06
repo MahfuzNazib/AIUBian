@@ -144,5 +144,15 @@
         return $data;
     }
 
+    //Add New Admin
+
+    function adminRegistration($name,$email,$phone,$address)
+    {
+        $conn = getConnection();
+        $sql = "INSERT INTO adminprofile VALUES('{$name}','{$email}','{$phone}','')";
+        $result = mysqli_query($conn,$sql);
+
+        return $result;
+    }
     
 ?>

@@ -53,7 +53,7 @@
     function getFacultyPost($username,$password)
     {
         $conn = getConnection();
-        $sql = "SELECT * FROM `post` WHERE Status='Faculty' and email != (select email from logininfo where username='{$username}' and Password='{$password}') order by Date DESC ";
+        $sql = "SELECT * FROM `post` WHERE Status='Faculty' and email != (select email from logininfo where username='{$username}' and Password='{$password}') order by Date desc ";
         $result = mysqli_query($conn,$sql);
         $data = array();
         while($row = mysqli_fetch_assoc($result))
@@ -101,6 +101,40 @@
         return $data;
         //$msgList = mysqli_fetch_assoc($result);
         //return $msgList;
+    }
+
+    //View Faculty Profile
+    function viewFacultyProfile($username)
+    {
+        $conn = getConnection();
+        $sql = "SELECT * FROM facultyprofile WHERE email = (SELECT email from logininfo WHERE username='{$username}')";
+        $result = mysqli_query($conn,$sql);
+        $user = mysqli_fetch_assoc($result);
+
+        return $user;
+    }
+
+    //View Student Profile
+    function viewStudentProfile($username)
+    {
+        $conn = getConnection();
+        $sql = "SELECT * FROM studentprofile WHERE email = (SELECT email from logininfo WHERE username='{$username}')";
+        $result = mysqli_query($conn,$sql);
+        $user = mysqli_fetch_assoc($result);
+
+        return $user;
+    }
+
+    //View Alumni Profile
+
+    function viewAlumniProfile($username)
+    {
+        $conn = getConnection();
+        $sql = "SELECT * FROM alumniprofile WHERE email = (SELECT email from logininfo WHERE username='{$username}')";
+        $result = mysqli_query($conn,$sql);
+        $user = mysqli_fetch_assoc($result);
+
+        return $user;
     }
     
 ?>

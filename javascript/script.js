@@ -139,8 +139,28 @@ function adminDataValidation()
         else
         {
             document.getElementById('msgPassword').innerHTML = "Password Must be Greater the 4 char";
-            Password = "Error"
+            Password = "Error";
         }
+    }
+
+    if(Name == null && Email == null && Phone == null && Username == null && Password == null)
+    {
+        //Pass the data in another php from through AJAX Request
+        var xhttp = new XMLHttpRequest();
+        xhttp.open("GET","../php/AdminRegistrationCheck.php",true);
+        xhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+        xhttp.send("txtName="+name+"& txtEmail = "+email);
+
+        xhttp.onreadystatechange = function(){
+            if(this.readyState == 4 && this.status == 200)
+            {
+                alert(this.responseText);
+            }
+        };
+    }
+    else
+    {
+        alert('Something Went wrong.Try again Later.');
     }
     
 

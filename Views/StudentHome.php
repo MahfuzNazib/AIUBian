@@ -101,7 +101,7 @@
             ?>
             <tr>
                 <td>
-                    <h3><?=$post[$i]['username']; ?></h3>
+                    <h3><a href="../Profiles/viewFacultyProfile.php?profileOf=<?=$post[$i]['username']; ?>"><?=$post[$i]['username']; ?></a></h3>
                     <i><?=$post[$i]['Date'] ?></i>
                     <p><center><?=$post[$i]['Text'] ?></center></p>
 
@@ -163,7 +163,7 @@
             ?>
             <tr>
                 <td>
-                    <h3><?=$post[$i]['username']; ?></h3>
+                    <h3><a href="../Profiles/viewAlumniProfile.php?profileOf=<?=$post[$i]['username']; ?>"><?=$post[$i]['username']; ?></a></h3>
                     <i><?=$post[$i]['Date'] ?></i>
                     <p><center><?=$post[$i]['Text'] ?></center></p>
 
@@ -228,7 +228,7 @@
             ?>
             <tr>
                 <td>
-                    <h3><?=$post[$i]['username']; ?></h3>
+                    <h3><a href="../Profiles/viewStudentProfile.php?profileOf=<?=$post[$i]['username']; ?>"><?=$post[$i]['username']; ?></a></h3>
                     <i><?=$post[$i]['Date'] ?></i>
                     <p><center><?=$post[$i]['Text'] ?></center></p>
 

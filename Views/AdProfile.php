@@ -32,11 +32,52 @@
         //Update Data
         if(isset($_POST['save']))
         {
+            echo "Connected";
             //getData First
-            $name = $_POST['']
+            $name = $_POST['txtName'];
+            $email = $data['email'];
+            $phone = $_POST['txtPhone'];
+            $address = $_POST['txtAddress'];
+            
             $conn = getConnection();
-            $sql = "UPDATE adminprofile SET Name='up',phone='555',address='jcdbd' WHERE email='nazib25@gmail.com'"
+            $sql = "UPDATE adminprofile SET Name='{$name}',phone='{$phone}',address='{$address}' WHERE email='{$email}'";
+            
+            if(mysqli_query($conn,$sql))
+            {
+                echo "Successfully Updated";
+                header("refresh:1; url=AdProfile.php");
+            }
+            else
+            {
+                echo "Problem Occure in Update";
+            }
         }
+
+        //update Profile Picture
+        if(isset($_POST['submit'])) //upload Profile Picture
+            {
+                //update profile picture
+                print_r($_FILES['image']);
+                $email = $data['email'];
+                $file_name = $_FILES['image']['name'];
+                $file_temp_location = $_FILES['image']['tmp_name'];
+                $file_store = "../Images/ProfilePicture/".$file_name;
+                move_uploaded_file($file_temp_location,$file_store);
+
+                $conn = getConnection();
+                $sql = "UPDATE adminprofile SET profilepicture ='{$file_name}' where email='{$email}'";
+                if(mysqli_query($conn,$sql))
+                {
+                    $echo = "Profile Picture Update";
+                    header("refresh:1; url=AdProfile.php");
+                }
+                else
+                {
+                    $echo = "Profile Picture Not Update";
+                }
+
+            }
+       
 
 ?>
 <!DOCTYPE html>
@@ -71,19 +112,17 @@
             <tr height="150px">  <!--Profile Picture -->
                 <td>
                     <center>
-                            <img src="../Images/me.png" height="150px" width="200px">
+                    <img src="../Images/ProfilePicture/<?=$data['profilepicture']; ?>" height="150px" width="200px">
                             <!--<img class="edit-button" src="Images/editicon.png" height="20px" width="40px">-->
-                            <form action="upload.php" method="POST" enctype="multipart/form-data">
-                        <input type="file" name="file">
-                        </form>
+                            <form method="POST" enctype="multipart/form-data">
+                                <input type="file" name="image"> <input type="submit" name="submit" value="Upload" class="edit-button">
+                            </form>
                     </center>
                 </td>
             </tr>  <!--Edit Profile Button -->
-            
+            <form method="POST" action="#">
             <tr> <!--Student Personal Info -->
                 <td width="50%">
-                    
-                    <form>
                         <fieldset>
                             <legend>Personal Info</legend>
                             <table border="0" width="80%">
@@ -101,7 +140,7 @@
                                             E-mail
                                         </td>
                                         <td>
-                                            <input type="email" class="txt-Box" name="txtMail" value="<?=$data['email']; ?>">
+                                            <input type="email" class="txt-Box" name="txtMail" value="<?=$data['email']; ?>" disabled>
                                         </td>
                                     </tr>
 
@@ -123,27 +162,8 @@
                                         </td>
                                     </tr>
 
-                                    <!--<tr>
-                                        <td class="font-Normal">
-                                            Username
-                                        </td>
-                                        <td>
-                                            <input type="text" class="txt-Box" name="txtPhone">
-                                        </td>
-                                    </tr>
-
-                                    <tr>
-                                        <td class="font-Normal">
-                                            Password
-                                        </td>
-                                        <td>
-                                            <input type="password" class="txt-Box" name="txtPhone">
-                                        </td>
-                                    </tr>-->
                                 </table>
                         </fieldset>
-                    </form>
-
                 </td>
             </tr>
             <tr> <!--Buttons -->
@@ -164,6 +184,7 @@
             </tr>
         </table>
     </center>
+    </form>
 </body>
 </html>
 

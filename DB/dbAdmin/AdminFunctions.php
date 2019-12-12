@@ -149,7 +149,7 @@
     function adminRegistration($name,$email,$phone,$address,$profilepicture)
     {
         $conn = getConnection();
-        $sql = "INSERT INTO adminprofile VALUES('{$name}','{$email}','{$phone}','',null)";
+        $sql = "INSERT INTO adminprofile VALUES('{$name}','{$email}','{$phone}',null,null)";
         $result = mysqli_query($conn,$sql);
 
         return $result;

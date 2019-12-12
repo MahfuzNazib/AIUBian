@@ -73,14 +73,15 @@
         
                         </td>
                         <td width="25%">
-                                <input type="search" class="searchBox" name="txtsearch" placeholder="Search...">
+                                <!--<input type="search" class="searchBox" name="txtsearch" placeholder="Search...">
+                                <input type="submit" class="profile-HeaderButton" value="Search">-->
                         </td>
                     </tr>
 
                     <tr>
                         <td colspan="3">
                             <center>
-                                <img src="../Images/DSC_5841.JPG" height="150px" width="200px">
+                                <img src="../Images/ProfilePicture/<?=$data['profilepicture']; ?>" height="150px" width="200px">
                             </center>
                         </td>
                         
@@ -130,22 +131,6 @@
                             <?=$data['address']; ?>
                         </td>
                     </tr>
-                    <!--<tr>
-                        <td class="AP">
-                            Username : 
-                        </td>
-                        <td>
-                            nazibmahfuz60@gmail.com
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="AP">
-                            Password : 
-                        </td>
-                        <td>
-                            002
-                        </td>
-                    </tr>-->
                 </table>
                 </center>
                 

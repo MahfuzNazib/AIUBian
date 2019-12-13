@@ -88,6 +88,7 @@
             ?>
             <tr>
                <?php
+                    
                     echo "<td> <center>". $data[$i]['Name']. " </center> </td>";
                     echo '<td> <center>  <img src="../Images/ProfilePicture/'. $data[$i]['ProfilePicture']. '" width="150px" height="120px" </center></td>';
                     //echo '<td> <img src="../Images/ProfilePicture/" width="150px" height="150px" </td>';
@@ -168,6 +169,7 @@
     {
        
         $data = getAllStudentList();
+        
 ?>
 
 <html>  <!--Student All Member List-->
@@ -194,7 +196,7 @@
             ?>
             <tr>
                <?php
-                    echo "<td> <center>". $data[$i]['Name']. " </center> </td>";
+                    echo '<td> <center> <a href="../Profiles/viewStudentProfile.php?profileOf="'. $data[$i]['Name'].'>'. $data[$i]['Name']. '</a> </center> </td>';
                     echo '<td> <center>  <img src="../Images/ProfilePicture/'. $data[$i]['ProfilePicture']. '" width="150px" height="120px" </center></td>';
                     echo "<td> <center>". $data[$i]['email']. " </center> </td>";
                     echo "<td> <center>". $data[$i]['Phone']. " </center> </td>";

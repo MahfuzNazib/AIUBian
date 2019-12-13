@@ -1,6 +1,7 @@
 <?php
     session_start();
-    require_once('../DB/Functions.php');
+    //require_once('../DB/Functions.php');
+    require_once('../DB/dbAdmin/AdminFunctions.php');
     if(isset($_SESSION['Username']))
     {
         $username = $_SESSION['Username'];
@@ -8,6 +9,7 @@
 
         $value = $_GET['profileOf'];
         $data = viewStudentProfile($value);
+
 
 ?>
 <!DOCTYPE html>

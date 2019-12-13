@@ -5,6 +5,7 @@
     {
         $conn = getConnection();
         $sql = "SELECT Name,ProfilePicture,email,Phone,AIUB_ID FROM studentprofile";
+        //$sql = "SELECT Name,Phone,username,ProfilePicture,AIUB_ID,Phone from studentprofile,logininfo where studentprofile.email=logininfo.email";
         $result = mysqli_query($conn,$sql);
         $data = array();
         while($row = mysqli_fetch_assoc($result))
@@ -13,6 +14,8 @@
         }
         return $data;
     }
+
+    
 
     function getAllFacultyList()
     {
@@ -176,5 +179,71 @@
 
         return $data;
     }
+
+    //Admin Post On His TimeLine
+    function getAllMyPost($username,$password)
+    {
+        $conn = getConnection();
+        $sql = "SELECT * FROM `post` where email = (select email from logininfo where username='{$username}' and Password='{$password}') order by Date DESC";
+        $result = mysqli_query($conn,$sql);
+        $data = array();
+        while($row = mysqli_fetch_assoc($result))
+        {
+            array_push($data,$row);
+        }
+        return $data;
+    }
+
+    //Delete Post
+
+    function deletePost($email)
+    {
+        $conn = getConnection();
+        $sql = "DELETE FROM `post` WHERE email= (select email from logininfo where username='{$username}' and Password='{$password}') ";
+        if(mysqli_query($conn,$sql))
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+
+    function getStatus($username,$password)
+    {
+        $conn = getConnection();
+        $sql = "SELECT username,status,email From logininfo where email = (select email from logininfo where username='{$username}' and Password='{$password}')";
+        $result = mysqli_query($conn,$sql);
+        $status = mysqli_fetch_assoc($result);
+        return $status;
+    }
+
+    function insertPost($text,$image,$date,$status,$email,$username)
+    {
+        $conn = getConnection();
+        $sql = "INSERT INTO post VALUES ('{$text}','{$image}','{$date}','{$status}','{$email}','{$username}',0)";
+        if(mysqli_query($conn,$sql))
+        {
+            return true;
+        }
+        else
+        {
+            false;
+        }
+    }
+
+    //View Student Profile
+
+    function viewStudentProfile($username)
+    {
+        $conn = getConnection();
+        $sql = "SELECT * FROM studentprofile WHERE email=email = (SELECT email from logininfo WHERE username='{$username}') ";
+        $result = mysqli_query($conn,$sql);
+        $user = mysqli_fetch_assoc($result);
+
+        return $user;
+    }
+
     
 ?>

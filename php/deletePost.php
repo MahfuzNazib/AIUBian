@@ -32,7 +32,7 @@
 <body>
     <center>
        <div class="msgDelete"><?=$confirmationMessage; ?></div>
-       <a href="../Views/PostVerify.php"><button class="backButton">Back</button></a>
+       <a href="../Views/admin.php"><button class="backButton">Back</button></a>
     </center>
 </body>
 </html>

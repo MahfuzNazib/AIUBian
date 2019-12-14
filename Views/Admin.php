@@ -131,6 +131,7 @@
                 <td>Details</td>
                 <td>Image</td>
                 <td>Actions</td>
+                <td>View Profile</td>
             </tr>
 
             <?php
@@ -147,10 +148,11 @@
                     echo '<td> <center> <form action="../php/deletePost.php" method="POST">
                     <input type="hidden" name="id" value= '. $post[$i]['PostID'] .'> 
                     <input type="submit" class="btn-Delete" name="btnDelete" value="Delete"></form> </center> </td>';
+                    echo '<td> <a href="../Profiles/viewStudentProfile.php?profileOf='.$post[$i]['username'].'">'.$post[$i]['username'].'</a>';
                 ?>
             </tr>
             <tr>
-                <td colspan="5"><hr></td>
+                <td colspan="6"><hr></td>
             </tr>
             <?php
                 }

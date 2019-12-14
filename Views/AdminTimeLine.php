@@ -31,7 +31,7 @@
             if($insertPost)
             {
                 $msgPost =  "Post Successfully Done";
-                header("refresh:1; url=TimeLine.php");
+                header("refresh:1; url=AdminTimeLine.php");
             }
             else
             {
@@ -108,6 +108,7 @@
                     <input type="file" name="image">
                     <input type="submit" class="postsButton" name="posts" value="Post"> <br>
                     <hr>
+                    <center><?=$msgPost ?></center>
                     <h3>My Posts</h3>
                 </center>
                 

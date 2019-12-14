@@ -125,6 +125,7 @@
 
         <table border="0" width="100%">
         <tr class="table-header">
+                <td>Post ID</td>
                 <td>Post Date</td>
                 <td>Name</td>
                 <td>Details</td>
@@ -138,12 +139,13 @@
             ?>
             <tr>
                 <?php
+                    echo "<td><center>". $post[$i]['PostID']."</center></td>";
                     echo "<td> <center>". $post[$i]['Date']. "</center> </td>";
                     echo "<td> <center>". $post[$i]['username']. "</center> </td>";
                     echo "<td> <center>". $post[$i]['Text']. "</center> </td>";
                     echo '<td> <center>  <img src="../Images/Posts/'. $post[$i]['Image']. '" width="150px" height="120px" </center></td>';
                     echo '<td> <center> <form action="../php/deletePost.php" method="POST">
-                    <input type="hidden" name="Date" value= '. $post[$i]['Date'] .'> 
+                    <input type="hidden" name="id" value= '. $post[$i]['PostID'] .'> 
                     <input type="submit" class="btn-Delete" name="btnDelete" value="Delete"></form> </center> </td>';
                 ?>
             </tr>

@@ -196,7 +196,7 @@
 
     //Delete Post
 
-    function deletePost($email)
+    /*function deletePost($email)
     {
         $conn = getConnection();
         $sql = "DELETE FROM `post` WHERE email= (select email from logininfo where username='{$username}' and Password='{$password}') ";
@@ -208,7 +208,7 @@
         {
             return false;
         }
-    }
+    }*/
 
     function getStatus($username,$password)
     {
@@ -245,5 +245,16 @@
         return $user;
     }
 
+
+    //Delete Post
+
+    function deletePost($postId)
+    {
+        $conn = getConnection();
+        $sql = "DELETE FROM `post` WHERE PostID = $postId ";
+        $result = mysqli_query($conn,$sql);
+        
+        return $result;
+    }
     
 ?>

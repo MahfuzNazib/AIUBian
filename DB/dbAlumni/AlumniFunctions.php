@@ -44,7 +44,7 @@
     function insertAlumniPost($text,$image,$date,$status,$email,$username)
     {
         $conn = getConnection();
-        $sql = "INSERT INTO post VALUES ('{$text}','{$image}','{$date}','{$status}','{$email}','{$username}',0)";
+        $sql = "INSERT INTO post VALUES ('','{$text}','{$image}','{$date}','{$status}','{$email}','{$username}',0)";
         if(mysqli_query($conn,$sql))
         {
             return true;

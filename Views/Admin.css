@@ -13,7 +13,7 @@
 {
     height: 35px;
     width: 80px;
-    background-color: rgb(224, 66, 38);
+    background-color: rgb(18, 75, 40);
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     font-size: 16px;
     color: white;
@@ -27,6 +27,20 @@
 {
     border-radius: 10px;
     background-color: rgb(93, 10, 10);
+}
+
+.btn-View
+{
+    height: 35px;
+    width: 80px;
+    background-color: rgb(18, 75, 40);
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 16px;
+    color: white;
+    cursor: pointer;
+    transition-duration: 0.5s;
+    border: none;
+    align-content: center;
 }
 
 .btn-Delete

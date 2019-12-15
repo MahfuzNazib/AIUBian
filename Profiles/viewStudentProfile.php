@@ -10,6 +10,8 @@
         $value = $_GET['profileOf'];
         $data = viewStudentProfile($value);
 
+        $backLink = "../Views/StudentHome.php";
+
 
 ?>
 <!DOCTYPE html>
@@ -39,7 +41,8 @@
             <tr> <!--Header-->
                 <td>
                     
-                    <a href="../Views/StudentHome.php" class="edit-button">Back</a>
+                    <!--<a href="../Views/StudentHome.php" class="edit-button">Back</a>-->
+                    <a href = "<?=$backLink; ?>" class="edit-button">Back</a> 
                 </td>
             </tr>
             <tr height="150px">  <!--Profile Picture -->

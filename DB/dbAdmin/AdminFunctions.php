@@ -233,18 +233,6 @@
         }
     }
 
-    //View Student Profile
-
-    function viewStudentProfile($username)
-    {
-        $conn = getConnection();
-        $sql = "SELECT * FROM studentprofile WHERE email=email = (SELECT email from logininfo WHERE username='{$username}') ";
-        $result = mysqli_query($conn,$sql);
-        $user = mysqli_fetch_assoc($result);
-
-        return $user;
-    }
-
 
     //Delete Post
 
@@ -257,4 +245,51 @@
         return $result;
     }
     
+    //View Student Profile
+
+    function viewStudentProfile()
+    {
+        $conn = getConnection();
+        $sql = "SELECT username from logininfo,studentprofile where logininfo.email = studentprofile.email";
+        $result = mysqli_query($conn,$sql);
+        $data = array();
+        while($row = mysqli_fetch_assoc($result))
+        {
+            array_push($data,$row);
+        }
+        return $data;
+    }
+
+    //View Faculty Profile
+
+    function viewFacultyProfile()
+    {
+        $conn = getConnection();
+        $sql = "SELECT username from logininfo,facultyprofile where logininfo.email = facultyprofile.email";
+        $result = mysqli_query($conn,$sql);
+        $data = array();
+        while($row = mysqli_fetch_assoc($result))
+        {
+            array_push($data,$row);
+        }
+        return $data;
+    }
+
+    //view Alumni Profile
+
+    function viewAlumniProfile()
+    {
+        $conn = getConnection();
+        $sql = "SELECT username FROM logininfo,alumniprofile WHERE logininfo.email = alumniprofile.email ";
+        $result = mysqli_query($conn,$sql);
+        $data = array();
+        while($row = mysqli_fetch_assoc($result))
+        {
+            array_push($data,$row);
+        }
+
+        return $data;
+    }
+    
+
 ?>

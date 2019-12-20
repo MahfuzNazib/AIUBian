@@ -108,7 +108,7 @@
             ?>
             <tr>
                 <td>
-                    <h3><?=$post[$i]['username']; ?></h3>
+                    <h3><a href="../Profiles/viewFacultyProfile.php?profileOf=<?=$post[$i]['username']; ?>"><?=$post[$i]['username']; ?></a></h3>
                     <i><?=$post[$i]['Date'] ?></i>
                     <p><center><?=$post[$i]['Text'] ?></center></p>
 
@@ -170,7 +170,7 @@
             ?>
             <tr>
                 <td>
-                    <h3><?=$post[$i]['username']; ?></h3>
+                    <h3><a href="../Profiles/viewAlumniProfile.php?profileOf=<?=$post[$i]['username']; ?>"><?=$post[$i]['username']; ?></a></h3>
                     <i><?=$post[$i]['Date'] ?></i>
                     <p><center><?=$post[$i]['Text'] ?></center></p>
 
@@ -235,7 +235,7 @@
             ?>
             <tr>
                 <td>
-                    <h3><?=$post[$i]['username']; ?></h3>
+                    <h3><a href="../Profiles/viewStudentProfile.php?profileOf=<?=$post[$i]['username']; ?>"><?=$post[$i]['username']; ?></a></h3>
                     <i><?=$post[$i]['Date'] ?></i>
                     <p><center><?=$post[$i]['Text'] ?></center></p>
 
@@ -301,9 +301,38 @@
             ?>
             <tr >
                 <td>
-                    <h3><?=$post[$i]['username']; ?></h3>
+                    <table>
+                        <tr>
+                            <td>  </td>
+                            <td> <?php
+                                    $status = $post[$i]['Status'];
+                                    if($status == "Admin")
+                                    {
+                                        echo '<h2><u><i>'.$post[$i]['username'].'</i></u></h2>';
+                                        echo '<img src="../Images/Admin.png"> ';
+                                    }
+                                    elseif($status == "Student")
+                                    {
+                                        echo '<h2><a href="../Profiles/viewStudentProfile.php?profileOf='.$post[$i]['username'].'">'.$post[$i]['username'].'</a> </h2>';
+                                        echo '<img src="../Images/student.png"> ';
+                                    }
+
+                                    elseif($status == "Alumni")
+                                    {
+                                        echo '<h2><a href="../Profiles/viewAlumniProfile.php?profileOf='.$post[$i]['username'].'">'.$post[$i]['username'].'</a> </h2>';
+                                        echo '<img src="../Images/alumni.png"> ';
+                                    }
+
+                                    elseif($status == "Faculty")
+                                    {
+                                        echo '<h2><a href="../Profiles/viewFacultyProfile.php?profileOf='.$post[$i]['username'].'">'.$post[$i]['username'].'</a> </h2>';
+                                        echo '<img src="../Images/faculty.png"> ';
+                                    }
+                                ?>
+                            </td>
+                        </tr>
+                    </table>
                     <i><?=$post[$i]['Date']; ?></i>
-                    
                     <p> <center><?=$post[$i]['Text']; ?> </center></p>
                     <?php
                         if($post[$i]['Image'] == null)

@@ -43,7 +43,7 @@
         $uname = $_POST['Username'];
         $pass = $_POST['Password'];
        
-        /*if(empty($uname) == true)
+        if(empty($uname) == true)
         {
             
            $errUsername =   "<div class=\"errMsg\">Empty Username </div>";
@@ -63,7 +63,7 @@
                     $errInvalid = "<div class=\"invalid_User_Pass\">Invalid Username or Password</div>";
                 }
             }
-        }*/
+        }
         
     }
 
@@ -131,13 +131,18 @@
         </tr>
         <tr>
             <td>
-                <input type="submit" value="Login" class="login-button" name="submit" onclick="loginValueCheck()">
+                <input type="submit" value="Login" class="login-button" name="submit">
             </td>
         </tr>
         <tr>
             <td>
                 <center>
-                    <?php echo $errInvalid ?>
+                    <?php 
+                        if(isset($_POST['submit']))
+                        {
+                            echo $_GET['$err'];
+                        }
+                    ?>
                 </center>
             </td>
         </tr>

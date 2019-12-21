@@ -195,7 +195,7 @@ function userDataValidation()
     var password = document.getElementById('password').value;
 
     
-    alert(name +" "+id+" "+status+" "+email+" "+phone+" "+username+" "+password);
+    //alert(name +" "+id+" "+status+" "+email+" "+phone+" "+username+" "+password);
 
     //Name Validation
 
@@ -307,24 +307,26 @@ function userDataValidation()
     {
         //Pass the data in another php from through AJAX Request
 
-        /*var Fullname = document.getElementById('name').value;
+        var Fullname = document.getElementById('name').value;
+        var userId = document.getElementById('id').value;
+        var userStatus = document.getElementById('chkStatus').value;
         var usermail = document.getElementById('email').value;
         var UserPhone = document.getElementById('phone').value;
         var Username = document.getElementById('username').value;
         var Password = document.getElementById('password').value;
-        */
+        
         var xhttp = new XMLHttpRequest();
-        xhttp.open("POST","../php/UserRegistrationCheck.php",true);
+        xhttp.open("POST","../php/userRegistration.php",true);
         xhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
-        xhttp.send("Name="+Fullname+"&Email="+usermail+"&Phone="+UserPhone+"&Username="+Username+"&Password="+Password);
+        xhttp.send("Name="+Fullname+"&AIUBID="+userId+"&Status="+userStatus+"&Email="+usermail+"&Phone="+UserPhone+"&Username="+Username+"&Password="+Password);
         xhttp.onreadystatechange = function(){
             if(this.readyState == 4 && this.status == 200)
             {
                 alert(this.responseText);
             }
         };
-
-        alert('Everyting is Done !');
+        
+        //alert('Everyting is Done !');
     }
     else
     {

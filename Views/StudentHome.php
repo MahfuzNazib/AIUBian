@@ -25,6 +25,8 @@
             header('location:../php/Logout.php');
         }
 
+        
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -58,6 +60,7 @@
             </td>
             <td width=25%>
                 <input type="search" class="searchBox" name="txtsearch" placeholder="Search...">
+                <input type="submit" class="btn-View" value="Search" name="btnSrc">
             </td>
             </div>
         </tr>
@@ -80,6 +83,7 @@
     {
         header('location:Login.php');
     }
+
     if(isset($_POST['btnFacultyPost']))  //Faculty Post
     {
         $post = getFacultyPost($username,$password);
@@ -124,9 +128,9 @@
                     <?php
                         }
                     ?>
-                    <center>
+                    <!--<center>
                         <button class="profile-HeaderButton">1 Likes</button>
-                    </center>
+                    </center> -->
                 </td>
             </tr>
             <tr>
@@ -186,9 +190,9 @@
                     <?php
                         }
                     ?>
-                    <center>
+                    <!--<center> //Calculating Like
                         <button class="profile-HeaderButton">1 Likes</button>
-                    </center>
+                    </center>-->
                 </td>
             </tr>
             <tr>
@@ -251,9 +255,9 @@
                     <?php
                         }
                     ?>
-                    <center>
+                    <!--<center>
                         <button class="profile-HeaderButton">1 Likes</button>
-                    </center>
+                    </center>-->
                 </td>
             </tr>
             <tr>
@@ -270,6 +274,71 @@
 </html>
 
 <?php
+    }
+    elseif(isset($_POST['btnSrc']))
+    {
+        $keyword = $_POST['txtsearch'];
+        $post = searching($keyword);
+    ?>
+        <html>
+    <body>
+    <center>
+        <table border="0" width="50%">
+            <tr>
+                <td>
+                    <center>
+                        <h3>Search Results</h3>
+                        <hr>
+                    </center>
+                </td>
+            </tr>
+            <?php
+                for($i=0;$i<count($post);$i++)
+                {
+            ?>
+            <tr>
+                <td>
+                    <h3><a href="../Profiles/viewStudentProfile.php?profileOf=<?=$post[$i]['username']; ?>"><?=$post[$i]['username']; ?></a></h3>
+                    <i><?=$post[$i]['Date'] ?></i>
+                    <p><center><?=$post[$i]['Text'] ?></center></p>
+
+                    <?php
+                        if($post[$i]['Image'] == null)
+                        {
+
+                        }
+                        else
+                        {
+
+                        
+                    ?>
+                    <p>
+                        <center>
+                            <img src="../Images/Posts/<?=$post[$i]['Image']; ?>" width="380px" height="310px">
+                        </center>
+                    </p>
+
+                    <?php
+                        }
+                    ?>
+                    <!--<center>
+                        <button class="profile-HeaderButton">1 Likes</button>
+                    </center>-->
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <hr>
+                </td>
+            </tr>
+            <?php
+                }
+            ?>
+        </table>
+    </center>
+    </body>
+</html>
+    <?php
     }
     else  //All Post
     {
@@ -339,9 +408,9 @@
                     <?php
                         } 
                     ?>
-                    <center>
+                    <!--<center>
                         <button class="profile-HeaderButton">1 Likes</button>
-                    </center> <br><br>  
+                    </center> <br><br>  -->
                     <hr>
                 </td>
                 
@@ -360,10 +429,11 @@
     </body>
 </html>
 
+
 <?php
     }
+
 ?>
-        
         <table width="100%">
         <tr>
             <td class="fotter">

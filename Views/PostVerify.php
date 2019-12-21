@@ -45,6 +45,7 @@
                         </td>
                         <td width="15%">
                             <input type="search" class="searchBox" name="txtsearch" placeholder="Search...">
+                            <input type="submit" class="btn-View" value="Search" name="btnSrc">
                         </td>
                     </tr>
             </table>
@@ -72,10 +73,66 @@
 ?>
 
 
+<?php
+    if(isset($_POST['btnSrc']))
+    {
+        $keyword = $_POST['txtsearch'];
+        $post = searching($keyword);
+    
+?>
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>StudentsPosts</title>
+</head>
+<body>
+    <center>
+        <h3>Search Results</h3>
+        <hr>
+    </center>
+    <table border="0" width="100%">
+            <tr class="table-header">
+                <td>Post ID</td>
+                <td>Post Date</td>
+                <td>Name</td>
+                <td>Details</td>
+                <td>Image</td>
+                <td>Actions</td>
+            </tr>
+
+            <?php
+                for($i=0;$i<count($post);$i++)
+                {
+            ?>
+            <tr>
+                <?php
+                    echo "<td><center>". $post[$i]['PostID']."</center></td>";
+                    echo "<td> <center>". $post[$i]['Date']. "</center> </td>";
+                    echo "<td> <center>". $post[$i]['username']. "</center> </td>";
+                    echo "<td> <center>". $post[$i]['Text']. "</center> </td>";
+                    echo '<td> <center>  <img src="../Images/Posts/'. $post[$i]['Image']. '" width="150px" height="120px" </center></td>';
+                    echo '<td> <center> <form action="../php/deletePost.php" method="POST">
+                    <input type="hidden" name="id" value= '. $post[$i]['PostID'] .'> 
+                    <input type="submit" class="btn-Delete" name="btnDelete" value="Delete"></form> </center> </td>';
+                ?>
+            </tr>
+            <tr>
+                <td colspan="6"><hr></td>
+            </tr>
+            <?php
+                }
+            ?>                   
+    </table>
+</body>
+</html>
+
 
 <?php
-
-    if(isset($_POST['btnStudents']))  //if Click The Students Button
+    }
+    elseif(isset($_POST['btnStudents']))  //if Click The Students Button
     {
         $post = getStudentPost();
 ?>

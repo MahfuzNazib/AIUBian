@@ -136,5 +136,27 @@
 
         return $user;
     }
+
+
+    //Search on Home Page
+
+    function searching($username)
+    {
+        $conn = getConnection();
+        $sql = "SELECT * FROM `post` WHERE username = '{$username}' ";
+        $result = mysqli_query($conn,$sql);
+        $data = array();
+
+        while($row = mysqli_fetch_assoc($result))
+        {
+            array_push($data,$row);
+        }
+        return $data;
+    }
+
+
+    
+
+
     
 ?>

@@ -90,7 +90,9 @@
                     
             </td>
             <td width=25%>
-                <input type="search" class="searchBox" name="txtsearch" placeholder="Search...">
+                <!--<input type="search" class="searchBox" name="txtsearch" placeholder="Search...">
+                <input type="submit" name="btnSrc" class="btn-View" value="Search">-->
+                <!--<img src="../Images/timeline.gif" height="60px" width="20%">-->
             </td>
         </tr>
 
@@ -179,7 +181,7 @@
 
 <?php
     }
-
+    
     else
     {
         header('location:Login.php');

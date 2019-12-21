@@ -42,6 +42,7 @@
                 </td>
                 <td width="25%">
                         <input type="search" class="searchBox" name="txtsearch" placeholder="Search...">
+                        <input type="submit" class="btn-View" name="btnSrc" value="Search">
                 </td>
             </tr>
         </table>
@@ -55,7 +56,63 @@
     {
         header('location:Login.php');
     }
-    if(isset($_POST['btnLogout']))
+
+    if(isset($_POST['btnSrc']))
+    {
+        $name = $_POST['txtsearch'];
+        $data = searchStudentMember($name);
+        $view = viewStudentProfile();
+?>
+
+<html>  <!--Searching-->
+    <body class="body-margin">
+        <center>
+            <h3>Search Results</h3>
+            <hr>
+        </center>
+        <table border="0" width="100%">
+            <tr class="table-header">
+                <td>Name</td>
+                <td>Picture</td>
+                <td>Email</td>
+                <td>Phone</td>
+                <td>AIUB ID</td>
+                <td>View Profile</td>
+                <td>Action</td>
+            </tr>
+
+            <?php
+                for($i=0; $i<count($data); $i++)
+                {
+            ?>
+            <tr>
+               <?php
+                    echo "<td> <center>". $data[$i]['Name']. " </center> </td>";
+                    echo '<td> <center>  <img src="../Images/ProfilePicture/'. $data[$i]['ProfilePicture']. '" width="150px" height="120px" </center></td>';
+                    echo "<td> <center>". $data[$i]['email']. " </center> </td>";
+                    echo "<td> <center>". $data[$i]['Phone']. " </center> </td>";
+                    echo "<td> <center>". $data[$i]['AIUB_ID']. " </center> </td>";
+                    echo '<td> <center> <a href="../Profiles/viewAlumniProfile.php?profileOf='.$view[$i]['username'].'"">'.'<input type="submit" class="btn-Block" name="btnview" value="View">'.'</a> </center> </td>';
+                    echo '<td> <center> <form action="../php/deleteAlumniData.php" method="POST">
+                    <input type="hidden" name="email" value= '. $data[$i]['email'] .'> 
+                    <input type="submit" class="btn-Delete" name="btnDelete" value="Delete"></form> </center> </td>';
+               ?>
+            </tr>
+            <?php
+                }
+            ?>
+            <tr> <!--For Horizontal Line-->
+                <td colspan="7">
+                    <hr>
+                </td>
+            </tr>
+        </table>
+    </body>
+</html>
+            
+<?php
+    }
+    elseif(isset($_POST['btnLogout']))
     {
         header('location:../php/Logout.php');
     }

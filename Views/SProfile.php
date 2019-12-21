@@ -51,7 +51,6 @@
 
             <tr> <!--Header-->
                 <td colspan="3" class="Profile-Header">
-                    <!--<img src="Images/pp.jpg">-->
                     <center>
                         <button class="profile-HeaderButton" name="btnHome">Home</button>
                         <button class="profile-HeaderButton" name="btnProfile">Profile</button>
@@ -65,7 +64,7 @@
                 <td colspan="3">
                     <center>
                             <img src="../Images/ProfilePicture/<?=$data['ProfilePicture']; ?>" height="150px" width="200px">
-                            <img class="edit-button" src="../Images/editicon.png" height="20px" width="40px">
+                           
                     </center>
                 </td>
             </tr>  <!--Edit Profile Button -->
@@ -77,52 +76,7 @@
                     </center>
                 </td>
             </tr>
-            <tr>  <!-- Profile Marks-->
-                <td width="10%"></td>
-                <td>
-                    <center>
-                    <table border="0" width="50%">
-                        <tr>
-                            <td class="profileMarks" colspan="5">
-                                Profile Marks 
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <center>
-                                    <img src="../Images/gold.png" height="50px" width="50px">
-                                </center>
-                                
-                            </td>
-                            <td>
-                                <center>
-                                    <img src="../Images/gold.png" height="50px" width="50px">
-                                </center>
-                                
-                            </td>
-                            <td>
-                                <center>
-                                    <img src="../Images/gold.png" height="50px" width="50px">
-                                </center>
-                                
-                            </td>
-
-                            <td>
-                                <center>
-                                    <img src="../Images/gold.png" height="50px" width="50px">
-                                </center>
-                            </td>
-                            <td>
-                                <center>
-                                    <img src="../Images/gold.png" height="50px" width="50px">
-                                </center>
-                            </td>
-                        </tr>
-                    </table>
-                    </center>
-                </td>
-                <td width="10%"></td>
-            </tr>
+            
             <tr> <!--Student Personal Info -->
                 <td width="10%"></td>
                 <td width="60%">

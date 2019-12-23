@@ -154,7 +154,17 @@
         return $data;
     }
 
+    //forgot password
 
+    function forgotpassword($username,$email,$status)
+    {
+        $conn = getConnection();
+        $sql = "SELECT password from logininfo where username='{$username}' and email='{$email}' and status='{$status}' ";
+        $result = mysqli_query($conn,$sql);
+        $data = mysqli_fetch_assoc($result);
+        
+        return $data;
+    }
     
 
 

@@ -31,7 +31,7 @@
             <td id="msgName"></td>
         </tr>
         
-        <tr height="60px">
+        <!--<tr height="60px">
             <td class="font-Normal">
                 Status
             </td>
@@ -41,7 +41,7 @@
                     <option>Admin</option>
                 </select>
             </td>
-        </tr>
+        </tr>-->
 
 
         <tr height="60px">

@@ -254,7 +254,7 @@
                 <td width="10%"></td>
             </tr>
 
-            <tr>
+            <!--<tr>
                 <td width="10%"></td>
                 <td>
                     <fieldset>
@@ -272,7 +272,7 @@
                     </fieldset>
                 </td>
                 <td width="10%"></td>
-            </tr>
+            </tr>-->
 
             <tr>  <!--Student Others Info -->
                 <td width="10%"></td>

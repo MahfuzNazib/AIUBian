@@ -34,7 +34,7 @@
 
 <?php
     session_start();
-    sleep(3);
+    
     $errUsername = null;
     $errPassword = null;
     $errInvalid = null;
@@ -42,6 +42,9 @@
     {
         $uname = $_POST['Username'];
         $pass = $_POST['Password'];
+
+        $_SESSION['Username'] = $uname;
+        $_SESSION['Password'] = $pass;
        
         if(empty($uname) == true)
         {
@@ -58,10 +61,6 @@
             else
             {
                 header('location:../php/LoginCheck.php');
-                if(isset($_GET['msg']))
-                {
-                    $errInvalid = "<div class=\"invalid_User_Pass\">Invalid Username or Password</div>";
-                }
             }
         }
         
@@ -69,26 +68,7 @@
 
 ?>
 
-<script>
-    function loginValueCheck()
-    {
-        var  username = document.getElementById('idUsername').value;
-        var password = document.getElementById('idPassword').value;
-        alert("username");
 
-        if(username == "")
-        {
-            alert("Empty Username not Accepted!");
-            else
-            {
-                if(password == "")
-                {
-                    alert("Empty Password not Accepted");
-                }
-            }
-        }
-    }
-</script>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -106,6 +86,7 @@
             background-size: cover;
         }
     </style>
+
 </head>
 <body>
     <table border="0" class="table" width="320px" height="400px">
@@ -120,18 +101,19 @@
         </tr>
         <tr>  
             <td>
-                <input type="text" class="login-input" placeholder="Username" name="Username" id= "idUsername"> <?php echo $errUsername ?>
+                <input type="text" class="login-input" placeholder="Username" name="Username" > <?php echo $errUsername ?>
             </td>
             
         </tr>
         <tr>
             <td>
-                <input type="password" class="login-input" placeholder="Password" name="Password" id= "idPassword"> <?php echo $errPassword ?>
+                <input type="password" class="login-input" placeholder="Password" name="Password" > <?php echo $errPassword ?>
             </td>
         </tr>
         <tr>
             <td>
                 <input type="submit" value="Login" class="login-button" name="submit">
+                <!--<input type="submit" value="Login" class="login-button" onclick="loginValueCheck()">-->
             </td>
         </tr>
         <tr>
@@ -149,7 +131,7 @@
         <tr>
             <td>
                 <center>
-                    <a href="#" class="login-link">Forgot Password?</a>
+                    <a href="ForgotPassword.php" class="login-link">Forgot Password?</a>
                 </center>
             </td>
         </tr>
